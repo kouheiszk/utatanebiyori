@@ -1,0 +1,24 @@
+[error 2012/07/20 05:52:11]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2012/07/20 08:19:59]:[database/DbUtilBase.php:113] [Resource id #123(1)] COMMIT
+[error 2012/07/20 08:19:59]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:19:59]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2012/07/20 08:19:59]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:00]:[database/DbUtilBase.php:113] [Resource id #96(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2012/07/20 08:20:00]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:10]:[database/DbUtilBase.php:113] [Resource id #122(1)] COMMIT
+[error 2012/07/20 08:20:10]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:10]:[database/DbUtilBase.php:113] [Resource id #96(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2012/07/20 08:20:10]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:20]:[database/DbUtilBase.php:113] [Resource id #122(1)] COMMIT
+[error 2012/07/20 08:20:20]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:20]:[database/DbUtilBase.php:113] [Resource id #96(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2012/07/20 08:20:20]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:30]:[database/DbUtilBase.php:113] [Resource id #122(1)] COMMIT
+[error 2012/07/20 08:20:30]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:30]:[database/DbUtilBase.php:113] [Resource id #96(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2012/07/20 08:20:30]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 08:20:41]:[database/DbUtilBase.php:113] [Resource id #122(1)] COMMIT
+[error 2012/07/20 08:20:41]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/07/20 09:11:56]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2012/07/20 16:33:58]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/07/20 21:42:37]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />

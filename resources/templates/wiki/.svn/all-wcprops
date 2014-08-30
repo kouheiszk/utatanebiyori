@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/utatanebiyori/!svn/ver/96/trunk/resources/templates/wiki
+END
+search.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/wiki/search.html
+END
+diff.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/utatanebiyori/!svn/ver/80/trunk/resources/templates/wiki/diff.html
+END
+attach.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/utatanebiyori/!svn/ver/96/trunk/resources/templates/wiki/attach.html
+END
+history.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/wiki/history.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/utatanebiyori/!svn/ver/96/trunk/resources/templates/wiki/index.html
+END
+backup.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/utatanebiyori/!svn/ver/80/trunk/resources/templates/wiki/backup.html
+END
+new.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/wiki/new.html
+END
+backuplist.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/wiki/backuplist.html
+END
+list.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/wiki/list.html
+END
+nowdiff.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/utatanebiyori/!svn/ver/80/trunk/resources/templates/wiki/nowdiff.html
+END
+source.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/utatanebiyori/!svn/ver/80/trunk/resources/templates/wiki/source.html
+END
+edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/wiki/edit.html
+END

@@ -1,0 +1,32 @@
+<rt:extends href="home.html" />
+
+<rt:block name="title"> :: {$user.userName}</rt:block>
+
+<rt:block name="addcss">
+<link href="{$rhaco.constant('TEMPLATE_URL')}/css/whisper.css" rel="stylesheet" type="text/css" media="all" />
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>{$user.userName}</h2>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>{$user.userName}</h3>
+
+<rt:if param="{$login}">
+
+<rt:ifnot param="{$login.id}" value="{$user.id}">
+  <rt:if param="{$isFollowing}">
+  <a class="button" href="{$rhaco.url('friendships/destroy')}/{$users.id}?_csrfid={$_csrfid}">_("このユーザーをフォローするのをやめる")</a>
+  <rt:else />
+  <a class="button" href="{$rhaco.url('friendships/create')}/{$users.id}?_csrfid={$_csrfid}">_("このユーザーをフォローする")</a>
+  </rt:if>
+</rt:ifnot>
+
+</rt:if>
+
+<h4>{$user.userName}_("の書き込み")</h4>
+<rt:include href="whisper/parts/sub_timeline.html" />
+</div>
+</rt:block>

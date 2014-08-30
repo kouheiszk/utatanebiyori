@@ -1,0 +1,5 @@
+[error 2012/07/26 05:55:02]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2012/07/26 10:26:09]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/07/26 17:28:54]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/07/26 19:00:04]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/07/26 20:05:54]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />

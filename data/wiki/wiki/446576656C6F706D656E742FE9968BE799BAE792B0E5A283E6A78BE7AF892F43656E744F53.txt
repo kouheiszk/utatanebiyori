@@ -1,0 +1,141 @@
+* CentOS [#w9600514]
+
+Linuxには様々なディストリビューションがある。今回はその中でもパッケージの管理が簡単でかつ安定性のあるCentOSを開発に用います。
+ホストOSをWindows vista、ゲストOSをCentOSとして話を進めます。
+** CentOSパッケージの入手 [#febbab9a]
+
+下記のサイトからCentOS5.3のDVDのisoイメージ（CentOS-5.3-i386-bin-DVD）をダウンロードしてください。
+http://ftp.riken.go.jp/Linux/centos/5/isos/i386/
+
+ダウンロードしたファイルはD:\CentOS5.3\CentOS5.3.isoとして保存します。
+
+** 仮想ディスクイメージの作成 [#aeac32be]
+
+仮想OS用の仮想ディスクを作成するためのQemuというソフトを下記サイトからダウンロードします。
+http://homepage3.nifty.com/takeda-toshiya/
+
+ダウンロードしたQemuの圧縮ファイルを展開し、コマンドプロンプトからカレントディレクトリをQemuのディレクトリに移した後、次のコマンドを実行します。
+
+ qemu-img.exe create -f vmdk D:\CentOS5.3\CentOS5.3.vmdk 20G
+
+この最後の引数ですが、仮想ディスクの最大容量です。20Gに設定しても最初のインストール時は1G程度しか使用しないので、ディスク容量に自信がない人も安心して多めにとりましょう。
+
+** CentOSのインストール [#d3223fb5]
+
+D:\CentOS5.3\CentOS5.3.vmxを作成し、以下の内容で保存します。
+
+ # VMWare Player
+ .encoding = "Shift_JIS"
+ config.version = "8"
+ virtualHW.version = "3"
+ displayName = "CentOS5.3"
+ uuid.action = "create"
+ 
+ # gurest OS
+ guestOS = "redhat"
+ nvram = "CentOS5.3.nvram"
+ memsize = "256"
+ usb.present = "TRUE"
+ floppy0.present = "FALSE"
+ 
+ # Primary Master
+ ide0:0.present = "TRUE"
+ ide0:0.fileName = "CentOS5.3.vmdk"
+ ide0:0.deviceType = "disk"
+ ide0:0.autodetect = "TRUE"
+ ide0:0.mode = "persistent"
+ ide0:0.redo = ""
+ ide0:0.startConnected = "TRUE"
+ 
+ # Primary Slave
+ ide0:1.present = "TRUE"
+ ide0:1.filename = "D:\CentOS5.3\CentOS5.3.iso"
+ ide0:1.deviceType = "cdrom-image"
+ ide0:1.mode = "persistent"
+ ide0:1.autodetect = "TRUE"
+ ide0:1.startConnected = "TRUE"
+ 
+ # Secondry
+ ide1:0.present = "FALSE"
+ ide1:1.present = "FALSE"
+ 
+ # SCSI
+ scsi0.present = "FALSE"
+ 
+ # Network card
+ ethernet0.present = "TRUE"
+ ethernet0.connectionType = "nat"
+ ethernet0.addressType = "generated"
+ ethernet0.generatedAddress = "00:0c:29:5e:3f:62"
+ ethernet0.generatedAddressOffset = "0"
+ tools.remindInstall = "FALSE"
+ 
+ extendedConfigFile = "CentOS5.3.vmxf"
+ virtualHW.productCompatibility = "hosted"
+ tools.upgrade.policy = "manual"
+ 
+ uuid.location = "56 4d 0f 0a e4 26 1f 01-af e2 32 33 be 5e 3f 62"
+ uuid.bios = "56 4d 0f 0a e4 26 1f 01-af e2 32 33 be 5e 3f 62"
+ checkpoint.vmState = "CentOS5.3.vmss"
+
+次のページを見ながらインストールを進めてください。
+[[CentOSのインストール>Development/開発環境構築/CentOS/インストール]]
+** ネットワーク設定 [#l400dc0c]
+
+ネットワークの設定画面を開きます。
+
+ # system-config-network-tui
+
+各設定項目を確認して、設定値が正しいことを確認してください。
+
+|Name|eth0|
+|Device|eth0|
+|Use DHCP|チェックされてない|
+|Static IP|192.168.92.10|
+|Netmask|255.255.255.0|
+|Default gateway IP|192.168.92.2|
+
+もしも変更したならば、次のコマンドでネットワークを再起動してください。
+ # service network restart
+** セキュリティ設定 [#dd87bd8b]
+
+ # system-config-securitylevel-tui
+
+|Seculity Level|Enabled|
+|SELinux|Disabled|
+
+と選択した状態で Customize
+
+|Trusted Devices|チェックする|
+|MASQUERADE　Devices|チェックする|
+|Allow incoming|SSH、WWW(HTTP)、Security WWW(HTTPS)にチェックする|
+
+* 接続の確認 [#a1f1b582]
+
+ホストOSからコマンドプロンプトでゲストOSにpingを打ち接続できるか確認してください。
+また、ゲストOSからデフォルトゲートウェイ、DNSサーバにそれぞれpingを打ち、接続できているかを確認してください。
+
+** ゲストOSからホストOSに接続できない [#h426a35a]
+
+ホストOSがネットワークの共有の許可をしていないため接続できないようです。
+「コントロールパネル」⇒「ネットワークと共有センター」⇒「ネットワーク接続の管理」を開きます。
+
+#ref(./ss_1258382116.png,30%);
+
+現在ホストOSが接続しているネットワークのプロパティを開きます。
+
+#ref(./ss_1258382041.png,30%);
+
+「共有」⇒「インターネット接続の共有」
+|ネットワークのほかのユーザーに、このコンピュータのインターネット接続をとおしての接続を許可する|チェックをつける|
+|ネットワークのほかのユーザーに、共有インターネット接続の制御や無効化を許可する|チェックをつける|
+
+次に「VMware Virtual Ethernet Adapter for VMnet8」となっているネットワークのプロパティを開き、インターネットプロトコルバージョン4（TCP/IPv4）のプロパティをさらに開きます。
+
+#ref(./ss_1258382024.png,30%);
+
+IPアドレスとDNSサーバーのアドレスを適宜入力してください。
+
+以上のことが終わったら、コマンドプロンプトで正確に設定がなされていることを確認して、もう一度ゲストOSからホストOSにPingを打ってみてください。接続できたら終了です。
+
+参考( http://d.hatena.ne.jp/heyhachi/20071227 )

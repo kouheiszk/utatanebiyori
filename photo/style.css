@@ -1,0 +1,352 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+}
+ul,li,dl,dt,dd{
+	list-style:none;
+}
+img{
+	vertical-align: top;
+}
+a img{
+	border: none;
+}
+a{	
+         color: #ffffff;
+	text-decoration: none;
+}
+a:link{
+	color: #ffffff;
+         	text-decoration: none;
+}
+a:visited{
+	color: #ffffff;
+         	text-decoration: none;
+}
+a:hover{
+	color: #ffffff;
+         	text-decoration: none;
+}
+a:active{
+	color: #ffffff;
+         	text-decoration: none;
+}
+
+body {
+	background-color: #000000;
+	text-align: center;
+	font-family: Verdana,"ヒラギノ角ゴ Pro W3",Osaka,"ＭＳ Ｐゴシック",sans-serif;
+	color: #ffffff;
+	font-size: 13px;
+	*font-size: small;
+	*font: x-small;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.5;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+}
+
+p {
+	margin: 0 0 1em 0;
+}
+
+
+/* ------------------------------------------
+
+wireframe
+
+------------------------------------------*/
+
+div#header {
+	margin: 0 auto;
+	width: 740px !important;
+	width: 880px;
+	background: #000000 url(img/bg_header.gif) no-repeat left center;
+	padding: 35px 0 35px 140px;
+	text-align: left;
+}
+
+div#wrapper {
+	background-color: #131313;
+	padding: 30px 0;
+}
+
+div#mainContent {
+	margin: 0 auto;
+	width: 880px;
+	text-align: left;
+}
+
+div#footer {
+	clear: both;
+	margin: 0 auto;
+	padding: 30px 0;
+	width: 880px;
+	text-align: right;
+}
+
+/* ------------------------------------------
+
+main page
+
+------------------------------------------*/
+
+
+body.mainPage div#wrapper div#mainContent ul li {
+	float: left;
+	margin: 0px 0px 10px;
+	background: url(img/bg_mainpage_thumbnail.gif) repeat-y top left;
+	padding: 25px 5px;
+}
+
+body.mainPage div#wrapper div#mainContent ul li span {
+	display: block;
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+}
+
+/* ------------------------------------------
+
+main page 応用編追加分
+
+------------------------------------------*/
+
+ul#thumbnails {
+	float: left;
+	width: 660px;
+}
+
+body.mainPage div#wrapper div#mainContent div#tagCloud {
+	float: right;
+	width: 200px;
+}
+
+body.mainPage div#wrapper div#mainContent div#tagCloud h2 {
+	border-top: 1px dotted #ffffff;
+	border-bottom: 1px dotted #ffffff;
+	margin: 0 0 1em 0;
+	padding: 5px 0;
+	font-weight: bold;	
+}
+
+body.mainPage div#wrapper div#mainContent div#tagCloud ul li {
+	float: none;
+	display: inline;
+	background: url(none);
+	margin: 0 5px 0 0;
+	padding: 0;
+}
+
+ul.tagCloud li.rank-1  {
+ font-size: 180%; 
+}
+
+ul.tagCloud li.rank-2  {
+ font-size: 170%; 
+}
+
+ul.tagCloud li.rank-3  {
+ font-size: 160%; 
+}
+
+ul.tagCloud li.rank-4  {
+ font-size: 150%; 
+}
+
+ul.tagCloud li.rank-5  {
+ font-size: 140%; 
+}
+
+ul.tagCloud li.rank-6  {
+ font-size: 130%; 
+}
+
+ul.tagCloud li.rank-7  {
+ font-size: 120%; 
+}
+
+ul.tagCloud li.rank-8  {
+ font-size: 110%; 
+}
+
+ul.tagCloud li.rank-9  {
+ font-size: 100%; 
+}
+
+ul.tagCloud li.rank-10  {
+ font-size: 90%; 
+}
+
+
+/* ------------------------------------------
+
+search page 応用編追加分
+
+------------------------------------------*/
+
+body.searchPage div#wrapper div#mainContent p.resultThumbnail {
+	float: left;
+	margin: 0px 0px 10px;
+	background: url(img/bg_mainpage_thumbnail.gif) repeat-y top left;
+	padding: 25px 5px;
+}
+
+body.searchPage div#wrapper div#mainContent p.resultThumbnail span {
+	display: block;
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+}
+
+body.searchPage div#wrapper div#mainContent h1 {
+	margin: 0 0 2em 0;
+
+}
+body.searchPage div#wrapper div#mainContent div.result {
+	margin: 0 0 1em 0; 
+}
+
+body.searchPage div#wrapper div#mainContent div.result div.resultCaption {
+	float: right;
+	width: 750px;
+}
+
+body.searchPage div#wrapper div#mainContent div.result div.resultCaption h2 {
+	border-top: 1px dotted #ffffff;
+	border-bottom: 1px dotted #ffffff;
+	margin: 0 0 1em 0;
+	padding: 5px 0;
+	font-weight: bold;	
+}
+
+
+/* ------------------------------------------
+
+independent pages
+
+------------------------------------------*/
+
+
+
+body.independentPage div#wrapper div#mainContent {
+	background: #000000 url(img/bg_independent_page_top.gif) no-repeat left top;
+	width: 880px;
+}
+
+body.independentPage div#wrapper div#mainContentInner {
+	background: url(img/bg_independent_page_bottom.gif) no-repeat left bottom;
+	width: 820px!important;
+	width: 880px;
+	padding: 30px;
+}
+
+body.independentPage div#wrapper div#mainContent div#caption {
+	float: right;
+	width: 200px;
+}
+
+body.independentPage div#wrapper div#mainContent div#caption h1 {
+	border-top: 1px dotted #ffffff;
+	border-bottom: 1px dotted #ffffff;
+	margin: 0 0 1em 0;
+	padding: 5px 0;
+	font-weight: bold;
+}
+
+body.independentPage div#wrapper div#mainContent div#caption ul {
+	border-top: 1px dotted #ffffff;	
+	padding: 1em 0 0 0;
+}
+
+body.independentPage div#wrapper div#mainContent div#caption ul li {
+	width: 90px;
+	font-size: 10px;
+	*font-size: x-small;
+	*font: xx-small;
+}
+
+body.independentPage div#wrapper div#mainContent div#caption ul li#previous {
+	float: left;
+}
+body.independentPage div#wrapper div#mainContent div#caption ul li#next {
+	float: right;
+	text-align: right;
+}
+
+body.independentPage div#wrapper div#mainContent div#photograph {
+	float: left;
+	width: 600px;
+}
+
+body.independentPage div#wrapper div#mainContent div#photograph p {
+	margin: 0;
+	text-align: center;
+}
+
+/* ------------------------------------------
+
+independent pages 応用編追加分
+
+------------------------------------------*/
+
+body.independentPage div#wrapper div#mainContent div#caption ul li a {
+	cursor: pointer;
+}
+
+body.independentPage div#wrapper div#mainContent div#caption ul li#previous span,
+body.independentPage div#wrapper div#mainContent div#caption ul li#next span {
+	display: block;
+	height: 90px;
+	width: 90px;
+	overflow: hidden;
+}
+
+
+/* ------------------------------------------
+
+common
+
+------------------------------------------*/
+
+body.mainPage div#header h1,
+body.independentPage div#header p#title,
+body.searchPage div#header p#title {
+	margin: 0;
+	font-size: 18px;
+	*font-size: large;
+	*font: medium;
+	font-weight: bold;
+}
+
+body.mainPage div#header p,
+body.independentPage div#header p,
+body.searchPage div#header p {
+	margin: 0;
+}
+
+body.mainPage div#header h1 a,
+body.independentPage div#header p#title a,
+body.searchPage div#header p#title a {
+	text-decoration: none;
+}
+
+body.mainPage div#header h1 a:hover,
+body.independentPage div#header p#title a:hover,
+body.searchPage div#header p#title a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+div#footer p {
+	margin: 0;
+	font-size: 10px;
+	*font-size: x-small;
+	*font: xx-small;
+}

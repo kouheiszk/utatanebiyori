@@ -1,0 +1,41 @@
++* 組み合わせ [#d0901c7b]
++
+ #code(pascal){{
+ program combination(input, output);
+ 
+ var
+  n, r, ncr : integer;
+ 
+ 
+ function fact(n : integer) : integer;
+   var
+    x, i : integer;
+ 
+   begin
+ 
+    x := 1;
+ 
+    for i := 1 to n do
+      x := x * i;
+ 
+    fact := x;
+ 
+   end;
+ {function fuct end}
+ 
+ begin
+ 
+   writeln('nCrを求めます。');
+ 
+   write('n:');
+   read(n);
+ 
+   write('r:');
+   read(r);
+ 
+   ncr := fact(n) div (fact(n-r) * fact(r));
+ 
+   writeln('組み合わせの数 ', n:1, 'C', r:1, ' = ', ncr:1);
+ 
+ end.
+ }}

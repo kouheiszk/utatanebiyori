@@ -1,0 +1,33 @@
+<rt:extends href="home.html" />
+
+<rt:block name="contents-header">
+<h3>_("ホーム")&nbsp;::&nbsp;_("返信")</h3>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>_("返信")</h3>
+
+<div class="timeline">
+<table>
+  <tr>
+    <td class="thumb">
+      <a href="{$rhaco.url($object.factUserId.userId)}"><img src="<rt:if param="{$object.factUserId.image}">img/user/{$object.factUserId.image}<rt:else />img/friend_icon.png</rt:if>"  alt="{$object.factUserId.userName}" width="{$uf.xLength($object.factUserId.imageX, $object.factUserId.imageY, 48)}px" height="{$uf.yLength($object.factUserId.imageX, $object.factUserId.imageY, 48)}px" /></a>
+    </td>
+    <td class="nickname">
+      <a href="{$rhaco.url($object.factUserId.userId)}">{$object.factUserId.userName}</a>
+    </td>
+    <td class="comment">
+      {$f.noop($uf.comment($object.comment, $object.replyUserId))}&nbsp;<span class="small">(&nbsp;{$f.dateformat($object.createdAt)}&nbsp;)</span>
+    </td>
+  </tr>
+</table>
+</div>
+
+<form action="{$rhaco.url('status/update')}" method="post" id="post_form" rt:reference="true">
+  <input type="hidden" name="replyto" value="&gt;&gt;{$object.factUserId.userId} " rt:reference="false" />
+  <input id="inputtwit" type="text" name="comment" /><span id="js_textcount" class="textcount">140</span>
+  <input type="submit" id="twit_button" value="_('返信')" />
+</form>
+</div>
+</rt:block>

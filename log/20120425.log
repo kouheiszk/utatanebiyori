@@ -1,0 +1,7 @@
+[error 2012/04/25 03:12:27]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/04/25 03:41:24]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/04/25 13:51:12]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/04/25 20:50:08]:[database/DbUtilBase.php:113] [Resource id #121(1)] COMMIT
+[error 2012/04/25 20:50:08]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/04/25 20:50:08]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2012/04/25 20:50:08]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

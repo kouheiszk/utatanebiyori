@@ -1,0 +1,107 @@
+<rt:extends href="../index.html" />
+
+<rt:block name="title"> :: _("Uploader")</rt:block>
+
+<rt:block name="addmeta">
+<meta name="robots" content="noindex" />
+</rt:block>
+
+<rt:block name="addcss">
+<link href="../css/uploader.css" rel="stylesheet" type="text/css" media="all" />
+</rt:block>
+
+<rt:block name="addjs">
+</rt:block>
+
+<rt:block name="search">
+</rt:block>
+
+<rt:block name="contentsId">uploader</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('uploader/')}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('uploader/')}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Uploader")</h2>
+</rt:block>
+
+<rt:block name="toolbar-header">
+<p class="fright">
+<a href="{$rhaco.url('uploader/upload')}"><img src="../img/uploader/upload.png" alt="_('アップロード')" /><span class="small">&nbsp;_('アップロード')&nbsp;</span></a>
+</p>
+</rt:block>
+
+<rt:block name="add-toolbar-header">
+</rt:block>
+
+<rt:block name="contents-left">
+<div id="contents-left">
+{$f.noop($uf.counter())}
+</div>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+  <h3>_("Uploader")</h3>
+  <form method="get" name="views_search_form" rt:reference="true">
+    <input type="hidden" name="page" value="1"  rt:reference="false" />
+    <input type="hidden" name="o" value="{$o}" />
+    <input type="hidden" name="a" value="{$a}" />
+    <input type="text" name="q" value="{$q}" />
+    <input type="submit" value="_('検索')" />
+  </form>
+
+  <rt:invalid />
+
+  <rt:has param="{$object_list}">
+  <table border="1" width="100%">
+    <thead>
+      <tr>
+        <th class="w10"><a href="{$rhaco.uri()}?{$f.noop($sortorder.query('fileName'))}">_("ファイル名")</a></th>
+        <th><a href="{$rhaco.uri()}?{$f.noop($sortorder.query('categoryId'))}">_("ファイルの説明")</a></th>
+        <th class="w15"><a href="{$rhaco.uri()}?{$f.noop($sortorder.query('mime'))}">_("ファイルタイプ")</a></th>
+        <th class="w10"><a href="{$rhaco.uri()}?{$f.noop($sortorder.query('size'))}">_("サイズ")</a></th>
+        <th class="w15"><a href="{$rhaco.uri()}?{$f.noop($sortorder.query('downloadCount'))}">_("ダウンロード数")</a></th>
+        <th class="w20px"><a href="{$rhaco.uri()}?{$f.noop($sortorder.query('createdAt'))}">_("アップロード日時")</a></th>
+        <rt:if param="{$login}"><th class="w20px"></th></rt:if>
+      </tr>
+    </thead>
+    <tbody>
+      <rt:loop param="object_list" var="object" counter="counter">
+      <tr class="{$f.evenodd($counter)}">
+        <td class="w10 acenter"><a href="{$rhaco.url('uploader/detail/')}{$object.id}">{$object.fileName}</a></td>
+        <td><span class="green">【{$object.factCategoryId.name}】</span>{$object.comment}</td>
+        <td class="w15 acenter">{$object.mime}</td>
+        <td class="w10 acenter">{$upf.dispsize($object.size)}</td>
+        <td class="w15 acenter">{$object.downloadCount}</td>
+        <td class="w15 acenter">{$uf.date($object.createdAt)}</td>
+        <rt:if param="{$login}"><td class="w20px"><a href="{$rhaco.url('uploader/download/')}{$object.id}"><img src="../img/uploader/download.png" alt="_('ダウンロード')" title="_('ダウンロード')" /></a></td></rt:if>
+      </tr>
+      </rt:loop>
+    </tbody>
+  </table>
+  </rt:has>
+  <rt:hasnot param="{$object_list}">
+  <div class="warning">_("検索条件に該当するファイルは見つかりませんでした。")</div>
+  </rt:hasnot>
+  <div class="pager">
+    <rt:pager param="pager" />
+  </div>
+</div>
+</rt:block>
+
+<rt:block name="toolbar-footer">
+</rt:block>
+
+<rt:block name="add-toolbar-footer">
+</rt:block>
+
+<rt:block name="meta">
+<ul>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

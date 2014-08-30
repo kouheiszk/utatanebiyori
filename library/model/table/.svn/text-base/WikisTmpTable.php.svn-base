@@ -1,0 +1,277 @@
+<?php
+Rhaco::import("resources.Message");
+Rhaco::import("database.model.TableObjectBase");
+Rhaco::import("database.model.DbConnection");
+Rhaco::import("database.TableObjectUtil");
+Rhaco::import("database.model.Table");
+Rhaco::import("database.model.Column");
+/**
+ * #ignore
+ * 
+ */
+class WikisTmpTable extends TableObjectBase{
+	/**  */
+	var $id;
+	/**  */
+	var $parentWiki;
+	/**  */
+	var $wikiId;
+	/**  */
+	var $userId;
+	/**  */
+	var $wikiName;
+	/**  */
+	var $text;
+	/**  */
+	var $createdAt;
+	/**  */
+	var $updatedAt;
+	var $factUserId;
+
+
+	function WikisTmpTable($id=null){
+		$this->__init__($id);
+	}
+	function __init__($id=null){
+		$this->id = null;
+		$this->parentWiki = null;
+		$this->wikiId = null;
+		$this->userId = null;
+		$this->wikiName = null;
+		$this->text = null;
+		$this->createdAt = time();
+		$this->updatedAt = time();
+		$this->setId($id);
+	}
+	function connection(){
+		if(!Rhaco::isVariable("_R_D_CON_","utatanebiyori")){
+			Rhaco::addVariable("_R_D_CON_",new DbConnection("utatanebiyori"),"utatanebiyori");
+		}
+		return Rhaco::getVariable("_R_D_CON_",null,"utatanebiyori");
+	}
+	function table(){
+		if(!Rhaco::isVariable("_R_D_T_","WikisTmp")){
+			Rhaco::addVariable("_R_D_T_",new Table(Rhaco::constant("DATABASE_utatanebiyori_PREFIX")."wikis_tmp",__CLASS__),"WikisTmp");
+		}
+		return Rhaco::getVariable("_R_D_T_",null,"WikisTmp");
+	}
+
+
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnId(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::Id")){
+			$column = new Column("column=id,variable=id,type=serial,size=22,primary=true,",__CLASS__);
+			$column->label(Message::_("id"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::Id");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::Id");
+	}
+	/**
+	 * 
+	 * @return serial
+	 */
+	function setId($value){
+		$this->id = TableObjectUtil::cast($value,"serial");
+	}
+	/**
+	 * 
+	 */
+	function getId(){
+		return $this->id;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnParentWiki(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::ParentWiki")){
+			$column = new Column("column=parent_wiki,variable=parentWiki,type=integer,size=22,",__CLASS__);
+			$column->label(Message::_("parent_wiki"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::ParentWiki");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::ParentWiki");
+	}
+	/**
+	 * 
+	 * @return integer
+	 */
+	function setParentWiki($value){
+		$this->parentWiki = TableObjectUtil::cast($value,"integer");
+	}
+	/**
+	 * 
+	 */
+	function getParentWiki(){
+		return $this->parentWiki;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnWikiId(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::WikiId")){
+			$column = new Column("column=wiki_id,variable=wikiId,type=integer,size=22,",__CLASS__);
+			$column->label(Message::_("wiki_id"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::WikiId");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::WikiId");
+	}
+	/**
+	 * 
+	 * @return integer
+	 */
+	function setWikiId($value){
+		$this->wikiId = TableObjectUtil::cast($value,"integer");
+	}
+	/**
+	 * 
+	 */
+	function getWikiId(){
+		return $this->wikiId;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnUserId(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::UserId")){
+			$column = new Column("column=user_id,variable=userId,type=integer,size=22,reference=Users::Id,",__CLASS__);
+			$column->label(Message::_("user_id"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::UserId");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::UserId");
+	}
+	/**
+	 * 
+	 * @return integer
+	 */
+	function setUserId($value){
+		$this->userId = TableObjectUtil::cast($value,"integer");
+	}
+	/**
+	 * 
+	 */
+	function getUserId(){
+		return $this->userId;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnWikiName(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::WikiName")){
+			$column = new Column("column=wiki_name,variable=wikiName,type=string,max=30,require=true,unique=true,uniqueWith=WikisTmp::ParentWiki,",__CLASS__);
+			$column->label(Message::_("wiki_name"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::WikiName");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::WikiName");
+	}
+	/**
+	 * 
+	 * @return string
+	 */
+	function setWikiName($value){
+		$this->wikiName = TableObjectUtil::cast($value,"string");
+	}
+	/**
+	 * 
+	 */
+	function getWikiName(){
+		return $this->wikiName;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnText(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::Text")){
+			$column = new Column("column=text,variable=text,type=text,",__CLASS__);
+			$column->label(Message::_("text"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::Text");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::Text");
+	}
+	/**
+	 * 
+	 * @return text
+	 */
+	function setText($value){
+		$this->text = TableObjectUtil::cast($value,"text");
+	}
+	/**
+	 * 
+	 */
+	function getText(){
+		return $this->text;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnCreatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::CreatedAt")){
+			$column = new Column("column=created_at,variable=createdAt,type=timestamp,",__CLASS__);
+			$column->label(Message::_("created_at"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::CreatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::CreatedAt");
+	}
+	/**
+	 * 
+	 * @return timestamp
+	 */
+	function setCreatedAt($value){
+		$this->createdAt = TableObjectUtil::cast($value,"timestamp");
+	}
+	/**
+	 * 
+	 */
+	function getCreatedAt(){
+		return $this->createdAt;
+	}
+	/**  */
+	function formatCreatedAt($format="Y/m/d H:i:s"){
+		return DateUtil::format($this->createdAt,$format);
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnUpdatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","WikisTmp::UpdatedAt")){
+			$column = new Column("column=updated_at,variable=updatedAt,type=timestamp,",__CLASS__);
+			$column->label(Message::_("updated_at"));
+			Rhaco::addVariable("_R_D_C_",$column,"WikisTmp::UpdatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"WikisTmp::UpdatedAt");
+	}
+	/**
+	 * 
+	 * @return timestamp
+	 */
+	function setUpdatedAt($value){
+		$this->updatedAt = TableObjectUtil::cast($value,"timestamp");
+	}
+	/**
+	 * 
+	 */
+	function getUpdatedAt(){
+		return $this->updatedAt;
+	}
+	/**  */
+	function formatUpdatedAt($format="Y/m/d H:i:s"){
+		return DateUtil::format($this->updatedAt,$format);
+	}
+
+
+	function getFactUserId(){
+		return $this->factUserId;
+	}
+	function setFactUserId($obj){
+		$this->factUserId = $obj;
+	}
+}
+?>

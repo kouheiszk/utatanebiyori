@@ -1,0 +1,4 @@
+* VMware Player [#o5a1634b]
+
+下記ページからVMware Playerの最新版をダウンロードしてインストールしてください。
+http://www.vmware.com/download/player/download.html

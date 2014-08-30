@@ -1,0 +1,155 @@
+ * 課題11-1の考察 [#c34b9f30]
+ 
+ -変数宣言
+ --typeで月と日と曜日の型を作成する
+ --入力された月、日、曜日はそれぞれinputmonth、inputdate、inputdayに格納する
+ --求めた前月の月とそれに対応する日、曜日はそれぞれandmonth、ansdate、ansdayに格納する
+ 
+ #code(pascal,nonumber){{
+ program kadai11_1(input,output);
+  
+ type
+    date  = 1 .. 31;
+    day   = (Sun, Mon, Tue, Wed, The, Fri, Sat);
+    month = (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec);
+  
+ var
+    inputday, ansday     : day;
+    inputdate, ansdate   : date;
+    inputmonth, ansmonth : month;
+    c                    : char;
+ }}
+ 
+ -プログラムの開始宣言
+ 
+ #code(pascal,nonumber){{
+ begin
+ }}
+ 
+ -入力フォーマットを指定する
+ 
+ #code(pascal,nonumber){{
+    writeln('例に従って月日と曜日を入力してください。');
+    writeln('Sat,Dec 23');
+ }}
+ 
+ -入力処理
+ --月はinputmonthに格納
+ --日はinputdateに格納
+ --曜日はinputdayに格納
+ --フォーマットで曜日と月の間にはカンマが必要なので、それを格納するためchar型の変数cを間にはさむ
+ 
+ #code(pascal,nonumber){{
+    read(inputday);
+    read(c);
+    read(inputmonth);
+    read(inputdate);
+ }}
+ 
+ -月の処理 
+ --入力された月をもとに場合分け
+ ---入力された月が1月だったら12月に
+ ---入力された月が1月以外であれば、pred()でひとつ前の月にする
+ --求めた月をansmonthに格納
+ 
+ #code(pascal,nonumber){{
+    if ord(inputmonth) = 0 then
+       ansmonth := Dec
+    else
+       ansmonth := pred(inputmonth);
+ }}
+ 
+ -曜日と日の処理
+ --ansdate、ansdayをそれぞれinputdate、inputdayで初期化する
+ 
+ #code(pascal,nonumber){{
+    ansdate := inputdate;
+    ansday := inputday;
+ }}
+ 
+ --ansmonthで場合分け
+ --if-elseよりもスマートになるcase文を使う
+ 
+ #code(pascal,nonumber){{
+    case ansmonth of
+ }}
+ 
+---1月、10月、12月は31日まであるので、「直前の月に同じ日が存在しないときには、直前の月の最後の日付データを出力する」という処理をする必要はない
+---1月、10月、12月のある日付の曜日は2月、11月、1月のその日付の曜日の3つ前の曜日である
++--1月、10月、12月の場合
++---1月、10月、12月は31日まであるので、「直前の月に同じ日が存在しないときには、直前の月の最後の日付データを出力する」という処理をする必要はない
++---1月、10月、12月のある日付の曜日は2月、11月、1月のその日付の曜日の3つ前の曜日である
+ 
+ #code(pascal,nonumber){{
+      Jan, Oct, Dec : begin
+         if ord(pred(pred(pred(inputday)))) < 0 then
+            ansday := succ(succ(succ(succ(inputday))))
+         else
+            ansday := pred(pred(pred(inputday)));
+      end;
+ }}
+ 
+ #code(pascal,nonumber){{
+      Nov                : begin
+         if inputdate <= 30 then
+         begin
+            if ord(pred(pred(ansday))) < 0 then
+               ansday := succ(succ(succ(succ(succ(inputday)))))
+            else
+               ansday := pred(pred(inputday));
+         end
+         else
+         begin
+            ansdate := 30;
+            if ord(pred(pred(pred(inputday)))) < 0 then
+               ansday := succ(succ(succ(succ(inputday))))
+            else
+               ansday := pred(pred(pred(inputday)));
+         end;
+      end;
+ }}
+ 
+ #code(pascal,nonumber){{
+      Feb                : begin
+         if inputdate >= 29 then
+         begin
+            ansdate := 28;
+            if inputdate = 29 then
+            begin
+               if ord(pred(inputday)) < 0 then
+                  ansday := succ(succ(succ(succ(succ(succ(inputday))))))
+               else
+                  ansday := pred(inputday);
+            end;
+  
+            if inputdate = 30 then
+            begin
+               if ord(pred(pred(inputday))) < 0 then
+                  ansday := succ(succ(succ(succ(succ(inputday)))))
+               else
+                  ansday := pred(pred(inputday));
+            end;
+  
+            if inputdate = 31 then
+            begin
+               if ord(pred(pred(pred(inputday)))) < 0 then
+                  ansday := succ(succ(succ(succ(inputday))))
+               else
+                  ansday := pred(pred(pred(inputday)));
+            end;
+         end;
+      end;
+    end; { case }
+ }}
+ 
+ -出力処理
+ 
+ #code(pascal,nonumber){{
+    writeln(ansday, ',', ansmonth, ansdate);
+ }}
+ 
+ -プログラムの終了
+ 
+ #code(pascal,nonumber){{
+ end.
+ }}

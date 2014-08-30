@@ -1,0 +1,46 @@
++* フィボナッチ数列 [#o8e642ba]
+ 
++#code(pascal){{
++program kadai14_2(input, output);
++
++var
++   n : integer;
++
++function fibo(x : integer) : integer;
++
++begin
++   if x >= 3 then
++      fibo := fibo(x - 1) + fibo(x - 2)
++   else
++      fibo := 1;
++end; { fibo }
++
++procedure inputdata;
++
++begin
++   write('正の整数を入力してください:');
++   readln(n);
++end; { inputdata }
++
++procedure outputdata;
++
++var
++   i : integer;
++
++begin
++   i := 0;
++   repeat
++      i := i + 1;
++      write(fibo(i):1);
++      if i <> n then
++         write(', ')
++      else
++         writeln;
++   until i = n;
++end; { outputdata }
++
++begin
++   inputdata;
++   outputdata;
++end.
++}}

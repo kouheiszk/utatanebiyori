@@ -1,0 +1,31 @@
+<rt:extends href="home.html">
+
+<rt:block name="main">
+<div id="main">
+<h3>_("delete")</h3>
+
+<p>_("delete message01")</p>
+
+<div class="timeline">
+<table>
+  <tr>
+    <td class="thumb">
+      <a href="{$rhaco.url($object.factUserId.userId)}"><img src="<rt:if param="{$object.factUserId.image}">img/user/{$object.factUserId.image}<rt:else />img/friend_icon.png</rt:if>" alt="{$object.factUserId.userName}" /></a>
+    </td>
+    <td class="nickname">
+      <a href="{$rhaco.url($object.factUserId.userId)}">{$object.factUserId.userName}</a>
+    </td>
+    <td class="comment">
+      {$f.noop($uf.comment($object.comment, $object.replyUserId))}&nbsp;<span class="small">(&nbsp;{$f.dateformat($object.createdAt)}&nbsp;)</span>
+    </td>
+  </tr>
+</table>
+</div>
+
+<rt:if param="{$login}">
+<rt:if param="{$login.id}" value="{$users.id}">
+<a class="delete_link" href="{$rhaco.url('status/destroy')}/{$object.id}?_csrfid={$_csrfid}">_("delete")</a>
+</rt:if>
+</rt:if>
+</div>
+</rt:block>

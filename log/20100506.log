@@ -1,0 +1,108 @@
+[error 2010/05/06 00:03:30]:[database/DbUtilBase.php:113] [Resource id #145(0)] select count(countertable.id) as count from uta_counter countertable 
+[error 2010/05/06 00:03:30]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:03:30]:[database/DbUtilBase.php:113] [Resource id #145(0)] select countertable.id as t0c0,countertable.year as t0c1,countertable.month as t0c2,countertable.day as t0c3,countertable.yesterday as t0c4,countertable.today as t0c5,countertable.total as t0c6,countertable.host as t0c7 from uta_counter countertable  LIMIT 0,20 
+[error 2010/05/06 00:03:30]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:03:36]:[database/DbUtilBase.php:113] [Resource id #109(1)] select count(countertable.id) as count from uta_counter countertable 
+[error 2010/05/06 00:03:36]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:03:36]:[database/DbUtilBase.php:113] [Resource id #109(1)] select countertable.id as t2c23,countertable.year as t2c24,countertable.month as t2c25,countertable.day as t2c26,countertable.yesterday as t2c27,countertable.today as t2c28,countertable.total as t2c29,countertable.host as t2c30 from uta_counter countertable  ORDER BY countertable.id DESC LIMIT 0,1 
+[error 2010/05/06 00:03:36]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:03:43]:[database/DbUtilBase.php:113] [Resource id #106(1)] select count(countertable.id) as count from uta_counter countertable 
+[error 2010/05/06 00:03:43]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:03:43]:[database/DbUtilBase.php:113] [Resource id #106(1)] select countertable.id as t2c23,countertable.year as t2c24,countertable.month as t2c25,countertable.day as t2c26,countertable.yesterday as t2c27,countertable.today as t2c28,countertable.total as t2c29,countertable.host as t2c30 from uta_counter countertable  ORDER BY countertable.id DESC LIMIT 0,1 
+[error 2010/05/06 00:03:43]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:04:48]:[database/DbUtilBase.php:113] [Resource id #146(0)] insert into uta_counter(year,month,day,yesterday,today,total,host) values(2010,5,5,5,11,7809,'127.0.0.1')
+[error 2010/05/06 00:04:48]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:04:53]:[database/DbUtilBase.php:113] [Resource id #145(0)] select count(countertable.id) as count from uta_counter countertable 
+[error 2010/05/06 00:04:53]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:04:53]:[database/DbUtilBase.php:113] [Resource id #145(0)] select countertable.id as t0c0,countertable.year as t0c1,countertable.month as t0c2,countertable.day as t0c3,countertable.yesterday as t0c4,countertable.today as t0c5,countertable.total as t0c6,countertable.host as t0c7 from uta_counter countertable  LIMIT 0,20 
+[error 2010/05/06 00:04:53]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:05:18]:[database/DbUtilBase.php:113] [Resource id #145(0)] insert into uta_counter(year,month,day,yesterday,today,total,host) values(2010,5,5,5,11,7809,'127.0.0.1')
+[error 2010/05/06 00:05:18]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:05:21]:[database/DbUtilBase.php:113] [Resource id #145(0)] select count(countertable.id) as count from uta_counter countertable 
+[error 2010/05/06 00:05:21]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:05:21]:[database/DbUtilBase.php:113] [Resource id #145(0)] select countertable.id as t0c0,countertable.year as t0c1,countertable.month as t0c2,countertable.day as t0c3,countertable.yesterday as t0c4,countertable.today as t0c5,countertable.total as t0c6,countertable.host as t0c7 from uta_counter countertable  LIMIT 0,20 
+[error 2010/05/06 00:05:21]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_counter' doesn't exist
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:113] [Resource id #145(0)] CREATE TABLE uta_statuses (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,reply_user_id INTEGER(22)
+	,comment LONGBLOB NOT NULL
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:114] #1050 - Table 'uta_statuses' already exists
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:113] [Resource id #145(0)] 
+
+CREATE TABLE uta_users (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id LONGBLOB NOT NULL
+	,user_name LONGBLOB NOT NULL
+	,email TINYBLOB NOT NULL
+	,password LONGBLOB NOT NULL
+	,image LONGBLOB
+	,image_x INTEGER(22)
+	,image_y INTEGER(22)
+	,introduce_id INTEGER(22)
+	,private_flag TINYINT(1)
+	,last_login DATETIME
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,act_key LONGBLOB
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:114] #1050 - Table 'uta_users' already exists
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:113] [Resource id #145(0)] 
+
+CREATE TABLE uta_wikis (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,wiki_name LONGBLOB NOT NULL
+	,password LONGBLOB
+	,text LONGBLOB
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis' already exists
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:113] [Resource id #145(0)] 
+
+CREATE TABLE uta_wikis_backup (
+	 id INTEGER AUTO_INCREMENT 
+	,wiki_id INTEGER(22)
+	,wiki_name LONGBLOB
+	,text LONGBLOB
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis_backup' already exists
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:113] [Resource id #145(0)] 
+
+CREATE TABLE uta_wikis_attach (
+	 id INTEGER AUTO_INCREMENT 
+	,wiki_id INTEGER(22)
+	,user_id INTEGER(22)
+	,file_id LONGBLOB NOT NULL
+	,file_name LONGBLOB
+	,delete_flag TINYINT(1)
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis_attach' already exists
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:113] [Resource id #145(0)] 
+
+CREATE TABLE uta_followers (
+	 user_id INTEGER(22)
+	,follow_id INTEGER(22)
+	,created_at DATETIME
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:114] #1050 - Table 'uta_followers' already exists
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:113] [Resource id #145(0)] 
+
+CREATE TABLE uta_requests (
+	 user_id INTEGER(22)
+	,request_id INTEGER(22)
+	,created_at DATETIME
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/06 00:05:36]:[database/DbUtilBase.php:114] #1050 - Table 'uta_requests' already exists

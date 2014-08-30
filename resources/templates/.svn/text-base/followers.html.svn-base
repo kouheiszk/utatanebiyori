@@ -1,0 +1,28 @@
+<rt:extends href="home.html" />
+
+<rt:block name="contents-header">
+<h2>{$users.userName}'s {$pager.total} Followers</h2>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<rt:if param="{$object_list}">
+<table id="people" class="autopagerize_page_element">
+<rt:loop param="object_list" var="object">
+    <tr>
+    <th><a href="{$rhaco.url($object.userId)}"><img src="<rt:if param="{$object.image}">img/user/{$object.image}<rt:else />img/friend_icon.png</rt:if>"
+             alt="{$object.userName}" /></a></th>
+    <td><a href="{$rhaco.url($object.userId)}">{$object.userName}</a><br/>
+
+    </td>
+    </tr>
+</rt:loop>
+</table>
+
+<div class="pager">
+<rt:pager />
+</div>
+
+</rt:if>
+</div>
+</rt:block>

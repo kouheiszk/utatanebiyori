@@ -1,0 +1,9 @@
+[error 2011/01/21 07:23:27]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2011/01/21 07:23:27]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/01/21 21:20:56]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/01/21 21:20:57]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/01/21 21:20:58]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/01/21 21:20:59]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/01/21 21:21:00]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/01/21 21:21:01]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/01/21 23:28:21]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />

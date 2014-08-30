@@ -1,0 +1,6 @@
+[error 2010/06/01 01:56:08]:[database/DbUtilBase.php:113] [Resource id #116(2)] COMMIT
+[error 2010/06/01 01:56:08]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/06/01 01:56:08]:[database/DbUtilBase.php:113] [Resource id #112(1)] COMMIT
+[error 2010/06/01 01:56:08]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/06/01 01:56:08]:[database/DbUtilBase.php:113] [Resource id #95(0)] COMMIT
+[error 2010/06/01 01:56:08]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

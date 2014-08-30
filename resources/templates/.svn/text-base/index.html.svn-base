@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja" dir="ltr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{$rhaco.constant('SITE_NAME')}<rt:block name="title"> :: _("トップ")</rt:block></title>
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<meta name="Description" content="電気通信大学の過去問・過去レポ・情報サイト「Dentsu Underground」。" />
+<meta name="Keywords" content="Dentsu, 電通, でんつう, 電気通信大学, 過去問, 過去レポ" />
+<rt:block name="addmeta" />
+<link rel="shortcut icon" href="./img/share/favicon.ico">
+<link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
+<rt:block name="addcss" />
+<link href="./css/print.css" rel="stylesheet" type="text/css" media="print" />
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("jquery", "1.3");</script>
+<script type="text/javascript">
+  $(function()
+  {
+    $('#linked_url_text').click(function()
+    {
+      $('#linked_url_text').hide();
+      $('#linked_url_copy').show();
+      $('#linked_url_copy_input').select();
+      $('#linked_url_copy_input').focus();
+    });
+    $('#linked_url_copy_input').blur(function()
+    {
+      $('#linked_url_text').show();
+      $('#linked_url_copy').hide();
+    });
+  });
+</script>
+<rt:block name="addjs" />
+<rt:include href="parts/js/googleanalytics.js" />
+</head>
+
+<body>
+
+<div id="preheader">
+<rt:block name="preheader">
+  <rt:block name="search" />
+  <span class="small">ようこそ&nbsp;{$login.userName}&nbsp;さん</span>&nbsp;---&nbsp;
+  <rt:ifnot param="{$login.id}" value="{$rhaco.constant('GUEST_USER_ID')}">
+    <span class="small"><a href="{$rhaco.url('home')}">_("ホーム")</a>&nbsp;|&nbsp;<a href="{$rhaco.url('account/settings')}">_("設定")</a>&nbsp;|&nbsp;<a href="{$rhaco.url('logout')}">_("ログアウト")</a></span>
+  <rt:else />
+    <span class="small"><a href="{$rhaco.url('signup')}">_("新規登録")</a>&nbsp;|&nbsp;<a href="{$rhaco.url('login')}">_("ログイン")</a></span>
+  </rt:ifnot>
+</rt:block>
+</div>
+
+<div id="header">
+  <h1><a href="{$rhaco.url()}">{$rhaco.constant('SITE_NAME')}</a></h1>
+  <ul id="navi">
+    <li><a href="{$rhaco.url('wiki/')}"><img src="./img/share/wiki.png" alt="wiki" />&nbsp;wiki</a></li>
+    <li><a href="{$rhaco.url('uploader/')}"><img src="./img/share/uploader.png" alt="uploader" />&nbsp;uploader</a></li>
+  </ul>
+  <br class="clear">
+</div>
+
+<div id="<rt:block name="contentsId">contents</rt:block>">
+  <div id="contents-header">
+  <rt:block name="toolbar-header" />
+  <rt:block name="contents-header">
+  <h2>_("トップ")</h2>
+  </rt:block>
+  <rt:block name="url">
+  <p class="caption" id="linked_url">
+  <span id="linked_url_text">{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}</span>
+  <span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}" readonly></span>
+  </p>
+  </rt:block>
+  </div>
+  <rt:block name="contents-left">
+  <div id="contents-left">
+  <h3>_("メニュー")</h3>
+  <rt:if param="{$login}">
+  <a href="{$rhaco.url('home')}">_("ホーム")</a><br />
+  <a href="{$rhaco.url('user/archive')}">_("自分の書き込み")</a><br />
+  <a href="{$rhaco.url('user/replies')}">_("自分への書き込み")</a><br />
+  <a href="{$rhaco.url('public_timeline')}">_("公開タイムライン")</a><br />
+  <rt:else />
+  <a href="{$rhaco.url('signup')}">_("新規登録")</a><br />
+  </rt:if>
+  <a href="{$rhaco.url('kyuukou')}">_("休講情報")</a>
+
+  <rt:if param="{$login}">
+  <h3>_("今何してる？")</h3>
+  <form action="{$rhaco.url('status/update')}" method="post" id="post_form" rt:reference="true">
+  <input id="inputtwit" type="text" name="comment" /><span id="js_textcount" class="textcount">140</span>
+  <input type="submit" id="twit_button" value=" update " />
+  </form>
+  </rt:if>
+  {$f.noop($uf.counter())}
+  </div>
+  </rt:block>
+  <rt:block name="main">
+  <div id="main">
+    <div class="toc">
+      <ol>
+        <li>_("トップ")
+          <ol>
+            <li><a href="{$rhaco.uri()}#upload-information">_("更新情報")</a>
+              <ol>
+                <li><a href="{$rhaco.uri()}#wiki-upload-information">_("Wiki")</a></li>
+                <li><a href="{$rhaco.uri()}#uploader-upload-information">_("Uploader")</a></li>
+              </ol>
+            </li>
+            <li>_("How")</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+    <h3>_("トップ")</h3>
+    <p>『Dentsu Underground』はゆとりある大学生活を送るために障害となるあらゆる問題を解決するために開設された、電通生の電通生による電通生のためのサイトです。</p>
+
+
+    <rt:include href="parts/sub_update_information.html" />
+
+    <h4>How</h4>
+    <p>わからないことがある場合はHelpを見てください。あと、閲覧・編集はなるべくパソコンで行ってください。<br />
+    通貨単位は10円=1うまい棒を使ってください。食堂のバナナは2本で5うまい棒です。<br />
+    過去のWikiは以下のURLからアクセスできます。<br />
+    <a href="http://utatanebiyori.uzusionet.com/wiki2/">http://utatanebiyori.uzusionet.com/wiki2/</a></p>
+
+  </div>
+  </rt:block>
+  <div class="contents-meta clear">
+    <rt:block name="toolbar-footer" />
+    <rt:block name="meta">
+    <ul>
+      <li>Owner: なぎ</li>
+      <li>Convert: {$uf.getCovertTime()}</li>
+    </ul>
+    </rt:block>
+    <br class="clear">
+  </div>
+</div>
+
+<div id="footer">
+<address>Copyright &copy; 2009-2010 <a href="{$rhaco.constant('CONTEXT_URL')}">{$rhaco.constant('SITE_NAME')}</a>, All Rights Reserved.<br />
+うたたね日和 v{$rhaco.version()}<br />
+Powered by <a href="http://www.uzusionet.com/">_("うずしおネット")</a></address>
+</div>
+
+</body>
+</html>

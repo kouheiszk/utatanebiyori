@@ -1,0 +1,42 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: _("バックアップ")</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('wiki/backup/')}{$object.wikiName}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('wiki/backup/')}{$object.wikiName}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;_("バックアップ")</h2>
+</rt:block>
+
+<rt:block name="add-toolbar-header" />
+
+<rt:block name="main">
+<div id="main">
+  <h3>_("バックアップ")</h3>
+  <ul>
+    <li>{$wikiName}_("のバックアップ")
+    <ul>
+      <rt:loop param="object_list" var="object" counter="counter">
+        <li>{$wf.jdate($object.createdAt)}&nbsp;[&nbsp;<a href="{$rhaco.url('wiki')}/diff/{$object.id}">_("差分")</a>&nbsp;|&nbsp;<a href="{$rhaco.url('wiki')}/nowdiff/{$object.id}">_("現在との差分")</a>&nbsp;|&nbsp;<a href="{$rhaco.url('wiki')}/source/{$object.id}">_("ソース")</a>&nbsp;]</li>
+      </rt:loop>
+    </ul>
+    </li>
+  </ul>
+  <div class="pager">
+    <rt:pager param="pager" />
+  </div>
+  <rt:invalid />
+</div>
+</rt:block>
+
+<rt:block name="meta">
+<input type="hidden" name="redirect" value="{$redirect}" />
+<ul>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

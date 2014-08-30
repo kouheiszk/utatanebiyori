@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Movable Type Pro 5.01" />
+<link rel="stylesheet" href="http://utatanebiyori.uzusionet.com/blog/styles.css" type="text/css" />
+<link rel="start" href="http://utatanebiyori.uzusionet.com/blog/" title="Home" />
+<link rel="alternate" type="application/atom+xml" title="Recent Entries" href="http://utatanebiyori.uzusionet.com/blog/atom.xml" />
+<script type="text/javascript" src="http://utatanebiyori.uzusionet.com/blog/mt.js"></script>
+
+
+    <title>うたたね日記: rhacoアーカイブ</title>
+
+
+</head>
+<body id="classic-blog" class="mt-archive-listing mt-category-archive layout-wtt">
+    <div id="container">
+        <div id="container-inner">
+
+
+            <div id="header">
+    <div id="header-inner">
+        <div id="header-content">
+
+
+            <div id="header-name"><a href="http://utatanebiyori.uzusionet.com/blog/" accesskey="1">うたたね日記</a></div>
+            <div id="header-description"></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+                            
+                            <h1 id="page-title" class="archive-title"><em>rhaco</em>の最近のブログ記事</h1>
+
+
+
+
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/rhaco/index.html#entry-000017"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/16"
+    dc:title="rhacoのトレーニングプログラム"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/rhaco/index.html#entry-000017"
+    dc:subject="rhaco"
+    dc:description="rhacoのトレーニングプログラムでつまずいてたけど、先に進めました。 &amp;lt;..."
+    dc:creator="なぎ"
+    dc:date="2010-02-13T19:39:25+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-17" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html" rel="bookmark">rhacoのトレーニングプログラム</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2010-02-13T19:39:25+09:00">2010年2月13日 19:39</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#comments">コメント(4)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            rhacoのトレーニングプログラムでつまずいてたけど、先に進めました。<br />
+<br />
+<pre class="php" style="font-family: 'courier new',mono-space;"><span style="color: rgb(0, 0, 0); font-weight: bold;">&lt;?php</span><br /><span style="color: rgb(177, 177, 0);">include_once</span> <a href="http://www.php.net/dirname"><span style="color: rgb(153, 0, 0);">dirname</span></a><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0); font-weight: bold;">__FILE__</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">.</span><span style="color: rgb(0, 0, 255);">"__init__.php"</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"generic.Urls"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"database.DbUtil"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"model.Post"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />&nbsp;<br /><span style="color: rgb(0, 0, 136);">$db</span> <span style="color: rgb(51, 153, 51);">=</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Dbutil<span style="color: rgb(0, 153, 0);">(</span>Post<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">connection</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$pattern</span> <span style="color: rgb(51, 153, 51);">=</span> <a href="http://www.php.net/array"><span style="color: rgb(153, 0, 0);">array</span></a><span style="color: rgb(0, 153, 0);">(</span><br />	<span style="color: rgb(102, 102, 102); font-style: italic;">//投稿記事の一覧を表示</span><br />	<span style="color: rgb(0, 0, 255);">"^posts(?:/index)?/?$"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"class"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"generic.Views"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"method"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"read"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"args"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Post<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">,</span><br /><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$parser</span> <span style="color: rgb(51, 153, 51);">=</span> Urls<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">parser</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 136);">$pattern</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 136);">$db</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$parser</span><span style="color: rgb(51, 153, 51);">-&gt;</span><span style="color: rgb(0, 64, 0);">write</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+これを以下のようにする<br />
+<pre class="php" style="font-family: 'courier new',mono-space;"><span style="color: rgb(102, 102, 102); font-style: italic;">//投稿記事の一覧を表示</span><br />	<span style="color: rgb(0, 0, 255);">"^posts(?:/index)?/?$"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"class"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"generic.Views"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"method"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"read"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"args"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Post<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">),"default"=&gt;true</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">,</span><br /><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+結構悩んだけど、できた時はなるほどってなりました。<br />本来ならば普通に"default"=&gt;trueをつけないでも表示されるのかな...<br /><br /><a href="http://wikihub.org/wiki/rhaco1-doc/100-blog-tutorial/03-model-view-template">
+http://wikihub.org/wiki/rhaco1-doc/100-blog-tutorial/03-model-view-template</a>
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+
+
+                            <div class="content-nav">
+                                
+                                <a href="http://utatanebiyori.uzusionet.com/blog/">メインページ</a> |
+                                <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a>
+                                | <a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/">その他 &raquo;</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div id="beta">
+    <div id="beta-inner">
+
+
+    
+    <div class="widget-archive widget-archive-category widget">
+    <h3 class="widget-header">カテゴリ</h3>
+    <div class="widget-content">
+    
+        
+        <ul>
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/rhaco/">rhaco (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/">その他 (4)</a>
+        
+        
+            </li>
+        
+        </ul>
+        
+    
+    </div>
+</div>
+
+
+
+
+    <div class="widget-archive-monthly widget-archive widget">
+    <h3 class="widget-header">月別 <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a></h3>
+    <div class="widget-content">
+        <ul>
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/">2011年5月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/">2010年4月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/">2010年2月 (3)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/">2009年9月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/">2009年4月 (2)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/">2009年2月 (3)</a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+
+<div class="widget-pages widget">
+    <h3 class="widget-header">ウェブページ</h3>
+    <div class="widget-content">
+        <ul>
+    
+    
+        </ul>
+    </div>
+</div>
+
+<div class="widget-syndication widget">
+    <div class="widget-content">
+        <ul>
+            <li><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/status_icons/feed.gif" alt="購読する" width="9" height="9" /> <a href="http://utatanebiyori.uzusionet.com/blog/atom.xml">このブログを購読</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="widget-powered widget">
+    <div class="widget-content">
+        <a href="http://www.sixapart.jp/movabletype/"><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/bug-pbmt-white.png" alt="Powered by Movable Type 5.01" width="120" height="75" /></a>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+
+    
+<div id="gamma">
+    <div id="gamma-inner">
+    <div class="widget-search widget">
+    <h3 class="widget-header">検索</h3>
+    <div class="widget-content">
+        <form method="get" action="http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi">
+            <input type="text" id="search" class="ti" name="search" value="" />
+
+            <input type="hidden" name="IncludeBlogs" value="1" />
+
+            <input type="hidden" name="limit" value="20" />
+            <input type="submit" accesskey="4" value="検索" />
+        </form>
+    </div>
+</div>
+
+<div class="widget-about-this-page widget">
+    <h3 class="widget-header">
+
+    
+        このアーカイブについて
+    
+
+
+    </h3>
+    <div class="widget-content">
+
+
+
+    
+        <p class="first">このページには、過去に書かれたブログ記事のうち<strong>rhaco</strong>カテゴリに属しているものが含まれています。</p>
+        
+        
+        <p>次のカテゴリは<a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/">その他</a>です。</p>
+        
+    
+
+
+
+
+        <p>最近のコンテンツは<a href="http://utatanebiyori.uzusionet.com/blog/">インデックスページ</a>で見られます。過去に書かれたものは<a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブのページ</a>で見られます。</p>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <div id="footer">
+    <div id="footer-inner">
+        <div id="footer-content">
+            <div class="widget-powered widget">
+                <div class="widget-content">
+                    Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type Pro</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

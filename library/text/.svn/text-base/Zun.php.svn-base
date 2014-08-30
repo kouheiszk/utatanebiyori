@@ -1,0 +1,16 @@
+-rw-r--r--    1 631      631          1178 Feb 03  2010 Boolean.pm
+-rw-r--r--    1 631      631          4864 Feb 03  2010 Builder.pm
+-rw-r--r--    1 631      631         18788 Feb 03  2010 Expr.pm
+-rw-r--r--    1 631      631         10317 Feb 03  2010 Function.pm
+-rw-r--r--    1 631      631          1847 Feb 03  2010 Literal.pm
+-rw-r--r--    1 631      631          1100 Feb 03  2010 LocationPath.pm
+drwxr-xr-x    2 631      631          4096 Feb 03  2010 Node
+-rw-r--r--    1 631      631         12821 Feb 03  2010 Node.pm
+-rw-r--r--    1 631      631          3286 Feb 03  2010 NodeSet.pm
+-rw-r--r--    1 631      631          1674 Feb 03  2010 Number.pm
+-rw-r--r--    1 631      631         23438 Feb 03  2010 Parser.pm
+-rw-r--r--    1 631      631          4338 Feb 03  2010 PerlSAX.pm
+-rw-r--r--    1 631      631           639 Feb 03  2010 Root.pm
+-rw-r--r--    1 631      631         13432 Feb 03  2010 Step.pm
+-rw-r--r--    1 631      631           834 Feb 03  2010 Variable.pm
+-rw-r--r--    1 631      631         10473 Feb 03  2010 XMLParser.pm

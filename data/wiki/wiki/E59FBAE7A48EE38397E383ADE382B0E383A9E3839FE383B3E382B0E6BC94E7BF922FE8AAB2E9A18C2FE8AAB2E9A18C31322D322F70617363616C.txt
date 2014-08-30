@@ -1,0 +1,38 @@
+* 入力されていない数の出力 [#c6d02210]
+
+#code(pascal){{
+program kadai12_2(input, output);
+
+const
+   MIN = 1;
+   MAX = 9;
+
+type
+   num = set of MIN..MAX;
+
+var
+   data         : num;
+   i, inputdata : integer;
+
+begin
+   data := [];
+
+   repeat
+      write('値を入力してください:');
+      readln(inputdata);
+      if (MIN <= inputdata) and (inputdata <= MAX) then
+              data := data + [inputdata];
+   until (inputdata < MIN) or (MAX < inputdata);
+
+   if ([MIN..MAX] = data) then
+      writeln('1〜9のすべての数が入力されました。')
+   else
+      writeln(MIN:1, '〜', MAX:1, 'のうち入力されていない数は次の通りです。');
+
+   for i := MIN to MAX do
+   begin
+      if not(i in data) then
+         writeln(i:1);
+   end;
+end.
+}}

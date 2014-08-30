@@ -1,0 +1,91 @@
+<rt:extends href="home.html" />
+
+<rt:block name="title"> :: _("ホーム") :: _("設定")</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("ホーム")&nbsp;::&nbsp;_("設定")</h2>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+  <h3>_("設定")</h3>
+
+  <h4>_("基本情報")</h4>
+  <form action="{$rhaco.url('account/settings')}" method="post" rt:reference="true">
+    <rt:invalid>
+      <rt:loop param="errors" var="e">
+        <p class="warning">{$e}</p>
+      </rt:loop>
+    </rt:invalid>
+    <table>
+      <tr>
+        <th class="w200px">_("ユーザー名")</th>
+        <td><input class="w40" type="text" name="userName" value="" size="50" /></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><input id="privateFlag" name="privateFlag" type="checkbox" value="1" />
+            <label for="privateFlag">_("公開タイムラインに自分の発言を公開しない")</label>
+          <rt:ifnot param="{$privateFlag}">
+          <br/><a href="{$rhaco.url('public_timeline')}">_("(現在公開中)")</a>
+          </rt:ifnot>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><input type="submit" value="_('送信')" /></td>
+      </tr>
+    </table>
+  </form>
+
+  <h4>_("認証情報")</h4>
+  <form action="{$rhaco.url('account/account')}" method="post" rt:reference="true">
+    <rt:invalid>
+    <rt:loop param="errors" var="e">
+      <p class="warning">{$e}</p>
+    </rt:loop>
+    </rt:invalid>
+    <table>
+      <tr>
+        <th class="w200px">_("メールアドレス")</th>
+        <td><input class="w40" type="text" name="email" value="" size="50" /></td>
+      </tr>
+      <tr>
+        <th class="w200px">_("パスワード")</th>
+        <td><input class="w40" type="password" name="newPassword" size="30" /></td>
+      </tr>
+      <tr>
+        <th class="w200px">_("パスワード再入力")</th>
+        <td><input class="w40" type="password" name="passwordConf" size="30" /></td>
+      </tr>
+      <tr>
+        <th class="w200px"></th>
+        <td><input type="submit" value="_('送信')" /></td>
+      </tr>
+    </table>
+  </form>
+
+  <h4>_("画像")</h4>
+
+  <img src="<rt:if param="{$image}">img/user/{$image}<rt:else />img/friend_icon.png</rt:if>" alt="{$userName}" />
+
+  <form action="{$rhaco.url('account/picture')}" enctype="multipart/form-data" method="post" id="setting_form">
+    <rt:invalid>
+    <rt:loop param="errors" var="e">
+      <p class="warning">{$e}</p>
+    </rt:loop>
+    </rt:invalid>
+    <table>
+      <tr>
+        <th class="w200px">_("新しい画像")</th>
+        <td><input type="hidden" name="MAX_FILE_SIZE" value="512000" /><input name="pic" size="30" type="file" />
+                <p>_("画像のファイルサイズの上限は500KBです。")</p></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><input type="submit" value="_('保存')" name="save" /> <input type="submit" value="_('削除')" name="delete" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</rt:block>

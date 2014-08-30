@@ -1,0 +1,54 @@
+* 入力した日数後の日付を出力する [#yf14c81a]
+
+#code(pascal){{
+program kadai11_3(input, output);
+
+type
+   date  = 1 .. 31;
+   month = 1 .. 12;
+
+function datenum(m : month) : date;
+begin
+   case ord(m) of
+     1, 3, 5, 7, 8, 10, 12 : datenum := 31;
+     2                    : datenum := 28;
+     4, 6, 9, 11           : datenum := 30;
+   end; { case }
+end;
+
+var
+   inputdate, ansdate   : date;
+   inputmonth, ansmonth : month;
+   c                            : char;
+   num, i, j, d         : integer;
+
+begin
+   writeln('例に従って月日と日数を入力してください。');
+   writeln('12/23 80');
+   read(inputmonth);
+   read(c);
+   read(inputdate);
+   read(num);
+
+   if (c <> '/') then
+      writeln('フォーマットが異なります。')
+   else
+   begin
+      i := 0;
+      j := 0;
+      d := 0;
+      repeat
+         j := inputmonth + i;
+         if j > 12 then
+            j := 1;
+         d := d + datenum(j);
+         i := i + 1;
+      until d >= inputdate + num;
+
+      ansmonth := j;
+      ansdate := datenum(ansmonth) - (d - inputdate - num);
+
+      writeln(ansmonth:2, '/' , ansdate:2);
+   end;
+end.
+}}

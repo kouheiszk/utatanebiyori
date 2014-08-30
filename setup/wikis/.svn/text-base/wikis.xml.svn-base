@@ -1,0 +1,13 @@
+<table name="wikis">
+  <description>Wikis</description>
+  <column name="id" />
+  <column name="user_id" type="int" reference="users.id" />
+  <column name="wiki_name" type="text" require="true" unique="true" label="ページ名" />
+  <column name="password" label="パスワード" />
+  <column name="text" type="text" label="本文" />
+  <column name="created_at" type="timestamp" default="sysdate" label="作成日時" />
+  <column name="updated_at" type="timestamp" default="sysdate" label="更新日時" />
+  <column name="delete_flag" type="bool" default="false" />
+  <extra name="url" />
+  <extra name="wiki_name_link" />
+</table>

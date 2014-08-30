@@ -1,0 +1,2 @@
+[error 2011/03/20 08:03:49]:[database/DbUtilBase.php:113] [Resource id #96(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2011/03/20 08:03:49]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

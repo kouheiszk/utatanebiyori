@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/utatanebiyori/!svn/ver/106/trunk/setup
+END
+project.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/utatanebiyori/!svn/ver/106/trunk/setup/project.xml
+END
+db.sql
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/utatanebiyori/!svn/ver/54/trunk/setup/db.sql
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/utatanebiyori/!svn/ver/1/trunk/setup/.htaccess
+END

@@ -1,0 +1,26 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Uploader") :: {$title}</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('uploader/upload/success')}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('uploader/upload/success')}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="addjs">
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Uploader")&nbsp;::&nbsp;{$title}</h2>
+</rt:block>
+
+
+<rt:block name="main">
+<div id="main">
+<h3>{$title}</h3>
+<p>{$message}</p>
+<div class="aright"><a href="{$rhaco.url('uploader/')}">_("Uploaderトップに戻る")</a></div>
+</div>
+</rt:block>

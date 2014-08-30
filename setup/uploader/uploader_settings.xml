@@ -1,0 +1,20 @@
+<input name="UPLOAD_URL">
+  <title>【Uploader】アップロードファイルの場所</title>
+  <data>resources/uploader/</data>
+</input>
+<input name="UPLOAD_INTERVAL">
+  <title>【Uploader】アップロード間隔（秒）</title>
+  <data>60</data>
+</input>
+<input name="DOWNLOAD_PASSWORD">
+  <title>【Uploader】ダウンロードのパスワード</title>
+  <data>ぱすわーど</data>
+</input>
+<input name="UPLOAD_SIZE_GUEST">
+  <title>【Uploader】ゲストのアップロードサイズ（Byte）</title>
+  <data>5242880</data>
+</input>
+<input name="UPLOAD_SIZE_USER">
+  <title>【Uploader】ユーザーのアップロードサイズ（Byte）</title>
+  <data>8388608</data>
+</input>

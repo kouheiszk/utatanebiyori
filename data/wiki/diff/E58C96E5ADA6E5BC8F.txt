@@ -1,0 +1,35 @@
+ *化学式 [#w7e4090b]
+ 
+ wiki上で化学式を記述できるようにしました。
+ //って言っても、ただの上付き文字、下付き文字の組み合わせですけど。
+ 次のサイトを参考に作成しました。[[DokuWikiプラグイン:http://wiki.symplus.co.jp/doku.php/computer/chem_plugin]]
+ 
+ -インライン要素は以下のように記述します。
+  &chem(化学式);
+-&chem(2H2 + O2 = 2H2O);
++&chem(2H2); + &chem(O2 = 2H2O);
+ -インライン要素のみの予定です。
+ ブロック要素必要だったら言ってください。
+ //でもみんなそんな編集しないでしょ？笑
+ 
+ **コマンド [#cb6ef4ba]
+ 
+ |入力|表示例|memo|
+ |C2H6|&chem(C2H6);||
+ |Na2HPO4 12H2O|&chem(Na2HPO4 12H2O);||
+ |Al2(SO4)3|&chem(Al2(SO4)3);|カッコの使用|
+ |C2H5O2^-Na+|&chem(C2H5O2^-Na+);|電荷の前には^を挿入|
+ |Cl2H6N2Pt2+|&chem(Cl2H6N2Pt2+);|価数は+や-の前にそのまま挿入|
+ |[(C6H4)2]4^12+|&chem([(C6H4)2]4^12+);|組み合わせも（ある程度）可能|
+-|SO42-|&chem(SO4^2-);|Correctly formated|
+-|SO42-|&chem(SO42-);|Needs a pipe between 4 and 2.|
+-|SO4 2-|&chem(SO4 2-);|Undesired white space|
+-|2H2 + O2 = 2H2O|&chem(2H2 + O2 = 2H2O);||
+-|2H2+O2=2H2O|&chem(2H2+O2=2H2O);||
+-|2H2 + O2 → 2H2O|&chem(2H2 + O2 → 2H2O);||
++|SO42-|&chem(SO4^2-);|^で区切るとしっかり表示|
++|SO42-|&chem(SO42-);|連続して書くと下に|
++|SO4 2-|&chem(SO4 2-);|空白を入れるのでもまぁ大丈夫|
++|2H2+O2=2H2O|&chem(2H2+O2=2H2O);|そのかわり普通の化学式の+が上に行く|
++|2H2 + O2 = 2H2O|&chem(2H2 + O2 = 2H2O);|空白明けても無意味|
++|2H2 + O2 = 2H2O|&chem(2H2); + &chem(O2 = 2H2O);|&chem(2H2);と&chem(O2 = 2H2O);を別の化学式として記述|

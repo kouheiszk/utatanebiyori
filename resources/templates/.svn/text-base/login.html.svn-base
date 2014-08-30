@@ -1,0 +1,36 @@
+<rt:extends href="index.html" />
+
+<rt:block name="title"> :: _("ログイン")</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("ログイン")</h2>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>_("ログイン")</h3>
+  <rt:invalid>
+  <rt:loop param="errors" var="e">
+    <p class="warning">{$e}</p>
+  </rt:loop>
+  </rt:invalid>
+  <form action="{$rhaco.url('sessions')}" method="post" rt:reference="true">
+    <table><tr>
+        <th class="w200px">_("メールアドレス")</th>
+        <td><input class="w40" type="text" name="email" size="30" value="" /></td>
+      </tr><tr>
+        <th class="w200px">_("パスワード")</th>
+        <td><input class="w40" type="password" name="password" size="30" value="" /></td>
+      </tr><tr>
+        <th></th>
+        <td><input type="checkbox" name="remember" value="1" />
+        <label for="remember" class="inline">_("次回から自動的にログインする")</label></td>
+      </tr><tr>
+        <th></th>
+        <td><input type="submit" value="_('ログイン')" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</rt:block>
+

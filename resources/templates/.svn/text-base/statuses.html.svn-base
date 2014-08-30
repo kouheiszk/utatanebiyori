@@ -1,0 +1,15 @@
+<rt:extends href="home.html">
+
+<rt:block name="main">
+<div id="main">
+{$f.noop($uf.comment($object.comment))}&nbsp;<span class="small">({$f.dateformat($object.createdAt)})</span>
+
+<rt:if param="{$login}">
+<rt:if param="{$login.id}" value="{$users.id}">
+<a class="delete_link" href="{$rhaco.url('status/destroy')}/{$object.id}?_csrfid={$_csrfid}"><img src="img/share/delete.png" /></a>
+<rt:else />
+<a href="{$rhaco.url('home')}?status=@{$users.userId}"><img src="img/share/reply_icon.gif" /></a>
+</rt:if>
+</rt:if>
+</div>
+</rt:block>

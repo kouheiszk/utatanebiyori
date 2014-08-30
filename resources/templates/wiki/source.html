@@ -1,0 +1,40 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: _("ソース")</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('wiki/backup/')}{$now.wikiName}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('wiki/backup/')}{$now.wikiName}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;_("ソース")</h2>
+</rt:block>
+
+<rt:block name="add-toolbar-header" />
+
+<rt:block name="main">
+<div id="main">
+<div class="toc">
+<ol>
+<li><a href="{$rhaco.url('wiki/backup/')}{$now.wikiName}">バックアップ</a></li>
+<li><a href="{$rhaco.url('wiki/diff/')}{$backup_id}">_("差分")</a></li>
+<li><a href="{$rhaco.url('wiki/nowdiff/')}{$backup_id}">_("現在との差分")</a></li>
+<li>_("ソース")</li>
+</ol>
+</div>
+<h3>_("ソース")</h3>
+{$f.noop($wf.source($object_list, $backup_id))}
+</div>
+</rt:block>
+
+<rt:block name="meta">
+<input type="hidden" name="redirect" value="{$redirect}" />
+<ul>
+  <li>_("最終更新者")&nbsp;:&nbsp;{$now.factUserId.userName}</li>
+  <li>_("最終更新日時")&nbsp;:&nbsp;{$wf.modified($now.updatedAt)}</li>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/utatanebiyori/!svn/ver/109/trunk/resources/templates
+END
+signup.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/signup.html
+END
+public_timeline.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/public_timeline.html
+END
+followers.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/utatanebiyori/!svn/ver/80/trunk/resources/templates/followers.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/utatanebiyori/!svn/ver/108/trunk/resources/templates/index.html
+END
+following.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/utatanebiyori/!svn/ver/80/trunk/resources/templates/following.html
+END
+user.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/utatanebiyori/!svn/ver/108/trunk/resources/templates/user.html
+END
+delete.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/utatanebiyori/!svn/ver/23/trunk/resources/templates/delete.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/login.html
+END
+replies.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/utatanebiyori/!svn/ver/93/trunk/resources/templates/replies.html
+END
+requests.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/utatanebiyori/!svn/ver/80/trunk/resources/templates/requests.html
+END
+kyuukou.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/kyuukou.html
+END
+settings.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/utatanebiyori/!svn/ver/92/trunk/resources/templates/settings.html
+END
+archive.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/utatanebiyori/!svn/ver/93/trunk/resources/templates/archive.html
+END
+statuses.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/utatanebiyori/!svn/ver/23/trunk/resources/templates/statuses.html
+END
+home.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/utatanebiyori/!svn/ver/106/trunk/resources/templates/home.html
+END

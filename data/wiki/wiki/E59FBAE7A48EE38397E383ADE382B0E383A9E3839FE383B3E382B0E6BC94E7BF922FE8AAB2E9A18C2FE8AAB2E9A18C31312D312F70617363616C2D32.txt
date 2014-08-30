@@ -1,0 +1,91 @@
+* 入力された月日と曜日に対し、その前の月の日付と曜日を出力する [#ye4234e4]
+
+#code(pascal){{
+program kadai11_1(input,output);
+
+type
+   date  = 1 .. 31;
+   day   = (Sun, Mon, Tue, Wed, The, Fri, Sat);
+   month = (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec);
+
+var
+   inputday, ansday     : day;
+   inputdate, ansdate   : date;
+   inputmonth, ansmonth : month;
+   c                    : char;
+
+begin
+   writeln('例に従って月日と曜日を入力してください。');
+   writeln('Sat,Dec 23');
+   read(inputday);
+   read(c);
+   read(inputmonth);
+   read(inputdate);
+
+   if ord(inputmonth) = 0 then
+      ansmonth := Dec
+   else
+      ansmonth := pred(inputmonth);
+
+   ansdate := inputdate;
+   ansday := inputday;
+   
+   case ansmonth of
+     Jan, Oct, Dec : begin
+        if ord(pred(pred(pred(inputday)))) < 0 then
+           ansday := succ(succ(succ(succ(inputday))))
+        else
+           ansday := pred(pred(pred(inputday)));
+     end;
+
+     Nov                : begin
+        if inputdate <= 30 then
+        begin
+           if ord(pred(pred(ansday))) < 0 then
+              ansday := succ(succ(succ(succ(succ(inputday)))))
+           else
+              ansday := pred(pred(inputday));
+        end
+        else
+        begin
+           ansdate := 30;
+           if ord(pred(pred(pred(inputday)))) < 0 then
+              ansday := succ(succ(succ(succ(inputday))))
+           else
+              ansday := pred(pred(pred(inputday)));
+        end;
+     end;
+
+     Feb                : begin
+        if inputdate >= 29 then
+        begin
+           ansdate := 28;
+           if inputdate = 29 then
+           begin
+              if ord(pred(inputday)) < 0 then
+                 ansday := succ(succ(succ(succ(succ(succ(inputday))))))
+              else
+                 ansday := pred(inputday);
+           end;
+
+           if inputdate = 30 then
+           begin
+              if ord(pred(pred(inputday))) < 0 then
+                 ansday := succ(succ(succ(succ(succ(inputday)))))
+              else
+                 ansday := pred(pred(inputday));
+           end;
+
+           if inputdate = 31 then
+           begin
+              if ord(pred(pred(pred(inputday)))) < 0 then
+                 ansday := succ(succ(succ(succ(inputday))))
+              else
+                 ansday := pred(pred(pred(inputday)));
+           end;
+        end;
+     end;
+   end; { case }
+   writeln(ansday, ',', ansmonth, ansdate);
+end.
+}}

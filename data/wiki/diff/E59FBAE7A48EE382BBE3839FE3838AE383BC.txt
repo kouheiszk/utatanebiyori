@@ -1,0 +1,66 @@
+-[[FrontPage]]
+ 
+-
+-*授業形態 [#yb9aee6a]
+-
+-**シラバス [#fa5a3d14]
+--全体講義を受けた後、少人数セミナーを行う。
+---全体講義&br;
+-情報通信基礎学講座、光・波動信号処理学講座、情報通信システム学講座、情報メディア工学講座の4講座で構成されている。各講座の内容や関連するトピックについて講義を行う。
+---少人数セミナー&br;
+-グループに分かれて先生とお話しする。レポートが大事。
+-
+-**実際 [#k984045d]
+--全体講義
+---教授がそれぞれの分野を丁寧に教えてくれる。新しい事がらはしっかりとノートを取って、わからないことがあったら積極的に質問しに行くべき。
+-
+-
+-*課題 [#o3141902]
+-
+-**アフィン暗号解読 [#se1c95ca]
+-アフィン暗号による以下の暗号文を解読せよ。&br;
+-平分は英語で空白、ピリオド等は省略され、大文字、小文字の区別もない。空白、ピリオド等を加えて通常の文に複合せよ。
+-
+- cmeyctkhyvtcmpxylqmnnygydlmdmcyhtsmdkznoqwyacactyecsxoqxilyzicyhmviwovhmpizctliqteitxyei
+- toqctxypolctmvyqivzykcyhpmlyvqladtomvdkldmcyctxymtxylpmlihogotincogvitklycqxyey
+-
+-まず出現頻度の高い文字の調査を行う。
+-
+- 22回 y　　16回 c　　15回 t　　14回 m
+-
+-英文中のアルファベットの出現確率が1位e、2位がtであることから、e=4が暗号文で出現頻度が高いy=24に暗号化されており、t=19がc=2に暗号化されているとまず推測する。
+-
+-連立方程式
+- 24 =  4a + b (mod 26)
+-  2 = 19a + b (mod 26)
+-
+-これを解くと
+- a = 2
+-が得られるが、これは不法な解。（aはZ26と素であり乗法逆元をもつ必要があるから。）
+-
+-次に、t=19は、c=2の次に出現頻度が高かいt=19に暗号化されている可能性を考える。
+-
+-連立方程式
+- 24 =  4a + b (mod 26)
+- 19 = 19a + b (mod 26)
+-
+-これを解くと
+- a = 17
+- b = 8
+-が得られ、適法な解となる。
+-
+-この鍵から得られる複合函数
+- d(Y) = 23Y + 24
+-を施して、意味の通る文になるか確認する。
+-
+-
+- somestudentsofhercollegeproposedtwopublickeysystemswhicharebasedonakindofabstractmathema 
+- ticsthefirstonecanbeusedforencryptionpurposestheotherforadigitalsignaturescheme
+-
+-
+- some students of her college proposed two public key systems which are based on a kind of abstract mathematics
+- the first one can be used for encryption purposes the other for a digital signatures cheme
+-
+-
+-だれかあとは編集して。
+-

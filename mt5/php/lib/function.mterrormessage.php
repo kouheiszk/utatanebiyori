@@ -1,0 +1,14 @@
+<?php
+# Movable Type (r) (C) 2001-2010 Six Apart, Ltd. All Rights Reserved.
+# This code cannot be redistributed without permission from www.sixapart.com.
+# For more information, consult your Movable Type license.
+#
+# $Id: function.mterrormessage.php 4196 2009-09-04 07:46:50Z takayama $
+
+function smarty_function_mterrormessage($args, &$ctx) {
+    // status: complete
+    // parameters: none
+    $err = $ctx->stash('error_message');
+    return empty($err) ? '' : $err;
+}
+?>

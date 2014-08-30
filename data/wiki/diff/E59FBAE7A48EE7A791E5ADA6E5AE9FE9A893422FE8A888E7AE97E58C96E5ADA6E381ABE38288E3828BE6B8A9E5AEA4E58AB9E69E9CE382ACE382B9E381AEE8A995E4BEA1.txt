@@ -1,0 +1,14 @@
+ * 考察のヒント [#v52ef3c3]
+ 
+ -ハロゲン化水素の電荷の偏り
+ -電気陰性度と双極子モーメントの関係
+ -電気陰性度とは
+ -双極子モーメントとは
+ -各分子の双極子モーメントと赤外活性かどうかの判定
+ -温室効果ガスである判断
++-シュレーディンガー方程式の導出
+ 
+ * 参考文献 [#ea4f5f4c]
+ http://www.shse.u-hyogo.ac.jp/kumagai/eac/ea/photometry/ir.htm
+-
++http://www12.atwiki.jp/quantum_mechanic/pages/15.html

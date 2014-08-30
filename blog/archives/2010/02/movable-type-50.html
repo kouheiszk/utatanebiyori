@@ -1,0 +1,534 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Movable Type Pro 5.01" />
+<link rel="stylesheet" href="http://utatanebiyori.uzusionet.com/blog/styles.css" type="text/css" />
+<link rel="start" href="http://utatanebiyori.uzusionet.com/blog/" title="Home" />
+<link rel="alternate" type="application/atom+xml" title="Recent Entries" href="http://utatanebiyori.uzusionet.com/blog/atom.xml" />
+<script type="text/javascript" src="http://utatanebiyori.uzusionet.com/blog/mt.js"></script>
+
+
+    
+    <link rel="prev bookmark" href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html" title="CentOSのポート解放" />
+    <link rel="next bookmark" href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html" title="rhacoをライブラリとして使う。" />
+    <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/14"
+    dc:title="Movable Type 5.0 にアップグレード"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html"
+    dc:subject="その他"
+    dc:description="Movable Type 5が出てたからバージョンアップしてみました。4.2から..."
+    dc:creator="なぎ"
+    dc:date="2010-02-04T01:08:38+09:00" />
+</rdf:RDF>
+-->
+
+    
+    <title>Movable Type 5.0 にアップグレード - うたたね日記</title>
+</head>
+<body id="classic-blog" class="mt-entry-archive layout-wtt">
+    <div id="container">
+        <div id="container-inner">
+
+
+            <div id="header">
+    <div id="header-inner">
+        <div id="header-content">
+
+
+            <div id="header-name"><a href="http://utatanebiyori.uzusionet.com/blog/" accesskey="1">うたたね日記</a></div>
+            <div id="header-description"></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+
+                            <div id="entry-15" class="entry-asset asset hentry">
+                                <div class="asset-header">
+                                    <h1 id="page-title" class="asset-name entry-title">Movable Type 5.0 にアップグレード</h1>
+                                    <div class="asset-meta">
+                                        <span class="byline">
+
+                                            <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2010-02-04T01:08:38+09:00">2010年2月 4日 01:08</abbr>)
+
+                                        </span>
+
+                                        <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comments">コメント(6)</a>
+
+
+                                        <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#trackbacks">トラックバック(0)</a>
+
+                                    </div>
+                                </div>
+                                <div class="asset-content entry-content">
+
+                                    <div class="asset-body">
+                                        Movable Type 5が出てたからバージョンアップしてみました。<br />4.2から5.0へのアップデートは何もないサーバーに4.2をインストールするよりもすんなりいきました。<br /><br />やり方はMovable Type 5 第一回勉強会のサイトを参考にしました。<br />そこにも書いてあったけど、ウェブサイトのURLが http://uzusionet.com/ に...。<br /><br />このブログのURLはウェブサイトの utatanebiyori っていうサブドメインの blog ディレクトリ以下ってことになってた。<br />つまりhttp://utatanebiyori.uzusionet.com/blog/ってこと。<br />最終的に正しいURLになってたけど、気持ち悪いから直しました。<br /><br />画像のパスとかどうなってるんだろう...気になります。<br /><br />ついでにテーマも変更。<br />http://vicuna.jp/ のデザインを使わせてもらいました。<br />いろいろと改造していく予定。<br /><br />なんかそんなことを1年前にも言ってた気がします。<br />三日坊主にならないように気をつけないと。<br /> 
+                                    </div>
+
+
+                                    <div id="more" class="asset-more">
+                                        最近rhacoってプラグイン兼フレームワークを使って大学のコミュニティーサイトを作ろうって思って...<br />uzusionetのphpのmbstringの設定がSJISでいろいろと文字化けして困ってます＾＾；<br /><br />そもそもマルチバイト文字のXSSに貧弱性があるのになんでSJIS使うんだ?<br />って思ったけど、きっと僕よりもこのサーバーを設定している彼らの方が技術力があるわけだから、何か理由があるんだろうなっておもって、いろいろrhacoのソースをいじくってます。<br /><br />...__ini__.phpじゃぁ設定できなかった。<br /><br />そもそもMovable Typeで作った方がいいのかって、このMT5入れた瞬間に思った。<br /><br />いや、PHP使えるようになりたいし!!がんばります。<br /><br />とりあえず、データベースの文字コードもいろいろ真っ白な今だから、開発よりも調査が先ですね。<br />
+                                    </div>
+
+                                </div>
+                                <div class="asset-footer">
+
+    
+                                    <div class="entry-categories">
+                                        <h4>カテゴリ<span class="delimiter">:</span></h4>
+                                        <ul>
+                                            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/" rel="tag">その他</a></li>
+                                        </ul>
+                                    </div>
+    
+
+
+                                    <div class="entry-tags">
+                                        <h4>タグ<span class="delimiter">:</span></h4>
+                                        <ul>
+                                            <li><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=movable%20type%205&amp;limit=20';return false;" rel="tag">movable type 5</a><span class="delimiter">,</span></li> <li><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=rhaco&amp;limit=20';return false;" rel="tag">rhaco</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                    <div id="trackbacks" class="trackbacks">
+    <h2 class="trackbacks-header">トラックバック(0)</h2>
+
+    
+    
+    <div class="trackbacks-info">
+        <p>トラックバックURL: http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/14</p>
+    </div>
+    
+
+
+    
+    
+</div>
+
+
+                    <div id="comments" class="comments">
+
+
+    
+    
+        
+    <h2 class="comments-header">コメント(6)</h2>
+    
+    <div id="comments-content" class="comments-content" style="clear: left;">
+        
+        <div id="comment-9" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://www.pc-games-10.de" href="http://utatanebiyori.uzusionet.com/mt5/mt-comments.cgi?__mode=red;id=9">Gebhard Lauer</a></span>
+
+                    | <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-9"><abbr class="published" title="2010-10-02T00:07:15+09:00">2010年10月 2日 00:07</abbr></a>
+
+                    | <a title="返信" href="javascript:void(0);" onclick="mtReplyCommentOnClick(9, 'Gebhard Lauer')">返信</a>
+
+                </span>
+            </div>
+        </div>
+        <div class="comment-content">
+            <p>Simply discovered your web page through google and I consider this can be a disgrace that you are not ranked upper due to the fact that that is a fantastic post. To switch this I determined to avoid wasting your web site to my RSS reader and I will try to point out you in one of my posts since you actually deserv extra readers when publishing content material of this quality. </p>
+        </div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-10" class="comment comment-reply">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+                <span class="byline">
+                    
+
+                    <span class="vcard author">Nagi</span>から<a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-9">Gebhard Lauer</a>への返信
+
+                    | <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-10"><abbr class="published" title="2010-10-06T11:32:39+09:00">2010年10月 6日 11:32</abbr></a>
+
+                    | <a title="返信" href="javascript:void(0);" onclick="mtReplyCommentOnClick(10, 'Nagi')">返信</a>
+
+                </span>
+            </div>
+        </div>
+        <div class="comment-content">
+            <p>Thank you!<br />
+I would like to continue to post useful information in the future.</p>
+        </div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-11" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://chem.delvern.com/index.php?topic=120256.new#new" href="http://utatanebiyori.uzusionet.com/mt5/mt-comments.cgi?__mode=red;id=11">Gilberto Ingersol</a></span>
+
+                    | <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-11"><abbr class="published" title="2011-03-12T08:14:30+09:00">2011年3月12日 08:14</abbr></a>
+
+                    | <a title="返信" href="javascript:void(0);" onclick="mtReplyCommentOnClick(11, 'Gilberto Ingersol')">返信</a>
+
+                </span>
+            </div>
+        </div>
+        <div class="comment-content">
+            <p>vast account you obtain</p>
+        </div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-12" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://board.eastonline.org/viewtopic.php?p=189025#189025" href="http://utatanebiyori.uzusionet.com/mt5/mt-comments.cgi?__mode=red;id=12">Sabine Vincenzo</a></span>
+
+                    | <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-12"><abbr class="published" title="2011-03-12T22:29:05+09:00">2011年3月12日 22:29</abbr></a>
+
+                    | <a title="返信" href="javascript:void(0);" onclick="mtReplyCommentOnClick(12, 'Sabine Vincenzo')">返信</a>
+
+                </span>
+            </div>
+        </div>
+        <div class="comment-content">
+            <p>colossal chart you keep</p>
+        </div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-13" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://craerlandete.es/foro/viewtopic.php?f=5&amp;t=3382" href="http://utatanebiyori.uzusionet.com/mt5/mt-comments.cgi?__mode=red;id=13">Ariane Lendo</a></span>
+
+                    | <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-13"><abbr class="published" title="2011-03-17T06:04:27+09:00">2011年3月17日 06:04</abbr></a>
+
+                    | <a title="返信" href="javascript:void(0);" onclick="mtReplyCommentOnClick(13, 'Ariane Lendo')">返信</a>
+
+                </span>
+            </div>
+        </div>
+        <div class="comment-content">
+            <p>I’d be inclined to see eye to eye with you here. Which is not something I usually do! I love reading a post that will make people think. Also, thanks for allowing me to speak my mind!</p>
+        </div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-14" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://adamland.proforums.org/viewtopic.php?p=22143#22143" href="http://utatanebiyori.uzusionet.com/mt5/mt-comments.cgi?__mode=red;id=14">Marietta Fitgerald</a></span>
+
+                    | <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-14"><abbr class="published" title="2011-03-17T13:10:02+09:00">2011年3月17日 13:10</abbr></a>
+
+                    | <a title="返信" href="javascript:void(0);" onclick="mtReplyCommentOnClick(14, 'Marietta Fitgerald')">返信</a>
+
+                </span>
+            </div>
+        </div>
+        <div class="comment-content">
+            <p>stupendous book you lock up</p>
+        </div>
+    </div>
+</div>
+        
+    </div>
+        
+    
+    
+
+    
+    
+    <div class="comments-open" id="comments-open">
+        <h2 class="comments-open-header">コメントする</h2>
+        <div class="comments-open-content">
+
+        
+            <div id="comment-greeting"></div>
+
+            <form method="post" action="http://utatanebiyori.uzusionet.com/mt5/mt-comments.cgi" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
+                <input type="hidden" name="static" value="1" />
+                <input type="hidden" name="entry_id" value="15" />
+                <input type="hidden" name="__lang" value="ja" />
+                <input type="hidden" name="parent_id" value="" id="comment-parent-id" />
+                <input type="hidden" name="armor" value="1" />
+                <input type="hidden" name="preview" value="" />
+                <input type="hidden" name="sid" value="" />
+                <div id="comments-open-data">
+                    <div id="comment-form-name">
+                        <label for="comment-author">名前</label>
+                        <input id="comment-author" name="author" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-email">
+                        <label for="comment-email">電子メール</label>
+                        <input id="comment-email" name="email" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-url">
+                        <label for="comment-url">URL</label>
+                        <input id="comment-url" name="url" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-remember-me">
+                        <input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="mtRememberMeOnClick(this)" value="1" accesskey="r" />
+                        <label for="comment-bake-cookie">ログイン情報を記憶</label>
+                    </div>
+                </div>
+                <div id="comment-form-reply" style="display:none">
+                    <input type="checkbox" id="comment-reply" name="comment_reply" value="" onclick="mtSetCommentParentID()" />
+                    <label for="comment-reply" id="comment-reply-label"></label>
+                </div>
+                <div id="comments-open-text">
+                    <label for="comment-text">コメント
+                    (スタイル用のHTMLタグを使えます)</label>
+                    <textarea id="comment-text" name="text" rows="15" cols="50" onfocus="mtCommentFormOnFocus()"></textarea>
+                </div>
+                <div id="comments-open-captcha"></div>
+                <div id="comments-open-footer">
+                    <input type="submit" accesskey="v" name="preview_button" id="comment-preview" value="プレビュー" onclick="this.form.preview.value='1';" />
+                    <input type="submit" accesskey="s" name="post" id="comment-submit" value="投稿" />
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+    <script type="text/javascript">
+    <!--
+    mtAttachEvent("load", mtEntryOnLoad);
+    mtAttachEvent("unload", mtEntryOnUnload);
+    //-->
+    </script>
+    
+
+
+</div>
+
+
+
+
+                        </div>
+                    </div>
+
+
+                    <div id="beta">
+    <div id="beta-inner">
+
+
+    
+    <div class="widget-archive widget-archive-category widget">
+    <h3 class="widget-header">カテゴリ</h3>
+    <div class="widget-content">
+    
+        
+        <ul>
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/rhaco/">rhaco (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/">その他 (4)</a>
+        
+        
+            </li>
+        
+        </ul>
+        
+    
+    </div>
+</div>
+
+
+
+
+    <div class="widget-archive-monthly widget-archive widget">
+    <h3 class="widget-header">月別 <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a></h3>
+    <div class="widget-content">
+        <ul>
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/">2011年5月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/">2010年4月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/">2010年2月 (3)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/">2009年9月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/">2009年4月 (2)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/">2009年2月 (3)</a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+
+<div class="widget-pages widget">
+    <h3 class="widget-header">ウェブページ</h3>
+    <div class="widget-content">
+        <ul>
+    
+    
+        </ul>
+    </div>
+</div>
+
+<div class="widget-syndication widget">
+    <div class="widget-content">
+        <ul>
+            <li><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/status_icons/feed.gif" alt="購読する" width="9" height="9" /> <a href="http://utatanebiyori.uzusionet.com/blog/atom.xml">このブログを購読</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="widget-powered widget">
+    <div class="widget-content">
+        <a href="http://www.sixapart.jp/movabletype/"><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/bug-pbmt-white.png" alt="Powered by Movable Type 5.01" width="120" height="75" /></a>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+
+    
+<div id="gamma">
+    <div id="gamma-inner">
+    <div class="widget-search widget">
+    <h3 class="widget-header">検索</h3>
+    <div class="widget-content">
+        <form method="get" action="http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi">
+            <input type="text" id="search" class="ti" name="search" value="" />
+
+            <input type="hidden" name="IncludeBlogs" value="1" />
+
+            <input type="hidden" name="limit" value="20" />
+            <input type="submit" accesskey="4" value="検索" />
+        </form>
+    </div>
+</div>
+
+<div class="widget-about-this-page widget">
+    <h3 class="widget-header">
+
+        このブログ記事について
+
+
+    </h3>
+    <div class="widget-content">
+
+
+        <p class="first">このページは、<a href="http://utatanebiyori.uzusionet.com/">なぎ</a>が2010年2月 4日 01:08に書いたブログ記事です。</p>
+    
+        <p>ひとつ前のブログ記事は「<a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html">CentOSのポート解放</a>」です。</p>
+    
+    
+        <p>次のブログ記事は「<a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html">rhacoをライブラリとして使う。</a>」です。</p>
+    
+
+
+
+
+
+        <p>最近のコンテンツは<a href="http://utatanebiyori.uzusionet.com/blog/">インデックスページ</a>で見られます。過去に書かれたものは<a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブのページ</a>で見られます。</p>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <div id="footer">
+    <div id="footer-inner">
+        <div id="footer-content">
+            <div class="widget-powered widget">
+                <div class="widget-content">
+                    Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type Pro</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

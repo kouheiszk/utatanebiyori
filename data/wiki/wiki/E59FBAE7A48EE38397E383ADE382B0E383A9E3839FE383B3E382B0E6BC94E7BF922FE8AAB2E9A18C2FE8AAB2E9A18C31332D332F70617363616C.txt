@@ -1,0 +1,65 @@
+* 減衰振動曲線の描画 [#wc46a9af]
+
+#code(pascal){{
+program kadai13_3(output);
+
+const
+   column = 80;
+   row    = 20;
+
+var
+   canvas : packed array [0..column, -row..row] of char ;
+
+procedure make_graph;
+
+var
+   i, j : integer;
+
+begin
+   for i := 0 to column do
+   begin
+      for j := -row to row do
+         canvas[i,j] := ' ';
+   end;
+   for i := 0 to column do
+      canvas[i,0] := '+';
+   for j := -row to row do
+      canvas[0,j] := '+';
+end; { make_graph }
+
+procedure plot_x_y;
+
+var
+   i, k : integer;
+   x, y : real;
+
+begin
+   for i := 0 to column do
+   begin
+      x := i / (column div 3); {グラフの横のスケールを3分の1に表示}
+      y := exp(-0.1 * x) * cos(2.0 * x);
+      k := round(row * y); {グラフの縦のスケールを20倍に表示}
+      canvas[i, k] := '*';
+   end;
+end; {plot_x_y}
+
+procedure write_graph;
+
+var
+   i, j : integer;
+
+begin
+   for j := row downto - row do
+      begin
+         for i := 0 to column do
+            write (canvas [i, j]);
+         writeln('');
+      end
+end; { write_graph }
+
+begin
+   make_graph;
+   plot_x_y;
+   write_graph;
+end.
+}}

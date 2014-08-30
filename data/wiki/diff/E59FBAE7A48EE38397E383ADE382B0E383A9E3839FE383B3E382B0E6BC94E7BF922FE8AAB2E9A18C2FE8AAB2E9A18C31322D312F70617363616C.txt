@@ -1,0 +1,65 @@
+ * 名前と電話番号の入出力 [#s192153a]
+ 
+ #code(pascal){{
+ program kadai12_1(input, output);
+ 
+ const
+    MAX       = 10;
+-   NAME_MAX  = 20;
+-   PHONE_MAX = 15;
++   NAME_MAX   = 20;
++   PHONE_MAX  = 15;
++   EOD       = 'end';
+ 
+ type
+-   KojinData =  record
+-                   name  : packed array [1..NAME_MAX] of char;
+-                   phone : packed array [1..PHONE_MAX] of char;
+-                end;
++   KojinData = record
++                            name  : packed array [1..NAME_MAX] of char;
++                            phone : packed array [1..PHONE_MAX] of char;
++                         end;
+ 
+ var
+    data : array [1..MAX] of KojinData;
+-   i, j : integer;
++   i     : integer;
+ 
+ begin
+    i := 0;
+    repeat
+       i := i + 1;
+-      writeln('名前を入力してください。');
++      write('名前を入力してください    :');
+       readln(data[i].name);
+ 
+-      if data[i].name <> 'end' then
++      if data[i].name <> EOD then
+       begin
+-         writeln('電話番号を入力してください。');
+-         readln(data[i].phone);
++              write('電話番号を入力してください:');
++              readln(data[i].phone);
+       end;
+-   until (i = MAX) or (data[i].name = 'end');
++   until (i = MAX) or (data[i].name = EOD);
+ 
+-   writeln('');
++   i := 0;
++   repeat
++      i := i + 1;
++      if data[i].name <> EOD then
++      begin
++         writeln(i:2, '人目の名前    :', data[i].name);
++         writeln(i:2, '人目の電話番号:', data[i].phone);
++      end;
++   until (i = MAX) or (data[i].name = EOD);
+ 
+-   for j := 1 to i - 1 do
+-   begin
+-      writeln('名前:', data[j].name);
+-      writeln('電話番号:', data[j].phone);
+-   end;
+ end.
+ }}

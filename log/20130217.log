@@ -1,0 +1,20 @@
+[error 2013/02/17 02:40:17]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2013/02/17 04:18:28]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2013/02/17 04:18:30]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2013/02/17 06:36:37]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2013/02/17 06:45:39]:[database/DbUtilBase.php:113] [Resource id #127(2)] COMMIT
+[error 2013/02/17 06:45:39]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2013/02/17 06:45:39]:[database/DbUtilBase.php:113] [Resource id #123(1)] COMMIT
+[error 2013/02/17 06:45:39]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2013/02/17 06:45:39]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2013/02/17 06:45:39]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2013/02/17 14:38:23]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2013/02/17 18:45:59]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2013/02/17 20:29:38]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2013/02/17 21:14:54]:[database/DbUtilBase.php:113] [Resource id #130(2)] COMMIT
+[error 2013/02/17 21:14:54]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2013/02/17 21:14:54]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2013/02/17 21:14:54]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2013/02/17 21:14:54]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2013/02/17 21:14:54]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2013/02/17 22:39:22]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />

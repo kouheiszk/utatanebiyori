@@ -1,0 +1,129 @@
+<?php
+Rhaco::import("resources.Message");
+Rhaco::import("database.model.TableObjectBase");
+Rhaco::import("database.model.DbConnection");
+Rhaco::import("model.Users");
+Rhaco::import("database.TableObjectUtil");
+Rhaco::import("database.model.Table");
+Rhaco::import("database.model.Column");
+/**
+ * #ignore
+ * 
+ */
+class RequestedUsersTable extends Users{
+	var $dependRequestss;
+	var $userss;
+
+	function table(){
+		if(!Rhaco::isVariable("_R_D_T_","RequestedUsers")){
+			Rhaco::addVariable("_R_D_T_",new Table(parent::table(),__CLASS__),"RequestedUsers");
+		}
+		return Rhaco::getVariable("_R_D_T_",null,"RequestedUsers");
+	}
+	function columns(){
+		return array(RequestedUsers::columnId(),RequestedUsers::columnUserId(),RequestedUsers::columnUserName(),RequestedUsers::columnEmail(),RequestedUsers::columnPassword(),RequestedUsers::columnImage(),RequestedUsers::columnImageX(),RequestedUsers::columnImageY(),RequestedUsers::columnIntroduceId(),RequestedUsers::columnPrivateFlag(),RequestedUsers::columnLastLogin(),RequestedUsers::columnCreatedAt(),RequestedUsers::columnUpdatedAt(),RequestedUsers::columnDeleteFlag(),RequestedUsers::columnActKey(),);
+	}
+	function columnId(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::Id")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnId(),__CLASS__),"RequestedUsers::Id");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::Id");			
+	}
+	function columnUserId(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::UserId")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnUserId(),__CLASS__),"RequestedUsers::UserId");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::UserId");			
+	}
+	function columnUserName(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::UserName")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnUserName(),__CLASS__),"RequestedUsers::UserName");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::UserName");			
+	}
+	function columnEmail(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::Email")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnEmail(),__CLASS__),"RequestedUsers::Email");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::Email");			
+	}
+	function columnPassword(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::Password")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnPassword(),__CLASS__),"RequestedUsers::Password");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::Password");			
+	}
+	function columnImage(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::Image")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnImage(),__CLASS__),"RequestedUsers::Image");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::Image");			
+	}
+	function columnImageX(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::ImageX")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnImageX(),__CLASS__),"RequestedUsers::ImageX");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::ImageX");			
+	}
+	function columnImageY(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::ImageY")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnImageY(),__CLASS__),"RequestedUsers::ImageY");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::ImageY");			
+	}
+	function columnIntroduceId(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::IntroduceId")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnIntroduceId(),__CLASS__),"RequestedUsers::IntroduceId");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::IntroduceId");			
+	}
+	function columnPrivateFlag(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::PrivateFlag")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnPrivateFlag(),__CLASS__),"RequestedUsers::PrivateFlag");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::PrivateFlag");			
+	}
+	function columnLastLogin(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::LastLogin")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnLastLogin(),__CLASS__),"RequestedUsers::LastLogin");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::LastLogin");			
+	}
+	function columnCreatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::CreatedAt")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnCreatedAt(),__CLASS__),"RequestedUsers::CreatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::CreatedAt");			
+	}
+	function columnUpdatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::UpdatedAt")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnUpdatedAt(),__CLASS__),"RequestedUsers::UpdatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::UpdatedAt");			
+	}
+	function columnDeleteFlag(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::DeleteFlag")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnDeleteFlag(),__CLASS__),"RequestedUsers::DeleteFlag");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::DeleteFlag");			
+	}
+	function columnActKey(){
+		if(!Rhaco::isVariable("_R_D_C_","RequestedUsers::ActKey")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnActKey(),__CLASS__),"RequestedUsers::ActKey");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RequestedUsers::ActKey");			
+	}
+	function setDependRequestss($value){
+		$this->dependRequestss = $value;
+	}
+	function getDependRequestss(){
+		return $this->dependRequestss;
+	}
+	function setUserss($value){
+		$this->userss = $value;
+	}
+	function getUserss(){
+		return $this->userss;
+	}
+}
+?>

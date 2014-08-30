@@ -1,0 +1,39 @@
+<form action="{$rhaco.url('whisper/status/update')}" class="status-update-form" id="status_update_form" method="post">
+  <input id="user_id" name="user_id" type="hidden" value="{$login.id}" />
+  <input id="reply_status_id" name="reply_status_id" type="hidden" value="" />
+  <input id="reply_user_id" name="reply_user_id" type="hidden" value="" />
+  <input id="source" name="source" type="hidden" value="" />
+  <fieldset class="whisper-common-form standard-form">
+    <div class="bar">
+      <!--<h4><label for="status" class="doing">いまどうしてる？</label></h4>-->
+      <span id="chars_left_notice" class="numeric"><strong id="status-field-char-counter" class="char-counter">140</strong></span>
+    </div>
+    <div class="info">
+      <textarea id="status" name="status" accesskey="u" autocomplete="off" tabindex="1"></textarea>
+      <div id="whisping_controls">
+        <input type="button" id="whisping_button" value="投稿" />
+        <input type="submit" name="update" value="投稿する" id="update-submit" class="status-btn round-btn" tabindex="2" />
+     </div>
+     <div class="status-btn" style="display:none">
+       <input type="submit" name="update" value="投稿する" id="update-submit" class="status-btn round-btn" tabindex="2" />
+     </div>
+     <div id="update_notifications">
+       <div id="latest_status">
+         <span id="latest_status">
+            <span id="latest_text_full">
+              <strong>最新のささやき：</strong>
+              <span class="status-text">{$whf.f($latest_status.status)}</span>&nbsp;
+              <span id="latest_text"><span id="latest_meta" class="entry-meta">{$whf.passage($latest_status.createdAt)}</span></span>
+              <span class="entry-meta" style="display: none;">
+                <a href="{$rhaco.url('whisper/status/detail')}/{$latest_status.id}" class="entry-date"><span class="published" title="{$whf.datef($latest_status.createdAt)}">{$whf.datef($latest_status.createdAt)}</span></a>&nbsp;
+                <span><a href="http://twtr.jp" rel="nofollow">Web</a></span>
+                <a href="{$rhaco.url('whisper/status/detail')}/{$latest_status.replyStatusId}">&nbsp;in reply to rakutansya</a>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </fieldset>
+</form>

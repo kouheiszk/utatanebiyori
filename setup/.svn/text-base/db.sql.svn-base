@@ -1,0 +1,201 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: utatanebiyori
+-- ------------------------------------------------------
+-- Server version	5.0.77-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `utatanebiyori`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `utatanebiyori` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `utatanebiyori`;
+
+--
+-- Table structure for table `uta_followers`
+--
+
+DROP TABLE IF EXISTS `uta_followers`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `uta_followers` (
+  `user_id` int(22) default NULL,
+  `follow_id` int(22) default NULL,
+  `created_at` datetime default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `uta_followers`
+--
+
+LOCK TABLES `uta_followers` WRITE;
+/*!40000 ALTER TABLE `uta_followers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uta_followers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `uta_requests`
+--
+
+DROP TABLE IF EXISTS `uta_requests`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `uta_requests` (
+  `user_id` int(22) default NULL,
+  `request_id` int(22) default NULL,
+  `created_at` datetime default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `uta_requests`
+--
+
+LOCK TABLES `uta_requests` WRITE;
+/*!40000 ALTER TABLE `uta_requests` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uta_requests` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `uta_statuses`
+--
+
+DROP TABLE IF EXISTS `uta_statuses`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `uta_statuses` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(22) default NULL,
+  `reply_user_id` int(22) default NULL,
+  `comment` longblob NOT NULL,
+  `created_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `uta_statuses`
+--
+
+LOCK TABLES `uta_statuses` WRITE;
+/*!40000 ALTER TABLE `uta_statuses` DISABLE KEYS */;
+INSERT INTO `uta_statuses` VALUES (1,3,NULL,'あいうえお','2010-03-11 03:01:45'),(2,3,NULL,'かきくけこ','2010-03-11 16:08:36'),(3,4,3,'>>6vQ8je9Q さしすせそ','2010-03-11 23:00:32');
+/*!40000 ALTER TABLE `uta_statuses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `uta_users`
+--
+
+DROP TABLE IF EXISTS `uta_users`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `uta_users` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` longblob NOT NULL,
+  `user_name` longblob NOT NULL,
+  `email` tinyblob NOT NULL,
+  `password` longblob NOT NULL,
+  `image` longblob,
+  `image_x` int(22) default NULL,
+  `image_y` int(22) default NULL,
+  `introduce_id` int(22) default NULL,
+  `private_flag` tinyint(1) default NULL,
+  `last_login` datetime default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `delete_flag` tinyint(1) default NULL,
+  `act_key` longblob,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `uta_users`
+--
+
+LOCK TABLES `uta_users` WRITE;
+/*!40000 ALTER TABLE `uta_users` DISABLE KEYS */;
+INSERT INTO `uta_users` VALUES (1,'UtSystem','システム','b.utatane+system@gmail.com','30274c47903bd1bac7633bbf09743149ebab805f',NULL,NULL,NULL,NULL,0,'2010-04-01 00:00:00','2010-04-01 00:00:00','2010-04-01 00:00:00',0,NULL),(2,'UtGuests','ゲスト','b.utatane+guest@gmail.com','30274c47903bd1bac7633bbf09743149ebab805f',NULL,NULL,NULL,NULL,0,'2010-04-01 00:00:00','2010-04-01 00:00:00','2010-04-01 00:00:00',0,NULL),(3,'6vQ8je9Q','なぎ','kyoun0-5hanwa.7ndaro7@ezweb.ne.jp','30274c47903bd1bac7633bbf09743149ebab805f','6vQ8je9Q.jpg',240,320,NULL,0,'2010-04-01 00:00:00','2010-04-01 00:00:00','2010-04-01 00:00:00',0,NULL),(4,'w9AvPMaJ','テスト','test@test.com','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','w9AvPMaJ.jpg',240,320,NULL,0,'2010-04-01 00:00:00','2010-04-01 00:00:00','2010-04-01 00:00:00',0,NULL);
+/*!40000 ALTER TABLE `uta_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `uta_users_introduce`
+--
+
+DROP TABLE IF EXISTS `uta_users_introduce`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `uta_users_introduce` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(22) default NULL,
+  `introduce` longblob,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `uta_users_introduce`
+--
+
+LOCK TABLES `uta_users_introduce` WRITE;
+/*!40000 ALTER TABLE `uta_users_introduce` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uta_users_introduce` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `uta_wikis`
+--
+
+DROP TABLE IF EXISTS `uta_wikis`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `uta_wikis` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(22) default NULL,
+  `wiki_name` longblob NOT NULL,
+  `password` longblob,
+  `text` longblob,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `delete_flag` tinyint(1) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `uta_wikis`
+--
+
+LOCK TABLES `uta_wikis` WRITE;
+/*!40000 ALTER TABLE `uta_wikis` DISABLE KEYS */;
+INSERT INTO `uta_wikis` VALUES (1,1,'トップ','','* 夜C＠wiki\r\n\r\n『夜C＠wiki』はゆとりある大学生活を送るために障害となるあらゆる問題を解決するために開設された、\'\'夜Cの夜Cによる夜Cのためのwiki\'\'です。\r\n\r\n* How\r\n\r\nわからないことがある場合はHelpを見てください。編集時の書式とかも乗ってます。あと、編集はなるべくパソコンで行ってください。\r\n通貨単位は50円=1バナナを使ってください。食堂のバナナは2本で1バナナです。お得ですね。\r\n\r\n* 休講情報\r\n\r\n* 新着情報\r\n\r\n●&color(red){平成２２年度学年歴更新のお知らせ};\r\n\r\n次年度の学事予定が更新されました。\r\nちなみに新学期開始は４月７日（水）だそうです。\r\n（http://kyoumu.office.uec.ac.jp/kyoumu-gakari/22/gakubu.pdf）\r\n\r\n* 編集・投稿ガイドライン\r\n\r\n+確実なソースをもとに記載してください。憶測や推測を含む場合はそのことを明記してください。\r\n+編集するときはプレビューを活用してください。','2010-04-06 18:12:34','2010-04-06 18:12:34',0),(2,1,'メニュー','','* メニュー\r\n\r\n-[[Academic Spoken English 1]]\r\n-[[Academic Written English 1]]\r\n-[[工学基礎演習]]\r\n-[[コンピュータリテラシー>コンピュータリテラシー]]\r\n-[[力学第一]]\r\n-[[化学結合と構造]]\r\n-[[技術史]]\r\n-[[基礎プログラミング演習>基礎プログラミング演習]]\r\n-[[基礎科学実験A>基礎科学実験A]]\r\n-[[基礎科学実験B>基礎科学実験B]]\r\n-[[工学基礎演習]]\r\n-[[技術史]]\r\n-[[文学B]]\r\n-その他\r\n//--[[掲示板>http://utatanebiyori.uzusionet.com/bbs/]]\r\n--[[うｐろだ>http://utatanebiyori.uzusionet.com/upload/]]\r\n--[[チャット>http://utatanebiyori.uzusionet.com/chat/chat?roomid=utatanebiyori]]\r\n--[[電通用語集]]\r\n--[[夜Cの愉快な仲間たち]]\r\n--[[リンク集]]\r\n--[[クラス交流会]]\r\n--[[編集・投稿ガイドライン]]','2010-04-06 18:15:56','2010-04-06 18:15:56',0);
+/*!40000 ALTER TABLE `uta_wikis` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2010-04-06  9:21:15

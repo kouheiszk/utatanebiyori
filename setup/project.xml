@@ -1,0 +1,99 @@
+<project rhacover="1.6.1" version="0.6.0" name="utatanebiyori" pathinfo="index.php" xmlns="http://rhaco.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://rhaco.org http://m.rhaco.org/xsd/project_1_6_1.xsd">
+  <database name="utatanebiyori" renew="true">
+    <rt:comment>Users</rt:comment>
+      <table name="users">
+        <column name="id" />
+        <column name="user_id" require="true" unique="true" chartype="^[a-zA-Z0-9]+$" label="ユーザーID" />
+        <column name="user_name" require="true" unique="true" max="30" label="ユーザー名" />
+        <column name="email" type="email" require="true" unique="true" label="メールアドレス" />
+        <column name="password" require="true" label="パスワード" />
+        <column name="image" />
+        <column name="image_x" type="int" />
+        <column name="image_y" type="int" />
+        <column name="introduce_id" type="int" />
+        <column name="private_flag" type="bool" default="false" />
+        <column name="last_login" type="timestamp" default="sysdate" />
+        <column name="created_at" type="timestamp" default="sysdate" />
+        <column name="updated_at" type="timestamp" default="sysdate" />
+        <column name="delete_flag" type="bool" default="false" />
+        <column name="act_key" />
+        <extra name="new_password" min="3" />
+        <extra name="password_conf" />
+      </table>
+
+      <rt:comment>Counter</rt:comment>
+      <table name="counter">
+        <description>Counter</description>
+        <column name="id" />
+        <column name="year" type="int" label="年" />
+        <column name="month" type="int" label="月" />
+        <column name="day" type="int" />
+        <column name="yesterday" type="int" label="昨日のアクセス数" />
+        <column name="today" type="int" label="今日のアクセス数" />
+        <column name="total" type="int" label="全体のアクセス数" />
+        <column name="host" type="text" />
+      </table>
+
+      <rt:comment>Whisper</rt:comment>
+      <rt:include href="./whisper/whisper.xml" />
+
+      <rt:comment>Uploader</rt:comment>
+      <rt:include href="./wikis/wikis.xml" />
+      <rt:include href="./wikis/wikis_backup.xml" />
+      <rt:include href="./wikis/wikis_attach.xml" />
+
+      <rt:comment>Uploader</rt:comment>
+      <rt:include href="./uploader/uploader.xml" />
+      <rt:include href="./uploader/uploader_category.xml" />
+    </database>
+    <input name="SITE_NAME">
+      <title>Site Name</title>
+      <data>うたたね日和</data>
+  </input>
+  <input name="SITE_MAIL_ADDRESS">
+    <title>Site Mailaddress</title>
+    <data>utatanebiyori@uzusionet.com</data>
+  </input>
+  <input name="MAIL_ADDRESS">
+    <title>System Mailaddress</title>
+    <data>b.utatane+system@gmail.com</data>
+  </input>
+  <input name="COUNTER_MAIL_ADDRESS">
+    <title>Counter Mailaddress</title>
+    <data>b.utatane+counter@gmail.com</data>
+  </input>
+  <input name="WIKI_BACKUP_MAIL_ADDRESS">
+    <title>WIki Backup Mailaddress</title>
+    <data>b.utatane+wikibackup@gmail.com</data>
+  </input>
+  <input name="NOREPLY_MAIL_ADDRESS">
+    <title>NOreply Mailaddress</title>
+    <data>b.utatane+noreply@gmail.com</data>
+  </input>
+  <input name="BEFOR_URI">
+    <title>URIの前のサーバー部分</title>
+    <data>http://192.168.124.10</data>
+  </input>
+  <input name="KYUUKOU_URL">
+    <title>電気通信大学休講情報のURL</title>
+    <data>http://kyoumu.office.uec.ac.jp/kyuukou/kyuukou.html</data>
+  </input>
+  <input name="WIKI_TOP">
+    <title>【Wiki】トップページ</title>
+  </input>
+  <input name="WIKI_MENU">
+    <title>【Wiki】メニュー</title>
+    <data>メニュー</data>
+  </input>
+  <input name="SYSTEM_USER_ID">
+    <title>【Wiki】システムユーザーID</title>
+    <data>1</data>
+  </input>
+  <input name="GUEST_USER_ID">
+    <title>【Wiki】ゲストユーザーID</title>
+    <data>2</data>
+  </input>
+
+  <rt:comment>UPLOADER設定</rt:comment>
+  <rt:include href="./uploader/uploader_settings.xml"/>
+</project>

@@ -1,0 +1,52 @@
+* 元号年を西暦年に変換 [#e04b0836]
+
+#code(pascal){{
+program kadai111_2(input, output);
+
+type
+   nengou  = (m, t, s, h);
+   toshi   = 1 .. 64;
+   seireki = 1867 .. 2010;
+
+function check(n : nengou; y : toshi) : integer;
+begin
+   case ord(n) of
+     0 :if y > 45 then
+           check := 0
+             else
+           check := 1868;
+     1 :if y > 13 then
+                check := 0
+             else
+                check := 1912;
+     2 :if y > 64 then
+                check := 0
+             else
+                check := 1926;
+     3 :if y > 22 then
+                check := 0
+             else
+                check := 1989;
+   end; { case }
+end;
+
+var
+   inputnengou : nengou;
+   inputtoshi  : toshi;
+   ansseireki  : seireki;
+
+begin
+   writeln('例に従って年号と年を入力してください。(昭和63年の場合)');
+   writeln('s 63');
+   read(inputnengou);
+   read(inputtoshi);
+
+   if check(inputnengou, inputtoshi) = 0 then
+      writeln('フォーマットが異るか、存在しない年号です。')
+   else
+   begin
+      ansseireki := check(inputnengou, inputtoshi) + inputtoshi - 1;
+      writeln(ansseireki:4, '年');
+   end;
+end.
+}}

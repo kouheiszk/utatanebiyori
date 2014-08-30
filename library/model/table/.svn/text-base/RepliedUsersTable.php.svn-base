@@ -1,0 +1,115 @@
+<?php
+Rhaco::import("resources.Message");
+Rhaco::import("database.model.TableObjectBase");
+Rhaco::import("database.model.DbConnection");
+Rhaco::import("model.Users");
+Rhaco::import("database.TableObjectUtil");
+Rhaco::import("database.model.Table");
+Rhaco::import("database.model.Column");
+/**
+ * #ignore
+ * 
+ */
+class RepliedUsersTable extends Users{
+
+	function table(){
+		if(!Rhaco::isVariable("_R_D_T_","RepliedUsers")){
+			Rhaco::addVariable("_R_D_T_",new Table(parent::table(),__CLASS__),"RepliedUsers");
+		}
+		return Rhaco::getVariable("_R_D_T_",null,"RepliedUsers");
+	}
+	function columns(){
+		return array(RepliedUsers::columnId(),RepliedUsers::columnUserId(),RepliedUsers::columnUserName(),RepliedUsers::columnEmail(),RepliedUsers::columnPassword(),RepliedUsers::columnImage(),RepliedUsers::columnImageX(),RepliedUsers::columnImageY(),RepliedUsers::columnIntroduceId(),RepliedUsers::columnPrivateFlag(),RepliedUsers::columnLastLogin(),RepliedUsers::columnCreatedAt(),RepliedUsers::columnUpdatedAt(),RepliedUsers::columnDeleteFlag(),RepliedUsers::columnActKey(),);
+	}
+	function columnId(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::Id")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnId(),__CLASS__),"RepliedUsers::Id");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::Id");			
+	}
+	function columnUserId(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::UserId")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnUserId(),__CLASS__),"RepliedUsers::UserId");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::UserId");			
+	}
+	function columnUserName(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::UserName")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnUserName(),__CLASS__),"RepliedUsers::UserName");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::UserName");			
+	}
+	function columnEmail(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::Email")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnEmail(),__CLASS__),"RepliedUsers::Email");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::Email");			
+	}
+	function columnPassword(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::Password")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnPassword(),__CLASS__),"RepliedUsers::Password");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::Password");			
+	}
+	function columnImage(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::Image")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnImage(),__CLASS__),"RepliedUsers::Image");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::Image");			
+	}
+	function columnImageX(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::ImageX")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnImageX(),__CLASS__),"RepliedUsers::ImageX");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::ImageX");			
+	}
+	function columnImageY(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::ImageY")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnImageY(),__CLASS__),"RepliedUsers::ImageY");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::ImageY");			
+	}
+	function columnIntroduceId(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::IntroduceId")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnIntroduceId(),__CLASS__),"RepliedUsers::IntroduceId");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::IntroduceId");			
+	}
+	function columnPrivateFlag(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::PrivateFlag")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnPrivateFlag(),__CLASS__),"RepliedUsers::PrivateFlag");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::PrivateFlag");			
+	}
+	function columnLastLogin(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::LastLogin")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnLastLogin(),__CLASS__),"RepliedUsers::LastLogin");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::LastLogin");			
+	}
+	function columnCreatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::CreatedAt")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnCreatedAt(),__CLASS__),"RepliedUsers::CreatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::CreatedAt");			
+	}
+	function columnUpdatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::UpdatedAt")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnUpdatedAt(),__CLASS__),"RepliedUsers::UpdatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::UpdatedAt");			
+	}
+	function columnDeleteFlag(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::DeleteFlag")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnDeleteFlag(),__CLASS__),"RepliedUsers::DeleteFlag");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::DeleteFlag");			
+	}
+	function columnActKey(){
+		if(!Rhaco::isVariable("_R_D_C_","RepliedUsers::ActKey")){
+			Rhaco::addVariable("_R_D_C_",new Column(parent::columnActKey(),__CLASS__),"RepliedUsers::ActKey");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"RepliedUsers::ActKey");			
+	}
+}
+?>

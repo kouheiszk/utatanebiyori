@@ -1,0 +1,20 @@
++* 繰り返し2 [#kc27a721]
+ 
++#code(pascal){{
++program tree(output);
++
++var
++   i, j : integer;
++
++begin
++   for i := 1 to 10 do
++   begin
++      for j := 1 to 10 - i do
++         write(' ');
++      for j := 1 to i do
++         write('*');
++      writeln();
++   end;
++end.
++}}
++

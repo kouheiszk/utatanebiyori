@@ -1,0 +1,76 @@
+* 再帰呼び出しを用いて最大公約数を求める [#jbd6b09b]
+
+#code(pascal){{
+program kadai14_1(input, output);
+
+const
+   MAX = 10;
+
+var
+   i, ans : integer;
+   data   : array [1..MAX] of integer;
+
+function gcd (a, b : integer) : integer;
+
+var
+   tmp : integer;
+
+begin
+   if a < b then
+   begin
+      tmp := b;
+      b   := a;
+      a   := tmp;
+   end;
+
+   a := a mod b;
+   if a = 0 then
+      gcd := b
+   else
+      gcd := gcd(a, b);
+end; { gcd }
+
+procedure inputdata;
+
+var
+   i : integer;
+
+begin
+   i := 0;
+   repeat
+      i := i + 1;
+      repeat
+         write('整数を入力してください:');
+         readln(data[i]);
+         if (data[i] = 0) and (i <= 2) then
+            writeln('2つ以上の正の整数を入力する必要があります。');
+      until not((data[i] = 0) and (i <= 2));
+   until (data[i] = 0) or (i = 10);
+end; { inputdata }
+
+procedure outputdata;
+
+var
+   i : integer;
+
+begin
+   ans := gcd(data[1], data[2]);
+
+   i := 0;
+   repeat
+      i := i + 1;
+      ans := gcd(data[i], ans);
+      write(data[i]:1);
+      if (data[i + 1] <> 0) and (i <> 10) then
+         write(', ');
+   until (data[i + 1] = 0) or (i = 10);
+
+   write('の最大公約数は ');
+   writeln(ans:1);
+end;
+
+begin
+   inputdata;
+   outputdata;
+end.
+}}

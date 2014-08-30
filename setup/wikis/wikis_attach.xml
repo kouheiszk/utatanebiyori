@@ -1,0 +1,10 @@
+<table name="wikis_attach">
+    <description>Wikis_attach</description>
+    <column name="id" />
+    <column name="wiki_id" type="int" reference="wikis.id" />
+    <column name="user_id" type="int" reference="users.id" />
+    <column name="file_id" require="true" uniquewith="wiki_id" label="ファイルID" />
+    <column name="file_name" type="text" label="ファイル名" />
+    <column name="delete_flag" type="bool" default="false" />
+    <column name="created_at" type="timestamp" default="sysdate" label="作成日時" />
+</table>

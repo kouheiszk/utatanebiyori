@@ -1,0 +1,5 @@
+order deny,allow
+deny from all
+
+allow from 130.153.26.5
+#20120727143821

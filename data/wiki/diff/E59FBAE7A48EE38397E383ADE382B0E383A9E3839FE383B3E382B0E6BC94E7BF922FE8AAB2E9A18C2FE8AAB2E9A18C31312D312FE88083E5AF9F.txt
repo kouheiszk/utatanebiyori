@@ -1,0 +1,97 @@
+ * 入力された月日と曜日に対し、その前の月の日付と曜日を出力する [#u9632f99]
+ 
+ #code(pascal){{
+-program 11-1(input, output);
++program tsukihi(input, output);
+ 
+ type
+-   date  = 1 .. 31;
+-   day   = (Sun, Mon, Tue, Wed, Thu, Fri, Sat);
++   date = 1 .. 31;
++   day  = (Sun, Mon, Tue, Wed, The, Fri, Sat);
+    month = (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec);
+ 
+ function datenum(m : month) : date;
+ begin
+    case ord(m) of
+-     0  : datenum := 31;
+-     1  : datenum := 28;
+-     2  : datenum := 31;
+-     3  : datenum := 30;
+-     4  : datenum := 31;
+-     5  : datenum := 30;
+-     6  : datenum := 31;
+-     7  : datenum := 31;
+-     8  : datenum := 30;
+-     9  : datenum := 31;
+-     10 : datenum := 30;
+-     11 : datenum := 31;
++     0, 2, 4, 6, 7, 9, 11 : datenum := 31;
++     1                   : datenum := 28;
++     3, 5, 8, 10          : datenum := 30;
+    end; { case }
+ end;
+ 
+ var
+    inputday, ansday     : day;
+    inputdate, ansdate   : date;
+    inputmonth, ansmonth : month;
+    c                    : char;
+    i                    : integer;
+ 
+ begin
+    writeln('例に従って月日と曜日を入力してください。');
+    writeln('Sat,Dec 23');
+    read(inputday);
+    read(c);
+    read(inputmonth);
+    read(inputdate);
+ 
+    if (c <> ',') then
+       writeln('フォーマットが異なります。')
+    else
+    begin
+       if inputdate > datenum(inputmonth) then
+          writeln('入力した月日は存在しません。')
+       else
+       begin
+          if ord(inputmonth) = 0 then
+-            ansmonth := Dec
++                 ansmonth := Dec
+          else
+             ansmonth := pred(inputmonth);
+-      
++
+          if inputdate > datenum(ansmonth) then
+-            ansdate := datenum(ansmonth)
++                 ansdate := datenum(ansmonth)
+          else
+-            ansdate := inputdate;
++                 ansdate := inputdate;
+ 
+          if (ord(inputday) - ((inputdate + (datenum(ansmonth) - ansdate)) mod 7)) > 0 then
+          begin
+-            ansday := inputday;
+-            for i := 1 to ((inputdate + (datenum(ansmonth) - ansdate)) mod 7) do
+-               ansday := pred(ansday);
++                 ansday := inputday;
++                 for i := 1 to ((inputdate + (datenum(ansmonth) - ansdate)) mod 7) do
++                    ansday := pred(ansday);
+          end
+          else
+          begin
+-            ansday := inputday;
+-            for i := 1 to (7 - ((inputdate + (datenum(ansmonth) - ansdate)) mod 7)) do
+-               ansday := succ(ansday);
++                 ansday := inputday;
++                 for i := 1 to (7 - ((inputdate + (datenum(ansmonth) - ansdate)) mod 7)) do
++                 ansday := succ(ansday);
+          end;
+-      
+-         writeln(ansday, ',', ansmonth, ansdate);
++
++              writeln(ansday:3, ',', ansmonth:3, ansdate:3);
+       end;
+    end;
+ end.
+ }}

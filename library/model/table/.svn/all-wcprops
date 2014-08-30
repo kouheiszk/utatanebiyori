@@ -1,0 +1,166 @@
+<?php
+Rhaco::import("resources.Message");
+Rhaco::import("database.model.TableObjectBase");
+Rhaco::import("database.model.DbConnection");
+Rhaco::import("database.TableObjectUtil");
+Rhaco::import("database.model.Table");
+Rhaco::import("database.model.Column");
+/**
+ * #ignore
+ * Uploader Category
+ */
+class UploaderCategoryTable extends TableObjectBase{
+	/**  */
+	var $id;
+	/**  */
+	var $name;
+	/**  */
+	var $updatedAt;
+	/**  */
+	var $createdAt;
+	var $dependUploaders;
+
+
+	function UploaderCategoryTable($id=null){
+		$this->__init__($id);
+	}
+	function __init__($id=null){
+		$this->id = null;
+		$this->name = null;
+		$this->updatedAt = time();
+		$this->createdAt = time();
+		$this->setId($id);
+	}
+	function connection(){
+		if(!Rhaco::isVariable("_R_D_CON_","utatanebiyori")){
+			Rhaco::addVariable("_R_D_CON_",new DbConnection("utatanebiyori"),"utatanebiyori");
+		}
+		return Rhaco::getVariable("_R_D_CON_",null,"utatanebiyori");
+	}
+	function table(){
+		if(!Rhaco::isVariable("_R_D_T_","UploaderCategory")){
+			Rhaco::addVariable("_R_D_T_",new Table(Rhaco::constant("DATABASE_utatanebiyori_PREFIX")."uploader_category",__CLASS__),"UploaderCategory");
+		}
+		return Rhaco::getVariable("_R_D_T_",null,"UploaderCategory");
+	}
+
+
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnId(){
+		if(!Rhaco::isVariable("_R_D_C_","UploaderCategory::Id")){
+			$column = new Column("column=id,variable=id,type=serial,size=22,primary=true,",__CLASS__);
+			$column->label(Message::_("id"));
+			$column->depend("Uploader::CategoryId");
+			Rhaco::addVariable("_R_D_C_",$column,"UploaderCategory::Id");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UploaderCategory::Id");
+	}
+	/**
+	 * 
+	 * @return serial
+	 */
+	function setId($value){
+		$this->id = TableObjectUtil::cast($value,"serial");
+	}
+	/**
+	 * 
+	 */
+	function getId(){
+		return $this->id;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnName(){
+		if(!Rhaco::isVariable("_R_D_C_","UploaderCategory::Name")){
+			$column = new Column("column=name,variable=name,type=text,max=20,",__CLASS__);
+			$column->label(Message::_("カテゴリ名"));
+			Rhaco::addVariable("_R_D_C_",$column,"UploaderCategory::Name");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UploaderCategory::Name");
+	}
+	/**
+	 * 
+	 * @return text
+	 */
+	function setName($value){
+		$this->name = TableObjectUtil::cast($value,"text");
+	}
+	/**
+	 * 
+	 */
+	function getName(){
+		return $this->name;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnUpdatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","UploaderCategory::UpdatedAt")){
+			$column = new Column("column=updated_at,variable=updatedAt,type=timestamp,",__CLASS__);
+			$column->label(Message::_("更新日時"));
+			Rhaco::addVariable("_R_D_C_",$column,"UploaderCategory::UpdatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UploaderCategory::UpdatedAt");
+	}
+	/**
+	 * 
+	 * @return timestamp
+	 */
+	function setUpdatedAt($value){
+		$this->updatedAt = TableObjectUtil::cast($value,"timestamp");
+	}
+	/**
+	 * 
+	 */
+	function getUpdatedAt(){
+		return $this->updatedAt;
+	}
+	/**  */
+	function formatUpdatedAt($format="Y/m/d H:i:s"){
+		return DateUtil::format($this->updatedAt,$format);
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnCreatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","UploaderCategory::CreatedAt")){
+			$column = new Column("column=created_at,variable=createdAt,type=timestamp,",__CLASS__);
+			$column->label(Message::_("作成日時"));
+			Rhaco::addVariable("_R_D_C_",$column,"UploaderCategory::CreatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UploaderCategory::CreatedAt");
+	}
+	/**
+	 * 
+	 * @return timestamp
+	 */
+	function setCreatedAt($value){
+		$this->createdAt = TableObjectUtil::cast($value,"timestamp");
+	}
+	/**
+	 * 
+	 */
+	function getCreatedAt(){
+		return $this->createdAt;
+	}
+	/**  */
+	function formatCreatedAt($format="Y/m/d H:i:s"){
+		return DateUtil::format($this->createdAt,$format);
+	}
+
+
+	function setDependUploaders($value){
+		$this->dependUploaders = $value;
+	}
+	function getDependUploaders(){
+		return $this->dependUploaders;
+	}
+}
+?>

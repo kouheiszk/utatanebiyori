@@ -1,0 +1,31 @@
+<h4 id="upload-information">_("更新情報")</h4>
+<table id="upload-information">
+<tr>
+  <td class="left-table">
+    <h5 id="wiki-upload-information">Wiki</h5>
+    <ul>
+      <rt:loop param="wiki_recent_update" var="wiki_object" limit="5">
+      <li>
+        <a href="{$rhaco.url('wiki')}/{$wiki_object.wikiName}">{$wiki_object.wikiName}</a><br />
+      </li>
+      </rt:loop>
+    </ul>
+    <div class="fright">
+      <a href="{$rhaco.url('wiki/history')}">もっと見る</a>
+    </div>
+  </td>
+  <td class="right-table">
+    <h5 id="uploader-upload-information">Uploader</h5>
+    <ul>
+      <rt:loop param="uploader_recent_update" var="uploader_object" limit="5">
+      <li>
+        <a href="{$rhaco.url('uploader/detail/')}{$uploader_object.id}">{$uploader_object.fileName}</a><br />
+      </li>
+      </rt:loop>
+    </ul>
+    <div class="fright">
+      <a href="{$rhaco.url('uploader/')}">もっと見る</a>
+    </div>
+  </td>
+</tr>
+</table>

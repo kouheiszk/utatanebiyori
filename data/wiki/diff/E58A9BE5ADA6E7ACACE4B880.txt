@@ -1,0 +1,73 @@
+ * 力学第一 [#vc7709f8]
+ 
+ ** 問題 [#x6d848b7]
+ 斜角&math(theta);の粗い斜面上を図のような物体が、そのそくど&math(v);に比例する空気抵抗を受けながら滑る運動を考える。物体の質量を&math(m);、動摩擦係数を&math(mu);、運動の大きさを&math(g);、空気抵抗力の比例定数を&math(c);とする。物体は始め静止していたとき、
+ 
+ 1. 速度&math(v);の時間&math(t);の変化をあらわす式を求めよ。
+ 
+ &math(m{dv/dt} = mg sin theta - mu mg cos theta - cv);　…(1)
+ 
+ (1)の両辺を&math(m);でわり、整理する。
+ 
+ &math(dv/dt = (sin theta - mu cos theta)g - {c/m} v);　…(2)
+ 
+ &math({d/dt} lbrace v - {mg/c}(sin theta - mu cos theta) rbrace = - {c/m} lbrace v - {mg/c}(sin theta - mu cos theta) rbrace );　…(3)
+ 
+ ※(3)式への変形は[[啓林館の高校理科の運動方程式の応用のページ:http://www.keirinkan.com/kori/kori_physics/kori_physics_1_kaitei/contents/ph-1/2-bu/2-2-3.htm#Anchor-45906]]
+ 
+ //高校理科だったんだｗｗｗｗｗｗｗｗｗ
+ 
+ (3)を積分する。
+ 
+ &math(v - {mg/c}(sin theta - mu cos theta) = lbrace v_0 - {mg/c}(sin theta - mu cos theta) rbrace e^{- {c/m} t} );
+ 
+ &math(v_0 = 0);より
+ 
+ &math( v = {mg/c}(sin theta - mu cos theta)(1 - e^{- {c/m} t}) );　…(4)
+ 
+ 
+ 2. 終端速度&math(v_infty);を求めよ。
+ 
+ &math( (sin theta - mu cos theta)g = {c/m}v_infty );
+ 
+ &math( v_infty = {mg/c}(sin theta - mu cos theta) );
+ 
+ また、(4)を&math(t right infty);とすることでも求めることができる。
+ 
+ 
+ 3. 時定数&math(tau);を求めよ。また、このときの速度&math(v_tau);を求めよ。
+ 
+ &math( v_infty = (sin theta - mu cos theta)g tau );
+ 
+ &math(tau = m/c);
+ 
+ &math(tau);を(4)のtに代入して
+ 
+ &math(v_tau = (1 - e^{-1})v_infty approx 0.63 v_infty);
+ 
+ 
+ 4. 速度&math(v);の時間&math(t);の変化の様子をグラフに描け。
+ 
+ 教科書((な～るほど！の力学　伊藤敏雄　著))P.17参照のこと。
+ 
+ 
+ 
+ ** 一般解メモ [#o84f4483]
+ 微分方程式の一般解をメモしておきます。
+ 信頼度10%
+ xはtの関数です。
+ 
+ -&math({dv}/{dt} - b/m v = 0);の場合
+ 
+ #math(v=Ae^{- b/m t})
+ Aは積分定数。
+ 
+ (インテグラルの表記が分からない…)
++>>インテグラル単体の表記は
++ &math(int{}{}{});
++だよ!!
++
+ -&math({dv}/{dt} + c v^2 = 0);の場合
+ 
+ #math(-v^{-1}=- c + C_o)
+ &math(C_o);は積分定数。

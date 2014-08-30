@@ -1,0 +1,54 @@
+<rt:extends href="index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: _("ページ作成")</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;_("ページ作成")</h2>
+</rt:block>
+
+<rt:block name="add-toolbar-header" />
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-left" />
+
+<rt:block name="main">
+<div id="edit">
+<rt:invalid>
+  <rt:loop param="errors" var="e">
+    <p class="warning">{$e}</p>
+  </rt:loop>
+</rt:invalid>
+<form action="{$rhaco.url('wiki')}/new" method="post" id="edit-form" rt:reference="false">
+<table>
+  <tr>
+    <th>ページ名</th>
+    <td>
+      <input class="w80" type="text" name="wikiName" value="{$wikiName}" />
+    </td>
+  </tr>
+</table>
+<textarea id="form-text" name="text"></textarea>
+<rt:if param="{$login}">
+<input type="hidden" name="userId" value="{$login.id}" />
+<rt:else />
+<input type="hidden" name="userId" value="" />
+</rt:if>
+<input type="submit" name="update" id="update_button" value="_('新規作成')" />
+<input type="submit" name="preview" id="preview_button" value="_('プレビュー')" />
+<input type="button" name="cancel" id="cancel_button" value="_('キャンセル')" onclick="history.back();return(false);" />
+
+</form>
+</div>
+</rt:block>
+
+<rt:block name="meta">
+<ul>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

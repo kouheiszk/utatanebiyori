@@ -1,0 +1,7 @@
+<table name="uploader_category">
+  <description>Uploader Category</description>
+  <column name="id" />
+  <column name="name" type="text" max="20" label="カテゴリ名" />
+  <column name="updated_at" type="timestamp" default="sysdate" label="更新日時" />
+  <column name="created_at" type="timestamp" default="sysdate" label="作成日時" />
+</table>

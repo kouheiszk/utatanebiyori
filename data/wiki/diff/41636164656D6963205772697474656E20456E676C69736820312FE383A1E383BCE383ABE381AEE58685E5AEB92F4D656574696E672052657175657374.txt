@@ -1,0 +1,17 @@
++* Meeting Request [#wf9557a4]
+ 
++From: Dentsu_Taro@yahoo.com
++To: smith@yahoo.com
++Subject: Meeting Request
++Dear Mr. Smith,
++
++I am e-mailing you to request about meeting. Thank you preparing documents for the meeting.
++
++I would like to meet with you on Wednesday from 1 pm to 5 pm.
++
++Please let me know if this time is convenient for you. I’m looking forward to hearing from you.
++
++Best regards,
++Dentsu Taro
++Yahoo I.T. Dept
++

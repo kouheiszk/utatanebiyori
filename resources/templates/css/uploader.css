@@ -1,0 +1,60 @@
+@charset 'utf-8';
+
+/* uploader
+ ==========================================================*/
+
+#uploader {
+  background-image: url(../img/bg-footer.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-color: #fff;
+  margin-bottom: 1em;
+  padding: 20px 5% 70px;
+  border-top: 1px solid #cee6e6;
+  background-color: #ffffff;
+}
+
+#uploader #form-comment{
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  width: 100%;
+}
+
+/* upload
+ ==========================================================*/
+
+#showtags{
+  margin: 3px 0 0 0;
+}
+
+.showtag{
+  margin: 0 5px 0 0;
+}
+
+img.remove-icon{
+  cursor: pointer;
+  vertical-align: text-bottom;
+}
+
+/* detail
+ ==========================================================*/
+
+#edit-detail-tags{
+  border: 1px solid #CCC;
+  padding: 10px 10px 0px;
+}
+
+table#edittags{
+  width: 40%;
+  border: 0 none;
+  margin-top: 2px;
+}
+
+#edittags td{
+  border-left:0 none;
+  border-right:0 none;
+  border-top:0 none;
+  border-bottom:1px dotted #CCCCCC;
+}

@@ -1,0 +1,186 @@
+* 答え [#yb131e3a]
+
+** 問1 [#y73b81fc]
+
+間違えはQ,T
+-Q:入力がすべてマイナスだったとき
+-T:全部同じだったら!?
+
+#code(pascal){{
+program toi1(input, output);
+
+var
+   data                 : array [1..100] of integer;
+   max, sum, m, n, x, i : integer;
+   average              : real;
+
+begin
+{(b)}
+   n := 0;
+   m := 0;
+   sum := 0;
+
+{P}
+{
+   read(x);
+   while x <> 0 do
+   begin
+      n := n + 1;
+      data[n] := x;
+      read(x);
+   end;
+}
+   repeat
+      read(x);
+      if x <> 0 then
+      begin
+         n := n + 1;
+         data[n] := x;
+      end;
+   until x = 0;
+
+{Q}
+   max := data[1];
+
+{R}
+   for i := 1 to n do
+   begin
+      if data[i] > max then
+         max := data[i];
+   end;
+
+{S}
+   for i := 1 to n do
+   begin
+      if data[i] < max then
+      begin
+         sum := sum + data[i];
+         m := m + 1;
+      end;
+   end;
+
+{T}
+   if m <> 0 then
+   begin
+      average := sum / m;
+      writeln(average);
+   end;
+
+end.
+}}
+** 問2 [#qb8715ab]
+
+(1)〜(3)
+
+#code(pascal){{
+program tio2(input, output);
+
+type
+   length = record
+               kilometer, meter, centimeter, millimeter : integer;
+            end;
+
+var
+   x, y : length;
+
+begin
+   {input}
+   with x do
+   begin
+      read(meter);
+      read(centimeter);
+      read(millimeter);
+   end;
+
+   with y do
+   begin
+      read(meter);
+      read(centimeter);
+      read(millimeter);
+   end;
+
+   x.kilometer := 0;
+
+   x.millimeter := x.millimeter + y.millimeter;
+   if x.millimeter >= 10 then
+   begin
+      x.millimeter   := x.millimeter - 10;
+      x.centimeter := x.centimeter + 1;
+   end;
+
+   x.centimeter := x.centimeter + y.centimeter;
+   if x.centimeter >= 100 then
+   begin
+      x.centimeter   := x.centimeter - 100;
+      x.meter := x.meter + 1;
+   end;
+
+   x.meter := x.meter + y.meter;
+   if x.meter >= 1000 then
+   begin
+      x.meter   := x.meter - 1000;
+      x.kilometer := x.kilometer + 1;
+   end;
+
+   if x.kilometer <> 0 then
+      write(x.kilometer:1, 'km ');
+
+   writeln(x.meter:1, 'm ', x.centimeter:1, 'cm ', x.millimeter:1, 'mm');
+
+end.
+}}
+
+(4)
+
+#code(pascal){{
+program tio1(input, output);
+
+type
+   length = record
+               kilometer, meter, centimeter, millimeter : integer;
+            end;
+
+var
+   x, y : length;
+
+procedure unitadd(var a, b, c : integer; max : integer);
+
+begin
+   a := a + b;
+   if a >= max then
+   begin
+      a := a - max;
+      c := c + 1;
+   end;
+end; { unitadd }
+
+
+begin
+   {input}
+   with x do
+   begin
+      read(meter);
+      read(centimeter);
+      read(millimeter);
+   end;
+
+   with y do
+   begin
+      read(meter);
+      read(centimeter);
+      read(millimeter);
+   end;
+
+   x.kilometer := 0;
+
+   unitadd(x.millimeter, y.millimeter, x.centimeter, 10);
+   unitadd(x.centimeter, y.centimeter, x.meter,      100);
+   unitadd(x.meter,      y.meter,      x.kilometer,  1000);
+
+   if x.kilometer <> 0 then
+      write(x.kilometer:1, 'km ');
+
+   writeln(x.meter:1, 'm ', x.centimeter:1, 'cm ', x.millimeter:1, 'mm');
+
+end.
+}}

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* ------------------------------------------
+
+Style Name: clearfix.css
+Since:      2007-09-01
+Modified:   2007-09-30
+Version:    1.0
+Auther:     Akiko Kurono(crema)
+
+------------------------------------------*/
+
+div#wrapper:after,
+div#mainContentInner:after,
+div.result:after,
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+div#wrapper,
+div#mainContentInner,
+div.result,
+.clearfix {
+    display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+* html div#wrapper,
+* html div#mainContentInner,
+* html div.result,
+* html .clearfix {
+    height: 1%;
+}
+div#wrapper,
+div#mainContentInner,
+div.result,
+.clearfix {
+    display: block;
+}
+/* End hide from IE-mac */

@@ -1,0 +1,10 @@
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:113] [Resource id #128(3)] COMMIT
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:113] [Resource id #124(2)] COMMIT
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2012/06/09 00:22:56]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/06/09 00:39:16]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/06/09 04:54:21]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />

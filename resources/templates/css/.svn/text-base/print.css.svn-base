@@ -1,0 +1,136 @@
+@CHARSET 'UTF-8';
+
+body {
+  line-height: 1.5;
+  letter-spacing: 1px;
+  font-family: "ヒラギノ角ゴ Pro W3", Osaka, "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 10.5pt;
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+a:link,
+a:visited {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #000000;
+}
+
+address {
+  font-style: normal;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  border: 0;
+}
+
+
+/* layout.css
+----------------------------------------------- */
+
+#prehead,
+#head,
+#contetns-header,
+#contetns-left,
+#main,
+#footer {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#preheader,
+#header,
+#contents-left {
+  display: none;
+}
+
+.toc {
+  display: none;
+}
+
+#toolbar-header,
+#toolbar-footer {
+  display: none;
+}
+
+#contents,
+#wiki {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: "ヒラギノ明朝 Pro W3", "細明朝体", "ＭＳ Ｐ明朝", serif;
+}
+
+#main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+#footer {
+  margin-top: 1em;
+  border-top: 1px dashed #000000;
+  text-align: right;
+  font-size: 90%;
+}
+
+#footer ul {
+  list-style-type: none;
+}
+
+#main h3 {
+  border-left: 5px solid #000000;
+  margin: 10px 0 10px 0;
+  padding: 0 0 0 10px;
+  font-weight: bold;
+}
+
+#main h4 {
+  border-left: 5px solid #000000;
+  margin: 10px 0 10px 0;
+  padding: 0 0 0 10px;
+}
+
+#main p,
+#main ul,
+#main ol,
+#main dl {
+  margin: 0 0 20px 10px;
+}
+
+#main table {
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 5px;
+  border: 1px solid #333333;
+}
+
+#maiin table th,
+#main table td {
+  padding: 3px;
+  font-size: 90%;
+}
+
+#main table th {
+  border-bottom: 1px solid #333333;
+}
+
+#main table td {
+  border: 1px dotted #333333;
+}
+
+div.hidden,
+p.hidden {
+  display: none;
+}

@@ -1,0 +1,21 @@
+<table name="whisper">
+  <column name="id" />
+  <column name="user_id" type="int" reference="users.id" />
+  <column name="reply_status_id" type="int" />
+  <column name="reply_user_id" type="int" />
+  <column name="status" require="true" max="300" label="ささやき" />
+  <column name="created_at" type="timestamp" default="sysdate" />
+</table>
+<map name="whisper_followers">
+  <column name="user_id" type="int" reference="users.id" uniquewith="follow_id" />
+  <column name="follow_id" type="int" reference="whisper_followed_users.id" uniquewith="user_id" />
+  <column name="created_at" type="timestamp" default="sysdate" />
+</map>
+<map name="whisper_requests">
+  <column name="user_id" type="int" reference="users.id" uniquewith="request_id" />
+  <column name="request_id" type="int" reference="whisper_requested_users.id" uniquewith="user_id" />
+  <column name="created_at" type="timestamp" default="sysdate" />
+</map>
+<ext name="whisper_followed_users" table="users" />
+<ext name="whisper_requested_users" table="users" />
+<ext name="whisper_replied_users" table="users" />

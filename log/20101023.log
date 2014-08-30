@@ -1,0 +1,8 @@
+[error 2010/10/23 07:53:58]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2010/10/23 21:37:34]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2010/10/23 21:42:11]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2010/10/23 21:47:09]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2010/10/23 22:05:20]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/23 22:05:20]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/23 22:05:20]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/23 22:05:20]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

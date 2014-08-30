@@ -1,0 +1,30 @@
+* 出現回数のカウント [#iafdf120]
+
+#code(pascal){{
+program count(input, output);
+
+const
+  MIN = -10;
+  MAX = 10;
+
+var
+  i, x : integer;
+  data : array [MIN..MAX] of integer;
+
+begin
+  for i := -10 to 10 do
+    data[i] := 0;
+
+  repeat
+    write('数値を入力してください:');
+    read(x);
+    if (x >= MIN)and(x <= MAX) then
+      data[x] := data[x] + 1;
+  until (x < MIN)or(x > MAX);
+  
+  for i:= MIN to MAX do
+    if not(data[i] = 0) then
+      writeln(i:3, ':', data[i]:2, '回');
+   
+end.
+}}

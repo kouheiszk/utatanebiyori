@@ -1,0 +1,166 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Uploader") :: _("アップロード")</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('uploader/upload')}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('uploader/upload')}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="addjs">
+<script type="text/javascript">
+  $(document).ready(function(){
+    for(var i = 1; i <= 10; i++){
+      var tag = $("#tag"+i);
+      if(tag.val().length != 0){
+        var str = tag.val();
+        str = "<span id=\"showtag"+ i +"\" class=\"showtag\">" + str + "<img class=\"remove-icon\" onclick=\"removetag(" + i + ")\" src=\"{$rhaco.constant('TEMPLATE_URL')}/img/share/delete.png\" title=\"_('削除')\" alt=\"_('削除')\" /></span>";
+        $('#showtags').append(str);
+      }
+    }
+
+    $("#inputtag").keyup(function count(){
+      if($("#inputtag").val().length != 0){
+        $("#addtag").show();
+        $("#addtag-count-zero").hide();
+      }else{
+        $("#addtag").hide();
+        $("#addtag-count-zero").show();
+      }
+    });
+  });
+</script>
+<script type="text/javascript">
+<!--
+  function trim(value){
+    return String(value).replace(/^[ 　]*/gim, "").replace(/[ 　]*$/gim, "");
+  }
+
+  function appendtag(){
+    var reg = 0;
+    var num = 0;
+    var str = trim($("#inputtag").val());
+
+    if(str.length == 0){
+      alert("タグを入力してください。");
+      return false;
+    }
+
+    for(var i = 10; i >= 1; i--){
+      var tag = $("#tag"+i);
+      if(tag.val().length == 0){
+        reg = i;
+      }else{
+        if(tag.val() == str){
+          alert("同じタグは登録できません。");
+          return false;
+        }
+        num++;
+      }
+    }
+
+    if(num >= 9){
+      $('#inputtag').attr("disabled", "true");
+    }
+
+    $("#tag"+reg).val(str);
+    str = "<nobr><span id=\"showtag"+ reg +"\" class=\"showtag\">" + str + "<img class=\"remove-icon\" onclick=\"removetag(" + reg + ")\" src=\"{$rhaco.constant('TEMPLATE_URL')}/img/share/delete.png\" title=\"_('削除')\" alt=\"_('削除')\" /></span></nobr>";
+    $('#showtags').append(str);
+
+    $("#inputtag").val("");
+    $("#addtag").hide();
+    $("#addtag-count-zero").show();
+  }
+
+  function removetag(number){
+    var str = "";
+    $("#tag"+number).val(str);
+    $("#showtag"+number).remove();
+    $('#inputtag').removeAttr("disabled");
+  }
+-->
+</script>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Uploader")&nbsp;::&nbsp;_("アップロード")</h2>
+</rt:block>
+
+
+<rt:block name="main">
+<div id="main">
+<h3>_("アップロード")</h3>
+
+  <form id="upload-form" action="{$rhaco.url('uploader/upload')}" enctype="multipart/form-data" method="post">
+    <rt:invalid>
+    <rt:loop param="errors" var="e">
+      <p class="warning">{$e}</p>
+    </rt:loop>
+    </rt:invalid>
+    <table>
+      <tr>
+        <th class="w200px">_("アップロードファイル")</th>
+        <td>
+          <input name="file" type="file" />
+          <rt:if param="{$login}">
+          <p>_("アップロードファイルサイズの上限は")&nbsp;<span class="red">{$upf.dispsize($rhaco.constant('UPLOAD_SIZE_USER'))}</span>&nbsp;_("です。")</p>
+          <input type="hidden" name="MAX_FILE_SIZE" value="{$rhaco.constant('UPLOAD_SIZE_USER')}" />
+          <input type="hidden" name="userId" value="{$login.id}" />
+          <rt:else />
+          <p>_("アップロードファイルサイズの上限は")&nbsp;<span class="red">{$upf.dispsize($rhaco.constant('UPLOAD_SIZE_GUEST'))}</span>&nbsp;_("です。")</p>
+          <input type="hidden" name="MAX_FILE_SIZE" value="{$rhaco.constant('UPLOAD_SIZE_GUEST')}" />
+          <input type="hidden" name="userId" value="" />
+          </rt:if>
+        </td>
+      </tr>
+      <tr>
+        <th class="w200px">_("カテゴリ")</th>
+        <td>
+          <select name="category_id">
+          <rt:loop param="{$category_list}" var="category">
+            <option value="{$category.id}">{$category.name}</option>
+          </rt:loop>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th class="w200px">_("ファイルの説明")</th>
+        <td><textarea id="form-comment" name="comment" size="50" type="text">{$comment}</textarea></td>
+      </tr>
+      <tr>
+        <th>_("タグ")</th>
+        <td>
+          <input id="inputtag" class="w20" name="tag" value="" size="20" type="text" />
+          <span id="addtag" class="linked" onclick="appendtag()" style="display:none;"><img class="vmiddle" src="../img/uploader/addtag.png" alt="_('タグを追加する')" /><span id="addtag-text" class="vmiddle small">&nbsp;_('タグを追加する')&nbsp;</span></span>
+          <span id="addtag-count-zero" ><img class="vmiddle" src="../img/uploader/addtag.png" alt="_('タグを追加する')" /><span id="addtag-text" class="vmiddle small gray">&nbsp;_('タグを追加する')&nbsp;</span></span>
+          <div id="showtags"></div>
+          <input id="tag1" class="tag" name="tag01" value="{$tag01}" size="20" type="hidden" />
+          <input id="tag2" class="tag" name="tag02" value="{$tag02}" size="20" type="hidden" />
+          <input id="tag3" class="tag" name="tag03" value="{$tag03}" size="20" type="hidden" />
+          <input id="tag4" class="tag" name="tag04" value="{$tag04}" size="20" type="hidden" />
+          <input id="tag5" class="tag" name="tag05" value="{$tag05}" size="20" type="hidden" />
+          <input id="tag6" class="tag" name="tag06" value="{$tag06}" size="20" type="hidden" />
+          <input id="tag7" class="tag" name="tag07" value="{$tag07}" size="20" type="hidden" />
+          <input id="tag8" class="tag" name="tag08" value="{$tag08}" size="20" type="hidden" />
+          <input id="tag9" class="tag" name="tag09" value="{$tag09}" size="20" type="hidden" />
+          <input id="tag10" class="tag" name="tag10" value="{$tag10}" size="20" type="hidden" />
+        </td>
+      </tr>
+      <tr>
+        <th>_("パスワード")</th>
+        <td>
+          ダウンロード&nbsp;:&nbsp;<input class="w20" name="downloadKey" value="{$downloadKey}" size="20" type="password" />&nbsp;&nbsp;
+          削除&nbsp;:&nbsp;<input class="w20" name="deleteKey" value="{$deleteKey}" size="20" type="password" />
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><input type="submit" value="_('アップロード')" name="save" /></td>
+      </tr>
+    </table>
+  </form>
+
+</div>
+</rt:block>

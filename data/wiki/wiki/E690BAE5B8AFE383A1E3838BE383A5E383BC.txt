@@ -1,0 +1,21 @@
+*メニュー [#c38a28ca]
+-[[工学基礎演習]]
+-[[コンピュータリテラシー]]
+-[[技術史]]
+-[[基礎科学実験>基礎科学実験/SubMenu]]
+-その他
+--[[掲示板:http://utatanebiyori.uzusionet.com/bbs/]]
+--[[うｐろだ:http://utatanebiyori.uzusionet.com/upload/]]
+--[[夜Cの愉快な仲間たち]]
+--[[クラス交流会]]
+--[[ページ一覧:http://utatanebiyori.uzusionet.com/wiki/?cmd=list]]
+
+*カウンター [#y2b8e0aa]
+today:&color(green){&counter(today);};　　
+yesterday:&color(green){&counter(yesterday);};　　
+total:&color(green){&counter;};　　
+online:&color(green){&online;};　
+
+//常に表示されるメニューバーです。
+//&edit(MenuBar,noicon){edit};
+//を記述しておくとMenuBarを気軽に修正できるようになって便利かも。

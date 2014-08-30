@@ -1,0 +1,98 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("ホーム")</rt:block>
+
+<rt:block name="contentsid">contents</rt:block>
+
+<rt:block name="addjs">
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("ホーム")</h2>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<div class="toc">
+  <ol>
+    <li>_("ホーム")
+      <ol>
+        <li>_("Wiki更新情報")</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<rt:invalid>
+  <rt:loop param="errors" var="e">
+    <p class="warning">{$e}</p>
+  </rt:loop>
+</rt:invalid>
+
+<h3>_("ホーム")</h3>
+
+<h4>{$users.userName}</h4>
+<p>
+<a href="{$rhaco.url($users.userId)}"><img src="<rt:if param="{$users.image}">img/user/{$users.image}<rt:else />img/friend_icon.png</rt:if>" alt="{$users.userName}" width="{$uf.xLength($users.imageX, $users.imageY, 48)}px" height="{$uf.yLength($users.imageX, $users.imageY, 48)}px" /></a>
+<a href="{$rhaco.url($users.userId)}">{$users.userName}</a>
+</p>
+
+<h4>_("ステータス")</h4>
+<table id="status"><tr>
+<th><rt:if param="{$isMine}"><a href="{$rhaco.url('friends')}"><rt:else /><a href="{$rhaco.url($users.userId)}/friends"></rt:if>マークしている人数</a></th><td>{$following_count}</td>
+</tr><tr>
+<th><rt:if param="{$isMine}"><a href="{$rhaco.url('followers')}"><rt:else /><a href="{$rhaco.url($users.userId)}/followers"></rt:if>マークされている人数</a></th><td>{$follower_count}</td>
+</tr><tr>
+<th><a href="{$rhaco.url($users.userId)}">_("書き込み回数")</a></th><td id="status_count">{$status_count}</td>
+</tr></table>
+<rt:if param="{$userFollowing}">
+<rt:if param="{$isMine}">
+  <h4>_("your follow")</h4>
+      <p>
+      <rt:loop param="userFollowing" var="friend">
+          <a href="{$rhaco.url($friend.userId)}">
+            <img src="<rt:if param="{$friend.image}">img/user/{$friend.image}<rt:else />img/friend_icon.png</rt:if>"
+                   alt="{$friend.userName}" width="32" height="32" /></a>
+      </rt:loop>
+      <br/><a href="{$rhaco.url('friends')}">view all</a>
+      </p>
+<rt:else />
+<h4>{$users.userName}_("をマークしています")</h4>
+    <p>
+    <rt:loop param="userFollowing" var="friend">
+        <a href="{$rhaco.url($friend.userId)}">
+          <img src="<rt:if param="{$friend.image}">img/user/{$friend.image}<rt:else />img/friend_icon.png</rt:if>"
+                 alt="{$friend.userName}" width="32" height="32" /></a>
+    </rt:loop>
+    <br/><a href="{$rhaco.url($users.userId)}/friends">view all</a>
+    </p>
+</rt:if>
+</rt:if>
+
+<rt:include href="parts/sub_update_information.html" />
+
+<rt:if param="{$latest_status}">
+<h4>_("最近の書き込み")</h4>
+<div class="timeline">
+<table rt:param="object_list" rt:var="object">
+  <tr class ="even">
+    <td class="thumb">
+      <a href="{$rhaco.url($object.factUserId.userId)}"><img src="<rt:if param="{$object.factUserId.image}">img/user/{$object.factUserId.image}<rt:else />img/friend_icon.png</rt:if>"  alt="{$object.factUserId.userName}" width="{$uf.xLength($object.factUserId.imageX, $object.factUserId.imageY, 48)}px" height="{$uf.yLength($object.factUserId.imageX, $object.factUserId.imageY, 48)}px" /></a>
+    </td>
+    <td class="nickname">
+      <a href="{$rhaco.url($object.factUserId.userId)}">{$object.factUserId.userName}</a>
+    </td>
+    <td class="comment">
+      {$f.noop($uf.comment($object.comment, $object.replyUserId))}&nbsp;<span class="small">(&nbsp;{$f.dateformat($object.createdAt)}&nbsp;)</span>
+      <rt:if param="{$login}">
+      <rt:if param="{$object.factUserId.userId}" value="{$login.userId}">
+      <a href="{$rhaco.url('delete')}/{$object.id}" class="published"><img src="img/share/delete.png" alt="_('削除')" /></a>
+      </rt:if>
+      </rt:if>
+    </td>
+  </tr>
+</table>
+</div>
+</rt:if>
+</div>
+</rt:block>

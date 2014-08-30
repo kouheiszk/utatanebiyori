@@ -1,0 +1,33 @@
+* 課題7 [#sa9ac718]
+
+【その１】
+
+「[[円の面積>基礎プログラミング演習/課題/課題7/circle]]」のプログラムを入力し、実行せよ。
+
+実行できた者は TA (Teaching Assistant) を呼び、以下の作業を見せることで、正しく入力し実行できたことを示すこと。
+
++入力したプログラムのソースを表示する。&br;(cat ファイル名　を実行する）
++コンパイルする。
++プログラムを実行する。 
+
+【その2】
+
+「その1」で入力したプログラムにおいて誤りを意図的に混入し、どのようなエラーメッセージが出力されるか確認せよ。
+
+3種類以上のエラーについて確認し、それぞれについて以下の内容を記述したレポートを提出すること。
+
+-どのような誤りを混入したか
+-出力されたエラーの内容の原文
+-エラーの日本語訳
+
+* 解答 [#r3db9656]
+
+|行数|変更前|変更後|エラー内容の原文|
+|1|program circle(input, output);|program circle();|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1  program circle();&br;E 18480----------------------^---  Inserted identifier|
+|3|const|consto|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  consto&br;e 18460-------^---  Replaced identifier with a keyword const|
+|3〜7|const&br;&nbsp;&nbsp;PI = 3.1415;&br;&br;var&br;&nbsp;&nbsp;diameter, r, s : real;|var&br;&nbsp;&nbsp;diameter, r, s : real;&br;&br;const&br;&nbsp;&nbsp;PI = 3.1415;||
+|10|write( '直径:' );|write( 直径: );|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10    write( 直径: );&br;E 18060----------------^---  Illegal character&br;E 18060----------------^---  Illegal character&br;E 18060------------------^---  Illegal character&br;E 18060------------------^---  Illegal character&br;E 10560 line 10 -  write requires an argument|
+|13|s := PI * r * r;|s := PI * r * s;||
+|13|s := PI * r * r;|s := PI * r * rr;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13    s := PI * r * rr;&br;E 18420-----------------------^---  Undefined variable&br;In program circle:&br;E 18240 rr undefined on line 13|
+|15|end.|end|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15  end&br;e 18480----------^---  Inserted '.'|
+|15|end.|end;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15  end;&br;e 18460----------^---  Replaced ';' with a '.'|

@@ -1,0 +1,33 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: _("ページ一覧")</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;_("ページ一覧")</h2>
+</rt:block>
+
+<rt:block name="add-toolbar-header" />
+
+<rt:block name="main">
+<div id="main">
+{$f.noop({$wf.pageList({$object_list})})}
+<div class="pager">
+  <rt:pager param="pager" />
+</div>
+<rt:invalid />
+</div>
+</rt:block>
+
+<rt:block name="meta">
+<input type="hidden" name="redirect" value="{$redirect}" />
+<ul>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

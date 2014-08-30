@@ -1,0 +1,30 @@
+[error 2012/02/02 00:48:44]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/02/02 01:54:07]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/02/02 02:45:05]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/02/02 03:15:47]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2012/02/02 15:31:54]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/02/02 15:38:47]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2012/02/02 15:56:56]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:113] [Resource id #128(3)] COMMIT
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:113] [Resource id #124(2)] COMMIT
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2012/02/02 15:57:53]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:113] [Resource id #128(3)] COMMIT
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:113] [Resource id #124(2)] COMMIT
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2012/02/02 15:58:03]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2012/02/02 16:13:24]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/02/02 16:13:25]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2012/02/02 16:42:31]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/02/02 17:11:40]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/02/02 17:26:14]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />
+[error 2012/02/02 17:36:16]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2012/02/02 17:51:08]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />

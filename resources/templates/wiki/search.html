@@ -1,0 +1,55 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: _("検索")</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;_("検索")</h2>
+</rt:block>
+
+<rt:block name="add-toolbar-header" />
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+  <h3>_("検索")</h3>
+  <form method="get" name="views_search_form" rt:reference="true">
+    <input type="hidden" name="page" value="1"  rt:reference="false" />
+    <input type="hidden" name="o" />
+    <input type="hidden" name="a" />
+    <input type="text" name="q" />
+    <input type="submit" value="_('検索')" />
+  </form>
+
+  <!-- <rt:loop param="{$tableObject.models('views','list_display')}" var="column">
+  <a href="{$rhaco.uri()}?{$sortorder.query($key)}">{$tableObject.label($column)}でソート</a>
+  </rt:loop> -->
+
+  <rt:loop param="object_list" var="object" counter="counter">
+  <h4><a href="{$rhaco.url('wiki')}/{$object->wikiName}">{$object->wikiName}</a></h4>
+  <p>
+    {$wf.hilight({$wf.nf({$wc.f({$f.noop({$object.text})})})}, {$q})}<br />
+    <span class="tiny" style="color:green">{$rhaco.url('wiki')}/{$object->wikiName}</span>&nbsp;-&nbsp;<span class="tiny">{$wf.modified({$object->updatedAt})}</span>
+  </p>
+  </rt:loop>
+  <rt:hasnot param="{$object_list}">
+  <div class="warning">_("検索条件に該当するページは見つかりませんでした。")</div>
+  </rt:hasnot>
+  <div class="pager">
+    <rt:pager param="pager" />
+  </div>
+  <rt:invalid />
+</div>
+</rt:block>
+
+<rt:block name="meta">
+<input type="hidden" name="redirect" value="{$redirect}" />
+<ul>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

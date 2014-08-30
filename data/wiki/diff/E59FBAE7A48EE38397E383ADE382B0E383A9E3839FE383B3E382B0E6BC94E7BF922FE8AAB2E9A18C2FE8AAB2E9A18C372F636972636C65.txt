@@ -1,0 +1,20 @@
+ * 円の面積 [#w6425072]
+ 
+ #code(pascal){{
+ program circle(input, output);
+ 
+ const
+   PI = 3.1415;
+ 
+ var
+   diameter, r, s : real;
+ 
+ begin
+   write( '直径:' );
+   readln( diameter );
+   r := diameter / 2;
+   s := PI * r * r;
+-  writeln( '面積:', s:-20:10 )
++  writeln( '面積:', s:-20:10 );
+ end.
+ }}

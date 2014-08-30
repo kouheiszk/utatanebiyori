@@ -1,0 +1,55 @@
+* VMware Tools [#a255a6e2]
+
+ここではVMware Player上のゲストOSとホストOS間でネットワークを用いずにファイルの共有を可能にするためのVMware Toolsの導入を行います。
+ここでのコマンド処理は基本的にすべてゲストOSに接続したPoderosaで行います。
+
+** VMware Toolsインストール [#t5294f18]
+
+基本的なシステム構成のままでは何かと不便なので、まずはCentOSを最新版にしちゃいます。アップデート後は再起動してください。
+
+ # yum -y update
+ # reboot
+
+現在のカーネルのバージョンを確認します。
+
+ # uname -r
+
+VMware Toolsのインストールに必要なパッケージを入れます。
+
+ # yum install gcc kernel-devel
+ 
+現在のカーネルのバージョンと kernal-devel のバージョンが一致していたら先に進みます。違っていたらアップデートが成功していません。
+
+ # ln -s /usr/src/kernels/2.6.18-164.6.1.el5-i686 /usr/src/linux/include
+ # wget http://download3.vmware.com/software/vmserver/VMware-server-1.0.10-203137.tar.gz
+ # tar zxvf VMware-server-1.0.10-203137.tar.gz
+ # mount -o loop vmware-server-distrib/lib/isoimages/linux.iso /media
+ # ls /media
+ # rpm -ivh /media/VMwareTools-1.0.10-203137.i386.rpm
+
+最後にPoderosaではなくVMware Playerの黒白画面でVMware Toolsをインストールするコマンドを入力します。
+
+ # vmware-config-tools.pl
+
+適当に答えていれば無事にインストールが成功します。
+またkernelの位置がおかしいんじゃね？的なことを聞かれる場合は
+/usr/src/kernels/2.6.18-164.6.1.el5-i686/include/
+と答えてください。
+インストールが終了したら再起動してください。
+起動時にすべて項目が[ OK ]で埋まることを確認してください。
+
+** 共有フォルダの設定 [#d95f7f60]
+
+ゲストOSを一度終了します。その後.vmxファイルに以下の内容を付け加え、再びゲストOSを起動します。
+
+ ##### Shared Folders #####
+ sharedFolder0.enabled = "TRUE"
+ sharedFolder0.present = "TRUE"
+ sharedFolder0.writeAccess = "TRUE"
+ sharedFolder0.readAccess = "TRUE"
+ sharedFolder0.hostPath = "D:\SharedFolder"
+ sharedFolder0.guestName ="share"
+ sharedFolder0.eXpiration = "session"
+ sharedFolder.maxNum = "1"
+
+これでホストOS側のD:\SharedFolder に置いたファイルが /mnt/hgfs/share/ で認識されます。

@@ -1,0 +1,9 @@
+[error 2010/08/12 13:23:18]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2010/08/12 23:13:07]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/08/12 23:13:07]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/08/12 23:13:07]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/08/12 23:13:07]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/08/12 23:42:58]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/08/12 23:42:58]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/08/12 23:42:58]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/08/12 23:42:58]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

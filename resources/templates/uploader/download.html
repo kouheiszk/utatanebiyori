@@ -1,0 +1,30 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Uploader") :: {$object.fileName}</rt:block>
+
+<rt:block name="addmeta">
+<meta name="robots" content="noindex" />
+<meta http-equiv="refresh" content="1;URL={$file_url}">
+</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('uploader/download/')}{$object.id}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('uploader/download/')}{$object.id}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="addjs">
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Uploader")&nbsp;::&nbsp;<a href="{$file_url}">{$object.fileName}_("のダウンロード")</a></h2>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>{$object.fileName}_("のダウンロード")</h3>
+<p>{$islogin}_("飛ばない場合は")&nbsp;<a href="{$rhaco.constant('CONTEXT_URL')}{$rhaco.constant('UPLOAD_URL')}{$object.downloadPath}">_("こちら")</a>&nbsp;_("から")</p>
+<div class="aright"><a href="{$rhaco.url('uploader/')}">_("Uploaderトップに戻る")</a></div>
+</div>
+</rt:block>

@@ -1,0 +1,6 @@
+[error 2010/08/01 23:53:27]:[database/DbUtilBase.php:113] [Resource id #123(1)] COMMIT
+[error 2010/08/01 23:53:27]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/08/01 23:53:27]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/08/01 23:53:27]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/08/01 23:53:30]:[database/DbUtilBase.php:113] [Resource id #96(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2010/08/01 23:53:30]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

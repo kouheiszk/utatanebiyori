@@ -1,0 +1,88 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Whisp") :: _("公開タイムライン")</rt:block>
+
+<rt:block name="contents-header">
+<h3>_("Whisper")&nbsp;::&nbsp;_("返信")</h3>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>_("返信")</h3>
+
+<hr />
+<div id="status-{$status.id}" class="timeline clearfix">
+  <div class="id dnone">{$status.id}</div>
+  <div class="replys dnone">{$status.status}</div>
+  <div class="thumb">
+    <a href="{$rhaco.url('user')}/{$status.factUserId.userId}" title="{$status.factUserId.userName}">
+      <img width="48px" height="48px" src="{$rhaco.constant('TEMPLATE_URL')}/img/user/{$status.factUserId.image}" />
+    </a>
+  </div>
+  <div class="status-body">
+    <div class="status">
+      <span class="name"><a href="{$rhaco.url('user')}/{$status.factUserId.userId}" title="{$status.factUserId.userName}">{$status.factUserId.userName}</a></span><rt:if param="{$status.replyStatusId}"><a href="{$rhaco.url('whisper/status/detail')}/{$status.replyStatusId}"><img width="14" height="14" src="../img/whisper/go-previous.png" title="_('返信元へ')" alt="_('返信元へ')"></a>&nbsp;</rt:if>{$f.noop($whf.f($status.status, $users))}
+    </div>
+    <div class="clearfix">
+      <div class="time">
+        <a href="{$rhaco.url('whisper/status/detail')}/{$status.id}">{$whf.modified($status.createdAt)}</a> in Web
+      </div>
+      <ul class="clearfix actions-hover">
+        <li class="status-regist-favorite"><a href="{$rhaco.url('whisper/status/regist_favorite')}/{$status.id}" title="この投稿をお気に入りに追加する" /></li>
+        <rt:if param="{$login}">
+        <rt:if param="{$status.userId}" value="{$login.id}">
+        <li class="status-delete"><a href="{$rhaco.url('whisper/status/delete')}/{$status.id}" title="_('返信')">削除</a></li>
+        <rt:else />
+        <li class="status-reply"><a href="{$rhaco.url('whisper/status/reply')}/{$status.id}" title="_('返信')">返信</a></li>
+        </rt:if>
+        <rt:else />
+        <li class="status-reply"><a href="{$rhaco.url('whisper/status/reply')}/{$status.id}" title="_('返信')">返信</a></li>
+        </rt:if>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr />
+
+<form action="{$rhaco.url('whisper/status/update')}" class="status-update-form" id="status_update_form" method="post">
+  <input id="user_id" name="user_id" type="hidden" value="{$login.id}" />
+  <input id="reply_status_id" name="reply_status_id" type="hidden" value="" />
+  <input id="reply_user_id" name="reply_user_id" type="hidden" value="" />
+  <input id="source" name="source" type="hidden" value="" />
+  <fieldset class="whisper-common-form standard-form">
+    <div class="bar">
+      <!--<h4><label for="status" class="doing">いまどうしてる？</label></h4>-->
+      <span id="chars_left_notice" class="numeric"><strong id="status-field-char-counter" class="char-counter">140</strong></span>
+    </div>
+    <div class="info">
+      <textarea id="status" name="status" accesskey="u" autocomplete="off" tabindex="1"></textarea>
+      <div id="whisping_controls">
+        <input type="button" id="whisping_button" value="投稿" />
+        <input type="submit" name="update" value="投稿する" id="update-submit" class="status-btn round-btn" tabindex="2" />
+     </div>
+     <div class="status-btn" style="display:none">
+       <input type="submit" name="update" value="投稿する" id="update-submit" class="status-btn round-btn" tabindex="2" />
+     </div>
+     <div id="update_notifications">
+       <div id="latest_status">
+         <span id="latest_status">
+            <span id="latest_text_full">
+              <strong>最新のささやき：</strong>
+              <span class="status-text">{$whf.f($latest_status.status)}</span>&nbsp;
+              <span id="latest_text"><span id="latest_meta" class="entry-meta">{$whf.passage($latest_status.createdAt)}</span></span>
+              <span class="entry-meta" style="display: none;">
+                <a href="{$rhaco.url('whisper/status/detail')}/{$latest_status.id}" class="entry-date"><span class="published" title="{$whf.datef($latest_status.createdAt)}">{$whf.datef($latest_status.createdAt)}</span></a>&nbsp;
+                <span><a href="http://twtr.jp" rel="nofollow">Web</a></span>
+                <a href="{$rhaco.url('whisper/status/detail')}/{$latest_status.replyStatusId}">&nbsp;in reply to rakutansya</a>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </fieldset>
+</form>
+<rt:include href="parts/sub_timeline.html" />
+</div>
+</rt:block>

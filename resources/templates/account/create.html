@@ -1,0 +1,22 @@
+<rt:extends href="../index.html" />
+
+<rt:block name="title"> :: _("作成完了")</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("作成完了")</h2>
+</rt:block>
+
+<rt:block name="contents-left">
+<div id="contents-left">
+<h3>_("メニュー")</h3>
+<a href="{$rhaco.url('login')}">_("ログイン")</a>
+</div>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>_("作成完了")</h3>
+<p>_("アカウントの作成が完了しました。")</p>
+<p>{$email}_("にメールを送信しましたので、記載されているURLから再度アクセスして登録を行ってください。")</p>
+</div>
+</rt:block>

@@ -1,0 +1,8 @@
+* Side [#r4a623c3]
+
+#includesubmenu()
+//#includesubmenu(Academic Written English 1)
+//#includesubmenu(コンピュータリテラシー)
+//#includesubmenu(基礎プログラミング演習)
+//#includesubmenu(基礎科学実験A)
+//#includesubmenu(基礎科学実験B)

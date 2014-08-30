@@ -1,0 +1,87 @@
+<rt:extends href="../index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: {$wf.title({$f.noop({$object.wikiName})})}</rt:block>
+
+<rt:block name="addcss">
+<link href="../css/wiki.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/SyntaxHighlighter.css" rel="stylesheet" type="text/css" media="all" />
+</rt:block>
+
+<rt:block name="addjs">
+<script type="text/javascript" src="../js/shCore.js"></script>
+<script type="text/javascript" src="../js/shBrushCpp.js"></script>
+<script type="text/javascript" src="../js/shBrushCss.js"></script>
+<script type="text/javascript" src="../js/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../js/shBrushJava.js"></script>
+<script type="text/javascript" src="../js/shBrushXml.js"></script>
+<script type="text/javascript">
+  window.onload = function () {
+    dp.SyntaxHighlighter.ClipboardSwf = "{$rhaco.constant('TEMPLATE_URL')}/flash/clipboard.swf";
+    dp.SyntaxHighlighter.HighlightAll('code');
+  }
+</script>
+</rt:block>
+
+<rt:block name="search">
+<form class="inline" method="get"  action="{$rhaco.url('wiki/search')}" rt:reference="true">
+  <input class="pre-search" type="text" name="q" />
+</form>
+</rt:block>
+
+<rt:block name="contentsId">wiki</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('wiki/')}{$object.wikiName}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('wiki/')}{$object.wikiName}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;{$f.noop($wf.header($object.wikiName))}</h2>
+</rt:block>
+
+<rt:block name="toolbar-header">
+<p id="toolbar-header" class="fright">
+<rt:block name="add-toolbar-header" />
+<a href="{$rhaco.url('wiki')}/new"><img src="../img/wiki/new.png" alt="_('新規作成')" /><span class="small">&nbsp;_('新規作成')&nbsp;</span></a>
+<a href="{$rhaco.url('wiki')}/list"><img src="../img/wiki/list.png" alt="_('ページ一覧')" /><span class="small">&nbsp;_('ページ一覧')&nbsp;</span></a>
+<a href="{$rhaco.url('wiki')}/history"><img src="../img/wiki/history.png" alt="_('履歴')" /><span class="small">&nbsp;_('履歴')&nbsp;</span></a>
+</p>
+</rt:block>
+
+<rt:block name="add-toolbar-header">
+<a href="{$rhaco.url('wiki')}/edit/{$object.wikiName}"><img src="../img/wiki/update.png" alt="_('編集')" /><span class="small">&nbsp;_("編集")&nbsp;</span></a>
+</rt:block>
+
+<rt:block name="contents-left">
+<div id="contents-left">
+{$f.noop($wc.f($wf.menu()))}
+{$f.noop($uf.counter())}
+</div>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+{$f.noop($wf.body($wc.f($object.text)))}
+</div>
+</rt:block>
+
+<rt:block name="toolbar-footer">
+<p id="toolbar-footer" class="aright">
+<rt:block name="add-toolbar-footer" />
+<a href="{$rhaco.url('wiki')}/backuplist"><img src="../img/wiki/backup.png" alt="_('バックアップ一覧')" /><span class="small">&nbsp;_('バックアップ一覧')&nbsp;</span></a>
+</p>
+</rt:block>
+
+<rt:block name="add-toolbar-footer">
+<a href="{$rhaco.url('wiki/attach/')}{$object.id}"><img src="../img/wiki/attach.png" alt="_('添付')" /><span class="small">&nbsp;_("添付")&nbsp;</span></a>
+</rt:block>
+
+<rt:block name="meta">
+<ul>
+  <li>_("最終更新者")&nbsp;:&nbsp;{$object.factUserId.userName}</li>
+  <li>_("最終更新日時")&nbsp;:&nbsp;{$wf.modified($object.updatedAt)}</li>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

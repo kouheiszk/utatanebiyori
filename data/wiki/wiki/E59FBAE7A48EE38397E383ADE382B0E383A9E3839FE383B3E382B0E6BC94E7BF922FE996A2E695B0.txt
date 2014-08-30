@@ -1,0 +1,61 @@
+* 定数、手続き、関数一覧 [#q00f73b0]
+
+** 定数 [#yeb2d6b6]
+
+|定数  |型      |元の言葉       |意味                           |
+|MaxInt|Integer |maximal integer|Integer型の最大値              |
+|Pi    |Real    |pi             |円周率π                       |
+|True  |Boolean |true           |真（yes）                      |
+|False |Boolean |false          |偽（no）                       |
+|Nil   |ポインタ|nil            |空ポインタ(どこも指していない) |
+
+** 手続き [#n6d18871]
+
+|手続き     |引数の型       |元の言葉 |意味                       |
+|inc(n)     |integer        |increment|１増加する，n := n+1       |
+|dec(n)     |integer        |decrement|１減少する，n := n-1       |
+|inc(n,k)   |integer,integer|increment|ｋ増加する，n := n+k       |
+|dec(n,k)   |integer,integer|decrement|ｋ減少する，n := n-k       |
+|inc(c)     |Char           |increment|次の文字，c := succ(c)     |
+|dec(c)     |Char           |decrement|前の文字，c := pred(c)     |
+|inc(t)     |列挙型         |increment|次の項，t := succ(t)       |
+|dec(t)     |列挙型         |decrement|前の項，t := pred(t)       |
+|Randomize  |               |randomize|乱数の初期化               |
+|assign(f,s)|ファイル,String|assign   |f にファイル s を割り当てる|
+|reset(f)   |ファイル       |reset    |f を入力用に初期化する     |
+|rewrite(f) |ファイル       |rewrite  |f を出力用に初期化する     |
+|close(f)   |ファイル       |close    |f を解放する               |
+|new(p)     |ポインタ       |new      |動的変数を割り当てる       |
+|dipose(p)  | ポインタ      |dispose  |動的変数を解放する         |
+** 関数 [#ccac19ca]
+
+|関数     |引数の型|結果の型|元の言葉         |意味                    |
+|abs(n)   |integer |integer |absolute         |絶対値 &brvbar;n&brvbar;|
+|sqr(n)   |integer |integer |square           |自乗 n2                 |
+|round(x) |real    |integer |round            |小数部四捨五入          |
+|trunc(x) |real    |integer |truncate         |小数部切り捨て          |
+|abs(x)   |real    |real    |absolute         |絶対値 &brvbar;x&brvbar;|
+|Pi       |        |real    |pi               |円周率 π               |
+|sqr(x)   |real    |real    |square           |自乗 x2                 |
+|sqrt(x)  |real    |real    |square root      |平方根 √x              |
+|int(x)   |real    |real    |integer          |小数部切り捨て          |
+|frac(x)  |real    |real    |fraction         |小数部                  |
+|ln(x)    |real    |real    |natural logarithm|自然対数 logex          |
+|exp(x)   |real    |real    |exponential      |指数関数 ｅx            |
+|sin(x)   |real    |real    |sine             |正弦関数 sinx           |
+|cos(x)   |real    |real    |cosine           |余弦関数 cosx           |
+|arcTan(x)|real    |real    |arc-tangent      |逆正接関数 tan-1x       |
+|Random   |        |real    |random           |０≦ｒ＜１ の実数の乱数 |
+|random(n)|integer |integer |random           |０≦ｒ＜n の整数の乱数  |
+|odd(n)   |integer |boolean |odd              |nが奇数                 |
+|chr(n)   |integer |char    |character        |コードがnの文字         |
+|ord(c)   |char    |integer |order            |文字cのコード           |
+|pred(c)  |char    |char    |predecessor      |コードが１小さい文字    |
+|succ(c)  |char    |char    |successor        |コードが１大きい文字    |
+|upCase(c)|char    |char    |up case          |英小文字を大文字化      |
+|length(s)|String  |integer |length           |文字列の長さ(文字数)    |
+|ord(t)   |列挙型  |integer |order            |t の順位                |
+|pred(t)  |列挙型  |列挙型  |predecessor      |t のひとつ前の項        |
+|succ(t)  |列挙型  |列挙型  |successor        |t のひとつ後の項        |
+|eoln(f)  |ファイル|boolean |end of line      |行の終わりである        |
+|eof(f)   |ファイル|boolean |end of file      |ファイルの終わりである  |

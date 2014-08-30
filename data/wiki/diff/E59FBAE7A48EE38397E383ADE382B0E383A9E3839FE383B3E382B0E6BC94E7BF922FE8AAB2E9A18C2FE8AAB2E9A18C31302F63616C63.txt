@@ -1,0 +1,46 @@
+ * 四則計算 [#n470323e]
+ 
+ #code(pascal){{
+ program calc(input, output);
+ 
+ var
+    i : integer;
+    c : char;
+ 
+ function getnumber : integer;
+ 
+ var
+-   x : integer;begin
++   x : integer;
++
++begin
+    read(x);
+    getnumber := x;
+ end;
+ 
+ begin
+    i := getnumber;
+    read(c);
+ 
+-   while ord(c) <> 61 do
++   while c <> '=' do
+    begin
+-      case ord(c) of
+-        42 : i := i * getnumber;
+-        47 : i := i div getnumber;
+-        43 : i := i + getnumber;
+-        45 : i := i - getnumber;
++      case c of
++        '*' : i := i * getnumber;
++        '/' : i := i div getnumber;
++        '+' : i := i + getnumber;
++        '-' : i := i - getnumber;
+       end; { case }
+ 
+       read(c);
+    end;
+-
++   
+    writeln(i:1:0);
+ end.
+ }}

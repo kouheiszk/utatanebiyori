@@ -1,0 +1,30 @@
+<rt:extends href="../index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: _("ページが見つかりません")</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('wiki/')}_("Not Found")</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('wiki/')}_('Not Found')" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="add-toolbar-header" />
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;_("ページが見つかりません")</h2>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>_("ページが見つかりません")</h3>
+<rt:if param="$pagename">
+<div class="warning">{$pagename}というページは見つかりませんでした。</div>
+<ul>
+<li><a href="{$rhaco.url('wiki')}/new/{$pagename}">{$pagename}を新規作成する。</a></li>
+</ul>
+<rt:else />
+<div class="warning">指定されたページは見つかりませんでした。</div>
+</rt:if>
+</div>
+</rt:block>

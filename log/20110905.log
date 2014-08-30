@@ -1,0 +1,3 @@
+[error 2011/09/05 00:56:39]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/09/05 03:40:34]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2011/09/05 21:00:32]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />

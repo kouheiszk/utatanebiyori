@@ -1,0 +1,109 @@
+<rt:extends href="../index.html" />
+
+<rt:block name="title"> :: _("Whisper")</rt:block>
+
+<rt:block name="addcss">
+<link href="{$rhaco.constant('TEMPLATE_URL')}/css/whisper.css" rel="stylesheet" type="text/css" media="all" />
+</rt:block>
+
+<rt:block name="addjs">
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".actions-hover").addClass("no-visibility");
+
+    var options = {
+        allowed: 140,
+        warning: 20,
+        exceeded: 10,
+        cssWarning: 'char-counter-warning',
+        cssExceeded: 'char-counter-exceeded',
+      };
+
+    function calculate(obj){
+
+      var count = $(obj).val().length;
+      var available = options.allowed - count;
+      if(available < options.warning && available >= 0){
+        $('#status-field-char-counter').addClass(options.cssWarning);
+      } else {
+        $('#status-field-char-counter').removeClass(options.cssWarning);
+      }
+      if(available < options.exceeded){
+        $('#status-field-char-counter').addClass(options.cssExceeded);
+      } else {
+        $('#status-field-char-counter').removeClass(options.cssExceeded);
+      }
+      $('#status-field-char-counter').html(available);
+      return false;
+    };
+
+    $('#status').keyup(function(){calculate('#status')});
+    $('#status').change(function(){calculate('#status')});
+
+    $(".timeline").bind("mouseover",function(){
+      $(this).addClass("timeline_on");
+      $(this).find('.actions-hover').removeClass("no-visibility");
+      return false;
+    });
+    $(".timeline").bind("mouseout",function(){
+      $(this).removeClass("timeline_on");
+      $(this).find('.actions-hover').addClass("no-visibility");
+      return false;
+    });
+  });
+</script>
+</rt:block>
+
+<rt:block name="search">
+</rt:block>
+
+<rt:block name="contentsId">whisper</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Whisper")</h2>
+</rt:block>
+
+<rt:block name="toolbar-header">
+</rt:block>
+
+<rt:block name="add-toolbar-header">
+</rt:block>
+
+<rt:block name="contents-left">
+<div id="contents-left">
+{$f.noop($uf.counter())}
+</div>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+  <h3>_("Whisper")</h3>
+  <rt:include href="parts/sub_main_status_update_form.html" />
+  <rt:if param="{$login}">
+  公開タイムライン。
+  フォロアー達の。
+  自分に関係した発言。
+  <rt:else />
+  </rt:if>
+  <rt:include href="parts/sub_timeline.html" />
+</div>
+</rt:block>
+
+<rt:block name="toolbar-footer">
+</rt:block>
+
+<rt:block name="add-toolbar-footer">
+</rt:block>
+
+<rt:block name="meta">
+<ul>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

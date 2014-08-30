@@ -1,0 +1,17 @@
+<?php
+Rhaco::import("model.table.WikisBackupTable");
+/**
+ * Wikis_backup
+ */
+class WikisBackup extends WikisBackupTable{
+  /**
+   * 新規作成前の処理
+   */
+  function beforeInsert(&$db){
+    if(ExceptionTrigger::invalid()) return false;
+    $this->createdAt = time();
+    return true;
+  }
+}
+
+?>

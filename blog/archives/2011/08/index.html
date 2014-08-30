@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Movable Type Pro 5.01" />
+<link rel="stylesheet" href="http://utatanebiyori.uzusionet.com/blog/styles.css" type="text/css" />
+<link rel="start" href="http://utatanebiyori.uzusionet.com/blog/" title="Home" />
+<link rel="alternate" type="application/atom+xml" title="Recent Entries" href="http://utatanebiyori.uzusionet.com/blog/atom.xml" />
+<script type="text/javascript" src="http://utatanebiyori.uzusionet.com/blog/mt.js"></script>
+
+
+    <title>うたたね日記: 2011年8月アーカイブ</title>
+
+
+    <link rel="prev" href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/" title="2011年5月" />
+    
+
+</head>
+<body id="classic-blog" class="mt-archive-listing mt-datebased-monthly-archive layout-wtt">
+    <div id="container">
+        <div id="container-inner">
+
+
+            <div id="header">
+    <div id="header-inner">
+        <div id="header-content">
+
+
+            <div id="header-name"><a href="http://utatanebiyori.uzusionet.com/blog/" accesskey="1">うたたね日記</a></div>
+            <div id="header-description"></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+
+                            <h1 id="page-title" class="archive-title">2011年8月アーカイブ</h1>
+
+
+
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/index.html#entry-000020"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/19"
+    dc:title="EC-CUBEの商品選択時に規格2が表示されない"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/index.html#entry-000020"
+    dc:subject="eccube"
+    dc:description="コミュニティではPHPのjson_encodeが問題となってたのですが、prod..."
+    dc:creator="なぎ"
+    dc:date="2011-08-12T10:54:08+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-20" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html" rel="bookmark">EC-CUBEの商品選択時に規格2が表示されない</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2011-08-12T10:54:08+09:00">2011年8月12日 10:54</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            <p>コミュニティではPHPのjson_encodeが問題となってたのですが、product.jsをちょこっと直したら表示されるようになったので、ここに方法を書いておきます。</p>
+<p>コミュニティには恥ずかしくて書き込みできない＞＜</p>
+<p>ちなみに、バージョンは最新版(2011/8現在)の2.11.2です。</p>
+
+<p>html/js/product.js line 34-41
+</p><pre>
+    // 商品一覧時
+    if (typeof productsClassCategories != 'undefined' && classcat_id1) { //ここ追加
+        classcat2 = productsClassCategories[product_id][classcat_id1];
+    }
+    // 詳細表示時
+    else if(classcat_id1) { //ここ追加
+        classcat2 = classCategories[classcat_id1];
+    }
+</pre>
+<p></p>
+
+<p>html/js/product.js line 68-75
+</p><pre>
+    // 商品一覧時
+    if (typeof productsClassCategories != 'undefined' && classcat_id1) { //ここ追加
+        classcat2 = productsClassCategories[product_id][classcat_id1]['#' + classcat_id2];
+    }
+    // 詳細表示時
+    else if(classcat_id1) { //ここ追加
+        classcat2 = classCategories[classcat_id1]['#' + classcat_id2];
+    }
+</pre>
+<p>html/js/product.js line 144-153
+
+<pre>
+    // 商品規格
+    var $product_class_id_dynamic = $form.find('[id^=product_class_id]');
+    if (classcat2
+        && typeof classcat2['product_class_id'] != 'undefined'
+        && String(classcat2['product_class_id']).length >= 1) {
+
+        $product_class_id_dynamic.val(classcat2['product_class_id']);
+    } else {
+        $product_class_id_dynamic.val();
+    }
+</pre>
+</p>
+        </div>
+
+
+
+        <div class="asset-more-link">
+            続きを読む: <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#more" rel="bookmark">EC-CUBEの商品選択時に規格2が表示されない</a>
+        </div>
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+
+
+                            <div class="content-nav">
+                                <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/">&laquo; 2011年5月</a> |
+                                <a href="http://utatanebiyori.uzusionet.com/blog/">メインページ</a> |
+                                <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a>
+                                
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div id="beta">
+    <div id="beta-inner">
+
+
+    
+    <div class="widget-archive widget-archive-category widget">
+    <h3 class="widget-header">カテゴリ</h3>
+    <div class="widget-content">
+    
+        
+        <ul>
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/eccube/">eccube (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/rhaco/">rhaco (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/">その他 (4)</a>
+        
+        
+            </li>
+        
+        </ul>
+        
+    
+    </div>
+</div>
+
+
+
+
+    <div class="widget-archive-monthly widget-archive widget">
+    <h3 class="widget-header">月別 <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a></h3>
+    <div class="widget-content">
+        <ul>
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/">2011年8月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/">2011年5月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/">2010年4月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/">2010年2月 (3)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/">2009年9月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/">2009年4月 (2)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/">2009年2月 (3)</a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+
+<div class="widget-pages widget">
+    <h3 class="widget-header">ウェブページ</h3>
+    <div class="widget-content">
+        <ul>
+    
+    
+        </ul>
+    </div>
+</div>
+
+<div class="widget-syndication widget">
+    <div class="widget-content">
+        <ul>
+            <li><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/status_icons/feed.gif" alt="購読する" width="9" height="9" /> <a href="http://utatanebiyori.uzusionet.com/blog/atom.xml">このブログを購読</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="widget-powered widget">
+    <div class="widget-content">
+        <a href="http://www.sixapart.jp/movabletype/"><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/bug-pbmt-white.png" alt="Powered by Movable Type 5.01" width="120" height="75" /></a>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+
+    
+<div id="gamma">
+    <div id="gamma-inner">
+    <div class="widget-search widget">
+    <h3 class="widget-header">検索</h3>
+    <div class="widget-content">
+        <form method="get" action="http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi">
+            <input type="text" id="search" class="ti" name="search" value="" />
+
+            <input type="hidden" name="IncludeBlogs" value="1" />
+
+            <input type="hidden" name="limit" value="20" />
+            <input type="submit" accesskey="4" value="検索" />
+        </form>
+    </div>
+</div>
+
+<div class="widget-about-this-page widget">
+    <h3 class="widget-header">
+
+    
+        このアーカイブについて
+    
+
+
+    </h3>
+    <div class="widget-content">
+
+
+
+
+
+        <p class="first">このページには、<strong>2011年8月</strong>に書かれたブログ記事が新しい順に公開されています。</p>
+    
+        <p>前のアーカイブは<a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/">2011年5月</a>です。</p>
+    
+    
+
+
+        <p>最近のコンテンツは<a href="http://utatanebiyori.uzusionet.com/blog/">インデックスページ</a>で見られます。過去に書かれたものは<a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブのページ</a>で見られます。</p>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <div id="footer">
+    <div id="footer-inner">
+        <div id="footer-content">
+            <div class="widget-powered widget">
+                <div class="widget-content">
+                    Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type Pro</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

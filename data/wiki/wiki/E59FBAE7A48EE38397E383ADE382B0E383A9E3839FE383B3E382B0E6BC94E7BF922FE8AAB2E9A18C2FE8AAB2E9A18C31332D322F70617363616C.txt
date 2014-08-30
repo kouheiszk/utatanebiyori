@@ -1,0 +1,101 @@
+* 二つのベクトルの和ベクトルと内積を求める [#l73e77da]
+
+#code(pascal){{
+program kadai13_2(input, output);
+
+const
+   DIMENTION = 5;
+
+type
+   ElementType = integer;
+   MatrixType  = array [1..DIMENTION] of ElementType;
+
+var
+   a, b, c : MatrixType;
+   d       : ElementType;
+   i         : integer;
+
+function sum (a, b : MatrixType) : MatrixType;
+
+var
+   i        : integer;
+   matrix : MatrixType;
+
+begin
+   for i := 1 to DIMENTION do
+      matrix[i] := a[i] + b[i];
+
+   sum := matrix;
+end; { sum }
+
+function inp (a, b : MatrixType) : ElementType;
+
+var
+   tmp : ElementType;
+
+begin
+   tmp := 0;
+   for i := 1 to DIMENTION do
+      tmp := tmp + a[i] * b[i];
+   inp := tmp;
+end; { inp }
+
+function matrix_read : MatrixType;
+
+var
+   i, j     : integer;
+   matrix : MatrixType;
+
+begin
+   for i := 1 to DIMENTION do
+   begin
+      write(i:1, '番目の要素を入力:');
+      write('(');
+      for j := 1 to i - 1 do
+         write(matrix[j]:1, ', ');
+      read(matrix[i]);
+   end;
+
+   matrix_read := matrix;
+end; { matrix_read }
+
+procedure matrix_write (matrix : MatrixType);
+
+var
+   i : integer;
+
+begin
+   write('(');
+   i := 0;
+   repeat
+      i := i + 1;
+      write(matrix[i]:1);
+      if i <> DIMENTION then
+         write(', ');
+   until i = DIMENTION;
+   writeln(')');
+end; { matrix_write }
+
+begin
+
+   writeln('ベクトルAの要素を整数で入力してください。');
+   a := matrix_read;
+   write('ベクトルA        :');
+   matrix_write(a);
+   writeln;
+
+   writeln('ベクトルBの要素を整数で入力してください。');
+   b := matrix_read;
+   write('ベクトルB        :');
+   matrix_write(b);
+   writeln;
+
+   c := sum(a, b);
+   d := inp(a, b);
+
+   write('AとBの和ベクトル :');
+   matrix_write(c);
+
+   writeln('AとBの内積       :', d:1);
+end.
+}}

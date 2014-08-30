@@ -1,0 +1,97 @@
+#Contents
+
+*ファイルの文字コードを変更する [#y79c288d]
+-geditを使用している場合
+「ファイル」→「別名で保存」を選択して、ファイル名を入力するダイアログが立ち上がると思います。
+そこでファイル名は変えずにその下にある文字コードを自分が変更したい文字コードに変えてください。
+
+-emacsを使用している場合
+たとえばEUC-JPに変更する場合は以下のように入力します。
+ C-x RET f euc-jp RET
+
+
+*ワイルドカード [#yb5875dd]
+
+-*(アスタリスク)
+任意の文字列
+ % ls
+ hoge.html test1-1.txt test1-2.txt test1-3.txt
+ test1-4.txt world1.mp3 world.mp3
+ % ls *.txt
+ test1-1.txt test1-2.txt test1-3.txt test1-4.txt
+
+
+
+*Windows上でLinuxを動かす [#gf959d79]
+
+**VMware [#ea46b167]
+
+-VMwareのインストール
+VMwareやVirtual PCなどといった仮想マシンを用いることでWindows上でLinuxを動かすことができます。
+ここではVMwareのインストールと方法を紹介します。ちなみに無料でできます。
+以下のサイトからVMwareをダウンロードしてください。
+[[http://www.vmware.com/download/player/download.html:http://www.vmware.com/download/player/download.html]]
+以下のサイトからVMware用の仮想マシンをダウンロード。インストールの方法も載ってるんで、見て頑張ってください。
+[[http://www.ubuntulinux.jp/products/JA-Localized/vmware:http://www.ubuntulinux.jp/products/JA-Localized/vmware]]
+//あと、scim-bridgeパッケージを追加でインストールすると幸せになれるらしいです。
+//でもおれはなんだか胡散臭いしめんどくさそうだったんでインストールしませんでした。
+-インストールできたら「アプリケーション」→「アクセサリ」→「端末」で端末を開いてください。
+これは授業で使った端末、xtarmと同じようなものです。これで端末の使い方になれることができますね。
+とりあえずアップデートしちゃいません？
+ % sudo apt-get update
+ % sudo apt-get upgrade
+sudoてのは、super userがdoする的な意味らしいです。
+//よくわからんけど。
+
+**Cygwin [#vd071242]
+
+-Cygwinのインストール
+CygwinはWindows上でcygwin.dllというものを動かし、Unixのコマンドを扱えるようにしたもの。
+上で説明したUbuntuよりも動作は軽いけど、インストールはクソだるいです。
+//おれだけか？笑
+インストールは以下のサイトを参照。
+[[http://musashi.sourceforge.jp/cygwin/cygwin.html:http://musashi.sourceforge.jp/cygwin/cygwin.html]]
+[[http://www2.ktokai-u.ac.jp/~kfuji/cygwin/cygwin.htm:http://www2.ktokai-u.ac.jp/~kfuji/cygwin/cygwin.htm]]
+--また、これだけだとWindowsのコマンドプロンプトを使うことになり、背景が黒だし見にくいと思います。
+//おれだけか？(o´艸｀o)
+そんな人におすすめなのがPoderosa。以下のサイトからダウンロードしてインストールしてみてください。
+[[http://ja.poderosa.org/:http://ja.poderosa.org/]]
+
+**自宅からのssh接続 [#b422c486]
+-できること
+iedのExtremeの操作 学内プロキシ接続による学内専用サイトの観覧
+-1.rsa暗号鍵の作成
+homeディレクトリで
+ % ssh-keygen -t rsa -b 2048 -C "iedkey"
+を実行すると「鍵を保存するファイルを入力」という文字列が表示され、リターンキー押します
+「パスフレーズを入力」という文字列が表示され、用意したパスフレーズ（鍵を使うためのパスワードのようなもの自分で決めてください）を入力します。
+「パスフレーズをもう一度入力」という表示に、再度パスフレーズを入力します。
+これで~/.ssh/id_rsaと~/.ssh/id_rsa.pubが作成されます。~/.ssh/id_rsaをUSBメモリなどに保存して持ち帰ってください。
+-2.公開暗号鍵の設定
+ %cd ~/.ssh
+ %cat id_rsa.pub > authorized_keys
+UNIX環境またはLinux環境をお持ちの方は1の手順を自宅の計算機で行い、~/.ssh/id_rsa.pubをUSBメモリまたはメールで転送し、iedで2の操作を行ってください。また、すでにauthorized_keysがある場合>ではなく>>を使ってください。
+-ied内での接続テスト
+1、２をied内で行った方は
+ % ssh ied1
+を実行してみてください。すると鍵 '/home/"group"/"UserName"/.ssh/id_rsa' のパスフレーズを入力してください:
+と表示されるので設定したパスフレーズを入力してください。
+Last login:**************************************
+Sun Microsystems Inc. Sun OS 5.10 Generic January 2005 と表示されれば成功です。
+
+※自分のホームディレクトリのパーミッションが755でないとssh接続できません。
+
+-3.puttyを使ったssh接続
+http://www.cc.uec.ac.jp/edu/manual/windows_putty.html
+を参考にしながらputtyをインストールしてください。putty本体をインストールした後puttyjpという日本語化パッチを当ててください。
+設定は
+ セッションのタブ ホスト名に ied1.ied.ice.uec.ac.jp ポート22 接続タイプSSH
+ 接続→SSH→認証のタブ 認証のためのプライベートキーファイル 参照を押してにUSBで持ってきたid_rsa
+ 接続→SSH→トンネルのタブ 源ポートに3128 送り先にproxy.ied.ice.uec.ac.jp:3128 を入力して追加ボタン
+ セッションのタブに戻り セッション一覧の下に適当な前IEDなどを入力して保存ボタン
+ シェルを改造している人はウインドウ→色のタブのANSI BlackかDefault Background を黒以外の色に設定した方がいいかも
+開くをクリックするとlogin as:が表示されるのでiedアカウントを入力その後パスワードではなくパスフレーズが聞かれる入力してください。アカウント名を入力した後弾かれるようであれば公開鍵または秘密鍵が正しく設定されていませんputtyの設定を確認してそれでもだめなら１，２をもう一度やり直してください。
+-ブラウザの設定
+学内専用サイトを見るにはお使いのブラウザの設定をちょっと変えます。
+Firefoxの場合ツール→オプション 詳細→ネットワーク インターネットに接続するプロキシを設定します。の接続設定→手動でプロキシを設定する。HTTPプロキシにlocalhost ポートに3128を入力した後すべてのプロトコルでこのプロキシを使用するにチェックを入れOK。SSH接続を使用しないときはプロキシを使用しないに戻してください。そうじゃないとネットが使えません。
+IEは面倒なので略

@@ -1,0 +1,14 @@
+<rt:extends href="./main.html" />
+
+<rt:block name="content">
+
+<form method="post" rt:reference="true">
+	<input type="text" size="70" name="arbo_package" />
+	<input type="submit" value="install library" />
+</form>
+<form method="post" rt:reference="true">
+	<input type="text" size="70" name="jaja_package" />
+	<input type="submit" value="install application" />
+</form>
+{$message}
+</rt:block>

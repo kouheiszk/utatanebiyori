@@ -1,0 +1,266 @@
+@charset 'utf-8';
+
+/* whisper
+ ==========================================================*/
+
+#whisper {
+  background-image: url(../img/bg-footer.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-color: #fff;
+  margin-bottom: 1em;
+  padding: 20px 5% 70px;
+  border-top: 1px solid #cee6e6;
+  background-color: #ffffff;
+}
+
+#whisper #form-comment{
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  width: 100%;
+}
+
+fieldset.whisper-common-form {
+  margin:0;
+  padding:0;
+  width:100%;
+}
+
+fieldset, img {
+  border-color:transparent;
+  border-width:0;
+}
+
+.numeric {
+  font-family:'Helvetica Neue','Helvetica','Arial',sans-serif;
+}
+
+.bar {
+  line-height:1.9em;
+  padding:0;
+  position:relative;
+}
+
+.bar h4{
+  margin:0;
+  position:relative;
+}
+
+.bar h4 label {
+  color:#333333;
+  line-height:1.1;
+  margin-bottom:10px;
+  padding-right:130px;
+  width:50%;
+}
+
+.bar span{
+  background:none repeat scroll 0 0 transparent;
+  color:#CCCCCC;
+  display:block;
+  font-size:1.1em;
+  position:absolute;
+  right:3%;
+  bottom:0;
+}
+
+.status-update-form .info {
+  padding:0.5em;
+}
+
+
+.status-update-form textarea {
+  height:2.5em;
+  overflow:auto;
+  padding:2px;
+  width:98%;
+}
+
+#whisping_controls {
+  float:right;
+  padding-right:1.3%;
+}
+
+.char-counter-warning {
+  color:#5C0002;
+}
+.char-counter-exceeded {
+  color:#D40D12;
+}
+
+#update_notifications {
+  color:#666666;
+  float:left;
+  font-size:0.85em;
+  line-height:1.2em;
+  margin:3px 8px 0 0;
+  min-height:1.2em;
+  overflow:visible;
+  padding:2px 4px 2px 0;
+  text-align:left;
+  width:80%;
+  word-wrap:break-word;
+}
+
+
+/* timeline
+ ==========================================================*/
+
+hr {
+  border:1px solid #DCDCDC;
+  width:570px;
+  text-align:left;
+  margin:0;
+  margin-bottom:5px;
+}
+
+.timeline {
+  margin:0;
+  border:0;
+  padding:0;
+  width:570px;
+}
+
+.timeline .visibility{
+  visibility:visible;
+}
+
+.timeline .no-visibility{
+  visibility:hidden;
+}
+
+.timeline_on{
+  width:570px;
+  background:#EBF6F7!important;
+}
+
+.timeline_reply{
+  width:570px;
+  background:#DFEAFF!important;
+}
+
+.timeline .thumb {
+  display:block;
+  float:left;
+  margin:0;
+  height:58px;
+  width:58px;
+}
+
+.timeline .thumb a {
+  border:1px solid #DCDCDC;
+  display:block;
+  height:50px;
+  width:50px;
+}
+
+.timeline .thumb a:hover{
+  border:1px solid #2276BB;
+}
+
+.timeline .thumb a img {
+  margin:1px;
+}
+
+.timeline .status-body {
+  display:block;
+  float:right;
+  margin:0;
+  width:512px;
+}
+
+.timeline .status {
+  display:block;
+  min-height:32px;
+  padding-bottom:3px;
+  width:100%;
+}
+
+.timeline img {
+  text-align:baseline;
+}
+
+.timeline .name {
+  padding-right:5px;
+}
+
+.timeline .name a {
+  color:#2276BB;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.timeline .time {
+  color:#909090;
+  float:left;
+  font-size:80%;
+  width:350px;
+}
+
+.timeline ul {
+  display:block;
+  float:right;
+  list-style:none outside none;
+  margin:0 !important;
+  padding:0 !important;
+  width:162px;
+}
+
+.timeline ul li {
+  background:none repeat scroll 0 0 transparent !important;
+  list-style:none outside none;
+  line-height:150%;
+  display:block;
+  float:right;
+  font-size:80%;
+  margin:0 3px 3px;
+  padding:0 0 0 1em;
+  text-align:left;
+}
+
+.timeline a {
+  color:#666666;
+}
+
+.timeline a:hover {
+  color:#2276BB;
+}
+
+.timeline .status-reply a {
+  background:url("../img/whisper/reply.png") no-repeat 0 0 scroll transparent;
+  display:block;
+  height:12px;
+  margin:0;
+  padding:0 0 0 14px;
+}
+
+.timeline .status-reply a:hover{
+  background:url("../img/whisper/reply.png") no-repeat 0px -12px scroll transparent;
+}
+
+.timeline .status-delete a {
+  background:url("../img/whisper/delete.png") no-repeat 0 0 scroll transparent;
+  display:block;
+  height:12px;
+  margin:0;
+  padding:0 0 0 12px;
+}
+
+.timeline .status-delete a:hover{
+  background:url("../img/whisper/delete.png") no-repeat 0px -12px scroll transparent;
+}
+
+.timeline .status-regist-favorite a {
+  background:url("../img/whisper/favorite.png") no-repeat 0 0 scroll transparent;
+  display:block;
+  height:12px;
+  width:12px;
+  margin:0;
+  padding:0;
+}
+
+.timeline .status-regist-favorite a:hover{
+  background:url("../img/whisper/favorite.png") no-repeat 0px -12px scroll transparent;
+}

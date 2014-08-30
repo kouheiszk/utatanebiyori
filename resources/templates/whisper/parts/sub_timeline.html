@@ -1,0 +1,45 @@
+<rt:has param="status_list">
+<rt:loop param="status_list" var="status" first="is_first">
+<rt:if param="is_first"><hr /></rt:if>
+<div id="status-{$status.id}" class="timeline clearfix">
+  <div class="id dnone">{$status.id}</div>
+  <div class="replys dnone">{$status.status}</div>
+  <div class="thumb">
+    <a href="{$rhaco.url('user')}/{$status.factUserId.userId}" title="{$status.factUserId.userName}">
+      <img width="48px" height="48px" src="{$rhaco.constant('TEMPLATE_URL')}/img/user/{$status.factUserId.image}" />
+    </a>
+  </div>
+  <div class="status-body">
+    <div class="status">
+      <span class="name"><a href="{$rhaco.url('user')}/{$status.factUserId.userId}" title="{$status.factUserId.userName}">{$status.factUserId.userName}</a></span><rt:if param="{$status.replyStatusId}"><a href="{$rhaco.url('whisper/status/detail')}/{$status.replyStatusId}"><img width="14" height="14" src="../img/whisper/go-previous.png" title="_('返信元へ')" alt="_('返信元へ')"></a>&nbsp;</rt:if>{$f.noop($whf.f($status.status, $users))}
+    </div>
+    <div class="clearfix">
+      <div class="time">
+        <a href="{$rhaco.url('whisper/status/detail')}/{$status.id}">{$whf.modified($status.createdAt)}</a> in Web
+      </div>
+      <ul class="clearfix actions-hover">
+        <li class="status-regist-favorite"><a href="{$rhaco.url('whisper/status/regist_favorite')}/{$status.id}" title="この投稿をお気に入りに追加する" /></li>
+        <rt:if param="{$login}">
+        <rt:if param="{$status.userId}" value="{$login.id}">
+        <li class="status-delete"><a href="{$rhaco.url('whisper/status/delete')}/{$status.id}" title="_('返信')">削除</a></li>
+        <rt:else />
+        <li class="status-reply"><a href="{$rhaco.url('whisper/status/reply')}/{$status.id}" title="_('返信')">返信</a></li>
+        </rt:if>
+        <rt:else />
+        <li class="status-reply"><a href="{$rhaco.url('whisper/status/reply')}/{$status.id}" title="_('返信')">返信</a></li>
+        </rt:if>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr />
+</rt:loop>
+<rt:if param="pager">
+<div class="pager">
+  <rt:pager param="pager" />
+</div>
+</rt:if>
+</rt:has>
+<rt:hasnot param="status_list">
+<p>発言はありません。</p>
+</rt:hasnot>

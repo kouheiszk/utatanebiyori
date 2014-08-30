@@ -1,0 +1,2 @@
+[error 2010/10/21 09:48:48]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2010/10/21 09:48:50]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />

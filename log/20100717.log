@@ -1,0 +1,2 @@
+[error 2010/07/25 21:54:07]:[database/DbUtilBase.php:113] [Resource id #96(0)] select count(userstable.id) as count from uta_users userstable  where  userstable.id  =  2 
+[error 2010/07/25 21:54:07]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

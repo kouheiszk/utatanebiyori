@@ -1,0 +1,120 @@
+@charset 'utf-8';
+
+/* wiki
+ ==========================================================*/
+
+#wiki {
+  background-image: url(../img/bg-footer.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-color: #fff;
+  margin-bottom: 1em;
+  padding: 20px 5% 70px;
+  border-top: 1px solid #cee6e6;
+  background-color: #ffffff;
+}
+
+#wiki #form-text{
+  height: 500px;
+  margin: 0 0 5px;
+  overflow: auto;
+  width: 100%;
+}
+
+ /* edit
+ ==========================================================*/
+
+#edit .toc {
+  float: right;
+  border: solid 1px #ccc;
+  background: #f0f0f0;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+#edit .toc ol {
+  margin-left: 0;
+}
+
+#edit .toc ol li {
+  margin-left: 10px;
+  list-style: disc;
+  font-size: 0.9em;
+}
+
+#edit .toc ol li li {
+  list-style: circle;
+}
+
+#edit h3 {
+  font-size: 1.7em;
+}
+
+#edit h4 {
+  font-size: 1.5em;
+}
+
+#edit h5 {
+  font-size: 1.4em;
+}
+
+#edit blockquote {
+  border: solid 1px #ccc;
+  padding: 10px;
+}
+
+#edit blockquote p {
+  margin: 0.5em 0 0.3em;
+  line-height: 1.2em;
+}
+
+#edit pre {
+}
+
+#edit .footnote {
+  padding-top: 10px;
+}
+
+#edit table {
+  border-collapse: collapse;
+  border: solid 1px #ccc;
+  width: 100%;
+  margin: 20px 0;
+}
+
+#edit td,
+#edit th {
+  border-collapse: collapse;
+  border: solid 1px #ccc;
+  padding: 5px;
+}
+
+#edit th {
+  background: #f0f0f0;
+}
+
+/* note_super
+ ==========================================================*/
+
+a.notes-super {
+  color:#DD3333;
+  margin:0 3px;
+  vertical-align:super;
+}
+
+/* diff
+ ==========================================================*/
+
+pre.diff {
+  line-height: 130%;
+}
+
+span.diff-added {
+  background-color:inherit;
+  color:blue;
+}
+
+span.diff-removed {
+  background-color:inherit;
+  color:red;
+}

@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Movable Type Pro 5.01" />
+<link rel="stylesheet" href="http://utatanebiyori.uzusionet.com/blog/styles.css" type="text/css" />
+<link rel="start" href="http://utatanebiyori.uzusionet.com/blog/" title="Home" />
+<link rel="alternate" type="application/atom+xml" title="Recent Entries" href="http://utatanebiyori.uzusionet.com/blog/atom.xml" />
+<script type="text/javascript" src="http://utatanebiyori.uzusionet.com/blog/mt.js"></script>
+
+
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://utatanebiyori.uzusionet.com/blog/rsd.xml" />
+    <title>うたたね日記</title>
+</head>
+<body id="classic-blog" class="mt-main-index layout-wtt">
+    <div id="container">
+        <div id="container-inner">
+
+
+            <div id="header">
+    <div id="header-inner">
+        <div id="header-content">
+
+
+            <h1 id="header-name"><a href="http://utatanebiyori.uzusionet.com/blog/" accesskey="1">うたたね日記</a></h1>
+            <h2 id="header-description"></h2>
+
+        </div>
+    </div>
+</div>
+
+
+
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/19"
+    dc:title="EC-CUBEの商品選択時に規格2が表示されない"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html"
+    dc:subject="eccube"
+    dc:description="コミュニティではPHPのjson_encodeが問題となってたのですが、prod..."
+    dc:creator="なぎ"
+    dc:date="2011-08-12T10:54:08+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-20" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html" rel="bookmark">EC-CUBEの商品選択時に規格2が表示されない</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2011-08-12T10:54:08+09:00">2011年8月12日 10:54</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            <p>コミュニティではPHPのjson_encodeが問題となってたのですが、product.jsをちょこっと直したら表示されるようになったので、ここに方法を書いておきます。</p>
+<p>コミュニティには恥ずかしくて書き込みできない＞＜</p>
+<p>ちなみに、バージョンは最新版(2011/8現在)の2.11.2です。</p>
+
+<p>html/js/product.js line 34-41
+</p><pre>
+    // 商品一覧時
+    if (typeof productsClassCategories != 'undefined' && classcat_id1) { //ここ追加
+        classcat2 = productsClassCategories[product_id][classcat_id1];
+    }
+    // 詳細表示時
+    else if(classcat_id1) { //ここ追加
+        classcat2 = classCategories[classcat_id1];
+    }
+</pre>
+<p></p>
+
+<p>html/js/product.js line 68-75
+</p><pre>
+    // 商品一覧時
+    if (typeof productsClassCategories != 'undefined' && classcat_id1) { //ここ追加
+        classcat2 = productsClassCategories[product_id][classcat_id1]['#' + classcat_id2];
+    }
+    // 詳細表示時
+    else if(classcat_id1) { //ここ追加
+        classcat2 = classCategories[classcat_id1]['#' + classcat_id2];
+    }
+</pre>
+<p>html/js/product.js line 144-153
+
+<pre>
+    // 商品規格
+    var $product_class_id_dynamic = $form.find('[id^=product_class_id]');
+    if (classcat2
+        && typeof classcat2['product_class_id'] != 'undefined'
+        && String(classcat2['product_class_id']).length >= 1) {
+
+        $product_class_id_dynamic.val(classcat2['product_class_id']);
+    } else {
+        $product_class_id_dynamic.val();
+    }
+</pre>
+</p>
+        </div>
+
+
+
+        <div class="asset-more-link">
+            続きを読む: <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#more" rel="bookmark">EC-CUBEの商品選択時に規格2が表示されない</a>
+        </div>
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/18"
+    dc:title="FacebookでIEがfb_xd_fragmentで..."
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html"
+    dc:subject=""
+    dc:description="FirefoxとかChromeとかだと大丈夫だけどIEさんはやっぱりやってくれた..."
+    dc:creator="なぎ"
+    dc:date="2011-05-02T10:26:16+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-19" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html" rel="bookmark">FacebookでIEがfb_xd_fragmentで...</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2011-05-02T10:26:16+09:00">2011年5月 2日 10:26</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            FirefoxとかChromeとかだと大丈夫だけどIEさんはやっぱりやってくれた。<br /><br />FacebookアプリでURLにfb_xd_fragmentとかいう変なパラメータがついて、真っ白なページしか表示されなくなる...<br /><br />&lt;script&gt;<br />&nbsp;&nbsp;&nbsp; window.fbAsyncInit = function() {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FB.init({<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; appId&nbsp;&nbsp; : '000000000000000',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; status&nbsp; : true,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xfbml&nbsp;&nbsp; : true,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channelUrl: 'http://example.com/channel.html' // ←これ追加したら直った<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br />&lt;/script&gt;<span><span><br /></span></span><br />
+http://ceron.jp/url/dorkage.net/blog/2011/01/18/fb_xd_fragment-facebook-bugfix/<br />http://dorkage.net/blog/2011/01/18/fb_xd_fragment-facebook-bugfix/<br /> 
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/post-5.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/17"
+    dc:title="rhacoが..."
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/post-5.html"
+    dc:subject=""
+    dc:description="symfonyに吸収された。エイプリルフールですか!? ..."
+    dc:creator="なぎ"
+    dc:date="2010-04-01T01:19:59+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-18" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/post-5.html" rel="bookmark">rhacoが...</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2010-04-01T01:19:59+09:00">2010年4月 1日 01:19</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/post-5.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/post-5.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            symfonyに吸収された。<br /><br />エイプリルフールですか!?<br /> 
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/16"
+    dc:title="rhacoのトレーニングプログラム"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html"
+    dc:subject="rhaco"
+    dc:description="rhacoのトレーニングプログラムでつまずいてたけど、先に進めました。 &amp;lt;..."
+    dc:creator="なぎ"
+    dc:date="2010-02-13T19:39:25+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-17" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html" rel="bookmark">rhacoのトレーニングプログラム</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2010-02-13T19:39:25+09:00">2010年2月13日 19:39</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#comments">コメント(4)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            rhacoのトレーニングプログラムでつまずいてたけど、先に進めました。<br />
+<br />
+<pre class="php" style="font-family: 'courier new',mono-space;"><span style="color: rgb(0, 0, 0); font-weight: bold;">&lt;?php</span><br /><span style="color: rgb(177, 177, 0);">include_once</span> <a href="http://www.php.net/dirname"><span style="color: rgb(153, 0, 0);">dirname</span></a><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0); font-weight: bold;">__FILE__</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">.</span><span style="color: rgb(0, 0, 255);">"__init__.php"</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"generic.Urls"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"database.DbUtil"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"model.Post"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />&nbsp;<br /><span style="color: rgb(0, 0, 136);">$db</span> <span style="color: rgb(51, 153, 51);">=</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Dbutil<span style="color: rgb(0, 153, 0);">(</span>Post<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">connection</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$pattern</span> <span style="color: rgb(51, 153, 51);">=</span> <a href="http://www.php.net/array"><span style="color: rgb(153, 0, 0);">array</span></a><span style="color: rgb(0, 153, 0);">(</span><br />	<span style="color: rgb(102, 102, 102); font-style: italic;">//投稿記事の一覧を表示</span><br />	<span style="color: rgb(0, 0, 255);">"^posts(?:/index)?/?$"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"class"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"generic.Views"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"method"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"read"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"args"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Post<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">,</span><br /><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$parser</span> <span style="color: rgb(51, 153, 51);">=</span> Urls<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">parser</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 136);">$pattern</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 136);">$db</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$parser</span><span style="color: rgb(51, 153, 51);">-&gt;</span><span style="color: rgb(0, 64, 0);">write</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+これを以下のようにする<br />
+<pre class="php" style="font-family: 'courier new',mono-space;"><span style="color: rgb(102, 102, 102); font-style: italic;">//投稿記事の一覧を表示</span><br />	<span style="color: rgb(0, 0, 255);">"^posts(?:/index)?/?$"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"class"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"generic.Views"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"method"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"read"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"args"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Post<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">),"default"=&gt;true</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">,</span><br /><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+結構悩んだけど、できた時はなるほどってなりました。<br />本来ならば普通に"default"=&gt;trueをつけないでも表示されるのかな...<br /><br /><a href="http://wikihub.org/wiki/rhaco1-doc/100-blog-tutorial/03-model-view-template">
+http://wikihub.org/wiki/rhaco1-doc/100-blog-tutorial/03-model-view-template</a>
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/15"
+    dc:title="rhacoをライブラリとして使う。"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html"
+    dc:subject=""
+    dc:description="rhaco1.6をフレームワークとして使おうと思ったけど...チュートリアルでつ..."
+    dc:creator="なぎ"
+    dc:date="2010-02-10T16:39:02+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-16" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html" rel="bookmark">rhacoをライブラリとして使う。</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2010-02-10T16:39:02+09:00">2010年2月10日 16:39</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            rhaco1.6をフレームワークとして使おうと思ったけど...<br />チュートリアルでつまずいた。<br /><br />フレームワークじゃなく、ライブラリとして使うことにします。<br /><br /><br />そして、いつの間にかうずしおネットのphpinfoが見れなくなった;;<br /><br />php.iniの設定を手動で調べるのはめんどくさいです^^; 
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/14"
+    dc:title="Movable Type 5.0 にアップグレード"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html"
+    dc:subject="その他"
+    dc:description="Movable Type 5が出てたからバージョンアップしてみました。4.2から..."
+    dc:creator="なぎ"
+    dc:date="2010-02-04T01:08:38+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-15" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html" rel="bookmark">Movable Type 5.0 にアップグレード</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2010-02-04T01:08:38+09:00">2010年2月 4日 01:08</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comments">コメント(6)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            Movable Type 5が出てたからバージョンアップしてみました。<br />4.2から5.0へのアップデートは何もないサーバーに4.2をインストールするよりもすんなりいきました。<br /><br />やり方はMovable Type 5 第一回勉強会のサイトを参考にしました。<br />そこにも書いてあったけど、ウェブサイトのURLが http://uzusionet.com/ に...。<br /><br />このブログのURLはウェブサイトの utatanebiyori っていうサブドメインの blog ディレクトリ以下ってことになってた。<br />つまりhttp://utatanebiyori.uzusionet.com/blog/ってこと。<br />最終的に正しいURLになってたけど、気持ち悪いから直しました。<br /><br />画像のパスとかどうなってるんだろう...気になります。<br /><br />ついでにテーマも変更。<br />http://vicuna.jp/ のデザインを使わせてもらいました。<br />いろいろと改造していく予定。<br /><br />なんかそんなことを1年前にも言ってた気がします。<br />三日坊主にならないように気をつけないと。<br /> 
+        </div>
+
+
+
+        <div class="asset-more-link">
+            続きを読む: <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#more" rel="bookmark">Movable Type 5.0 にアップグレード</a>
+        </div>
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/13"
+    dc:title="CentOSのポート解放"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html"
+    dc:subject=""
+    dc:description="家のPCにCentOS5.3をインストールした。Apacheをインストールしたん..."
+    dc:creator="なぎ"
+    dc:date="2009-09-22T14:44:32+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-14" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html" rel="bookmark">CentOSのポート解放</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2009-09-22T14:44:32+09:00">2009年9月22日 14:44</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html#comments">コメント(1)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            家のPCにCentOS5.3をインストールした。<br />Apacheをインストールしたんだけど、なぜかブラウザからつながらない。<br /><br />理由は単純でポート解放ができていなかったから。<br /><br />以下のコマンドを実行することでポート解放画面に移行できる。<br /><br /># system-config-securitylevel-tui<br /><br />最初はSSHしか使えないようになってた。<br /><br />次は共有フォルダの設定だ!!<br /> 
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/5"
+    dc:title="画像アップロードのテスト"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html"
+    dc:subject=""
+    dc:description="がぞうのアップロードの実験です。 自己紹介のアバター的な感じの写真。 ..."
+    dc:creator="なぎ"
+    dc:date="2009-04-13T11:02:10+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-6" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html" rel="bookmark">画像アップロードのテスト</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2009-04-13T11:02:10+09:00">2009年4月13日 11:02</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            <p>がぞうのアップロードの実験です。</p>
+<p>自己紹介のアバター的な感じの写真。</p>
+<p>
+<span style="DISPLAY: inline" class="mt-enclosure mt-enclosure-image"><img class="mt-image-none" alt="Image0225.JPG" src="http://utatanebiyori.uzusionet.com/blog/Image0225.JPG" width="240" height="320" /></span></p>
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/4"
+    dc:title="んじゃ"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html"
+    dc:subject="その他"
+    dc:description="そろそろMovableTypeの勉強ばっかじゃなくて日記を更新しないと...go..."
+    dc:creator="なぎ"
+    dc:date="2009-04-12T21:04:56+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-5" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html" rel="bookmark">んじゃ</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2009-04-12T21:04:56+09:00">2009年4月12日 21:04</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            <p>そろそろMovableTypeの勉強ばっかじゃなくて日記を更新しないと...google先生に発見されないなとモンモンしてます。</p>
+<p>携帯からメールで日記を更新できたらいいんですが...。</p>
+<p>そういえばmixiってMovableType対応してるのかな？</p>
+<p>こんどいろいろと実験してみます。</p>
+<p>&nbsp;</p>
+<p>んじゃ。</p>
+        </div>
+
+
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+                            
+                            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/3"
+    dc:title="受験終わりました？"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html"
+    dc:subject=""
+    dc:description="人生の転機ともいえる大学受験が昨日終わりました。 終わったつもり。 終わったこと..."
+    dc:creator="なぎ"
+    dc:date="2009-02-26T23:48:46+09:00" />
+</rdf:RDF>
+-->
+
+<div id="entry-4" class="entry-asset asset hentry">
+    <div class="asset-header">
+        <h2 class="asset-name entry-title"><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html" rel="bookmark">受験終わりました？</a></h2>
+        <div class="asset-meta">
+            <span class="byline">
+    
+                <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2009-02-26T23:48:46+09:00">2009年2月26日 23:48</abbr>)
+    
+            </span>
+
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html#comments">コメント(0)</a>
+            <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html#trackbacks">トラックバック(0)</a>
+
+        </div>
+    </div>
+    <div class="asset-content entry-content">
+
+        <div class="asset-body">
+            <p>人生の転機ともいえる大学受験が昨日終わりました。</p>
+<p>終わったつもり。</p>
+<p>終わったことにしておこうよ...。</p>
+<p>&nbsp;</p>
+<p>後期受験もきっとあります。</p>
+<p>&nbsp;</p>
+<p>受験科目は数学と物理。英語がない受験スタイルとかもうなんて言ったらいいか...僕のためにあるものですよね。おいしく頂きました。</p>
+<p>&nbsp;</p>
+<p>だからまぁ、運が悪くって僕以上にできてるやつらがいっぱいいたらおれは落ちます。後期がんばります。</p>
+<p>僕以上に出来てる人の最大数9人とか...募集人数少なすぎなのも涙目ですよね。</p>
+<p>&nbsp;</p>
+<p>とりあえず、受験生一年間お疲れ様です。と自分をほめてます。</p>
+<p>&nbsp;</p>
+        </div>
+
+
+
+        <div class="asset-more-link">
+            続きを読む: <a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html#more" rel="bookmark">受験終わりました？</a>
+        </div>
+
+    </div>
+    <div class="asset-footer"></div>
+</div>
+
+
+
+
+                            <div class="content-nav">
+                                <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div id="beta">
+    <div id="beta-inner">
+
+
+    
+    <div class="widget-archive widget-archive-category widget">
+    <h3 class="widget-header">カテゴリ</h3>
+    <div class="widget-content">
+    
+        
+        <ul>
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/eccube/">eccube (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/rhaco/">rhaco (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/">その他 (4)</a>
+        
+        
+            </li>
+        
+        </ul>
+        
+    
+    </div>
+</div>
+
+
+
+
+    <div class="widget-archive-monthly widget-archive widget">
+    <h3 class="widget-header">月別 <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a></h3>
+    <div class="widget-content">
+        <ul>
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/">2011年8月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/">2011年5月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/">2010年4月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/">2010年2月 (3)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/">2009年9月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/">2009年4月 (2)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/">2009年2月 (3)</a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+
+<div class="widget-pages widget">
+    <h3 class="widget-header">ウェブページ</h3>
+    <div class="widget-content">
+        <ul>
+    
+    
+        </ul>
+    </div>
+</div>
+
+<div class="widget-syndication widget">
+    <div class="widget-content">
+        <ul>
+            <li><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/status_icons/feed.gif" alt="購読する" width="9" height="9" /> <a href="http://utatanebiyori.uzusionet.com/blog/atom.xml">このブログを購読</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="widget-powered widget">
+    <div class="widget-content">
+        <a href="http://www.sixapart.jp/movabletype/"><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/bug-pbmt-white.png" alt="Powered by Movable Type 5.01" width="120" height="75" /></a>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+
+    
+<div id="gamma">
+    <div id="gamma-inner">
+    <div class="widget-search widget">
+    <h3 class="widget-header">検索</h3>
+    <div class="widget-content">
+        <form method="get" action="http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi">
+            <input type="text" id="search" class="ti" name="search" value="" />
+
+            <input type="hidden" name="IncludeBlogs" value="1" />
+
+            <input type="hidden" name="limit" value="20" />
+            <input type="submit" accesskey="4" value="検索" />
+        </form>
+    </div>
+</div>
+
+<div class="widget-recent-comments widget">
+    <h3 class="widget-header">最近のコメント</h3>
+    <div class="widget-content">
+        <ul>
+        
+            <li><strong>Marietta Fitgerald:</strong> stupendous <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-14" title="Movable Type 5.0 にアップグレードへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>Ariane Lendo:</strong> I’d be inc <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-13" title="Movable Type 5.0 にアップグレードへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>Sabine Vincenzo:</strong> colossal c <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-12" title="Movable Type 5.0 にアップグレードへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>Gilberto Ingersol:</strong> vast accou <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-11" title="Movable Type 5.0 にアップグレードへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>Nagi:</strong> Thank you! <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-10" title="Movable Type 5.0 にアップグレードへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>Gebhard Lauer:</strong> Simply dis <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html#comment-9" title="Movable Type 5.0 にアップグレードへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>yabeken:</strong> あとは実戦ですねー  <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#comment-8" title="rhacoのトレーニングプログラムへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>なぎ:</strong> コメントありがとうご <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#comment-7" title="rhacoのトレーニングプログラムへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>yabeken:</strong> タグが消されてしまっ <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#comment-6" title="rhacoのトレーニングプログラムへのコメント">続きを読む</a></li>
+        
+    
+        
+            <li><strong>yabeken:</strong> こんにちは． mod <a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html#comment-5" title="rhacoのトレーニングプログラムへのコメント">続きを読む</a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+    <div class="widget-recent-entries widget-archives widget">
+    <h3 class="widget-header">最近のブログ記事</h3>
+    <div class="widget-content">
+        <ul>
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html">EC-CUBEの商品選択時に規格2が表示されない</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html">FacebookでIEがfb_xd_fragmentで...</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/post-5.html">rhacoが...</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html">rhacoのトレーニングプログラム</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html">rhacoをライブラリとして使う。</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html">Movable Type 5.0 にアップグレード</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html">CentOSのポート解放</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html">画像アップロードのテスト</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html">んじゃ</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html">受験終わりました？</a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+    <div class="widget-recent-assets widget">
+    <h3 class="widget-header">アイテム</h3>
+    <div class="widget-content">
+        <ul>
+        
+        <li class="item"><a class="asset-image" href="http://utatanebiyori.uzusionet.com/blog/Image0225.JPG"><img src="" class="asset-img-thumb" alt="Image0225.JPG" title="Image0225.JPG" /></a></li>
+        
+    
+        
+        <li class="item"><a class="asset-image" href="http://utatanebiyori.uzusionet.com/blog/img/top.jpg"><img src="" class="asset-img-thumb" alt="top.jpg" title="top.jpg" /></a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+    <div class="widget-tag-cloud widget">
+    <h3 class="widget-header">タグクラウド</h3>
+    <div class="widget-content">
+        <ul>
+
+            <li class="rank-3"><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=rhaco&amp;limit=20';return false;" rel="tag">rhaco</a></li>
+
+
+
+            <li class="rank-10"><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=facebook&amp;limit=20';return false;" rel="tag">facebook</a></li>
+
+
+
+            <li class="rank-10"><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=Linux&amp;limit=20';return false;" rel="tag">Linux</a></li>
+
+
+
+            <li class="rank-10"><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=movable%20type%205&amp;limit=20';return false;" rel="tag">movable type 5</a></li>
+
+
+
+            <li class="rank-10"><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=%E3%83%86%E3%82%B9%E3%83%88&amp;limit=20';return false;" rel="tag">テスト</a></li>
+
+
+
+            <li class="rank-10"><a href="javascript:void(0)" onclick="location.href='http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi?blog_id=1&amp;tag=%E7%94%BB%E5%83%8F&amp;limit=20';return false;" rel="tag">画像</a></li>
+
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <div id="footer">
+    <div id="footer-inner">
+        <div id="footer-content">
+            <div class="widget-powered widget">
+                <div class="widget-content">
+                    Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type Pro</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<?php
+/**
+ * Utatane
+ */
+Rhaco::import('generic.Views');
+
+class Utatane extends Views
+{
+    function index(){
+      $this->setUpdateInformation();
+      if($this->isLogin()) Header::redirect(Rhaco::url('home'));
+      return $this->parser('index.html');
+    }
+
+    function setUpdateInformation(){
+      //wiki更新情報
+      $wikis = new Wikis();
+      $w_criteria = new C(Q::orderDesc(Wikis::columnUpdatedAt()), Q::eq(Wikis::columnDeleteFlag(), 0));
+      $this->setVariable('wiki_recent_update', $this->getObjectList($wikis,$w_criteria));
+
+      //uploader更新情報
+      $uploader = new Uploader();
+      $up_criteria = new C(Q::orderDesc(Uploader::columnCreatedAt()), Q::eq(Uploader::columnDeleteFlag(), 0));
+      $this->setVariable('uploader_recent_update', $this->getObjectList($uploader,$up_criteria));
+
+      //whisper更新情報
+      $whisper = new Whisper();
+      $whi_criteria = new C(Q::orderDesc(Whisper::columnCreatedAt()));
+      $this->setVariable('whisper_recent_update', $this->getObjectList($whisper,$whi_criteria));
+    }
+
+    /**
+     * 認証が必要な動作
+     *
+     * $user = $this->loginRequired();
+     * $user // -> Users
+     */
+    function loginRequired(){
+        if(RequestLogin::isLoginSession() || (RequestLogin::isLoginCookie() &&
+            RequestLogin::silent(new LoginCondition($this->dbUtil, new Users())))){
+            // ログイン済み
+            return RequestLogin::getLoginSession();
+        }
+        // RequestLogin::loginRequired(new LoginCondition($this->dbUtil, new Users()));
+        $this->setSession('redirect_to', Rhaco::uri());
+        Header::redirect(Rhaco::url('login'));
+    }
+
+    function isLogin(){
+      if(RequestLogin::isLoginSession()) return true;
+      return false;
+    }
+
+  /**
+   * ユーザー情報を付加する
+   */
+  function filterUser($parser, $user){
+    $parser->setVariable('user_following', $this->dbUtil->select(new Users(), new C(
+      Q::orc(Q::selectIn(Users::columnId(), WhisperFollowers::columnFollowId(), new C(Q::eq(WhisperFollowers::columnUserId(), $user->id)))),
+      Q::pager(20)
+    )));
+    if(RequestLogin::isLoginSession()){
+      $login = RequestLogin::getLoginSession();
+      if($user->id == $login->id){
+        $parser->setVariable('is_mine', true);
+      }else{
+        $followers = $this->dbUtil->get(new WhisperFollowers(), new C(Q::eq(WhisperFollowers::columnUserId(), $login->id), Q::eq(WhisperFollowers::columnFollowId(), $user->id)));
+        $parser->setVariable('is_following', Variable::istype('Followers', $followers));
+      }
+    }
+    $parser->setVariable('latest_status', $this->dbUtil->get(new Whisper(), new C(Q::eq(Whisper::columnUserId(), $user->id), Q::orderDesc(Whisper::columnId()))));
+    $parser->setVariable('following_count', $this->dbUtil->count(new WhisperFollowers(), new C(Q::eq(WhisperFollowers::columnUserId(), $user->id))));
+    $parser->setVariable('follower_count', $this->dbUtil->count(new WhisperFollowers(), new C(Q::eq(WhisperFollowers::columnFollowId(), $user->id))));
+    $parser->setVariable('status_count', $this->dbUtil->count(new Whisper(), new C(Q::eq(Whisper::columnUserId(), $user->id))));
+    $parser->setVariable('user', $user);
+    $parser->setVariable('users', Users::getArrayOfUserId($this->dbUtil));
+    return $parser;
+  }
+
+    function isCsrf(){
+        $csrf = new HtmlCsrfFilter();
+        $csrf->isValid($this);
+    }
+
+    /**
+     * json(p) 形式で出力する
+     */
+    function _json($variables, $allowCallback=true){
+        /**
+         * ! Rhaco::end() してるし、views を継承してるからテストできないよ！
+         * === sample ===
+         * $view = new Utatane();
+         * ob_start();
+         * $view->_json(array('hoge', 'fuga'));
+         * eq('["hoge","fuga"]', ob_get_clean());
+         * $view->setVariable('callback', 'piyo');
+         * ob_start();
+         * $view->_json(array('hoge', 'fuga'));
+         * eq('piyo(["hoge","fuga"]);', ob_get_clean());
+         */
+        if(is_array($variables) && $this->isSession('_csrfid') && !isset($variables['_csrfid'])) $variables['_csrfid'] = $this->getSession('_csrfid');
+        if(is_array($variables) && $this->isSession('_onetimeticket') && !isset($variables['_onetimeticket'])) $variables['_onetimeticket'] = $this->getSession('_onetimeticket');
+        $json = json_encode($variables);
+        if($allowCallback === true && $this->isVariable('callback')){
+            Header::write(array('Content-type' => 'text/javascript; charset=utf-8'));
+            printf('%s(%s);', $this->getVariable('callback'), $json);
+        } else {
+            Header::write(array('Content-type' => 'application/json; charset=utf-8', 'X-JSON' => $json));
+            echo $json;
+        }
+        Rhaco::end();
+    }
+    function _notFound(){
+        parent::_notFound();
+        return $this->parser('error/404.html');
+    }
+    function _forbidden(){
+        Http::status(403);
+        return $this->parser('error/403.html');
+    }
+    /**
+     * generic 系の処理でテンプレートの上書きを止める
+     */
+    function _setParser(&$tableObject,$template,$defaulTemplate){
+        $this->setVariable("viewutil",new ViewsUtil($this->dbUtil));
+        $this->setVariable("tableObject",$tableObject);
+        if(empty($this->parser->filename)) $this->setTemplate($template);
+    }
+
+  /**
+   * ログインしているユーザーを取得する
+   */
+  function getLoginUser(){
+    if($this->isLogin()){
+      $user = $this->loginRequired();
+      if(!Variable::istype('Users', $user) || !$user->hasPermission($this->dbUtil, RequestLogin::getLoginSession())){
+        $user = Users::getGuestUser();
+      }
+    }else{
+      $user = Users::getGuestUser($this->dbUtil);
+    }
+    return $user;
+  }
+
+  /**
+   * モデルとクリテリアから配列を得る。
+   */
+  function getObjectList($tableObject,$criteria=null,$confmethod="views"){
+    if($this->_connection($tableObject)){
+      if(!Variable::istype("Criteria",$criteria)) $criteria = new Criteria();
+      $this->_readCriteria($tableObject,$criteria,$confmethod);
+      $criteria->q(Criterion::fact());
+      return $this->dbUtil->select($tableObject,$criteria);
+    }else{
+      return null;
+    }
+  }
+}

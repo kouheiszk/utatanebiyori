@@ -1,0 +1,11 @@
+* 開発環境構築 [#sf1e0a9c]
+
+ここでは自宅PCにwikiなどを開発する環境を構築するための手順を説明します。
+以下の順に開発環境を導入していってください。
+
+-[[VMware Player>Development/開発環境構築/VMware Player]]
+-[[CentOS>Development/開発環境構築/CentOS]]
+-[[Poderosa>Development/開発環境構築/Poderosa]]
+-[[VMware Tools>Development/開発環境構築/VMware Tools]]
+-[[Firefox>Development/開発環境構築/Firefox]]
+-[[Eclipse>Development/開発環境構築/Eclipse]]

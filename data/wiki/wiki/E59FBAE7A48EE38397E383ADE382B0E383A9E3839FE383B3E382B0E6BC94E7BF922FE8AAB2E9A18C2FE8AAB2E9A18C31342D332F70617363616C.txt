@@ -1,0 +1,83 @@
+* 数字の英語読みを出力 [#s93305dd]
+
+#code(pascal){{
+program kadai14_3(input, output);
+
+var
+   x : integer;
+
+procedure english(number : integer);
+
+begin
+   case number of
+     0   : write('');
+     1   : write('one');
+     2   : write('two');
+     3   : write('three');
+     4   : write('four');
+     5   : write('five');
+     6   : write('six');
+     7   : write('seven');
+     8   : write('eight');
+     9   : write('nine');
+     10  : write('ten');
+     11  : write('eleven');
+     12  : write('twelve');
+     13  : write('thirteen');
+     14  : write('fourteen');
+     15  : write('fifteen');
+     16  : write('sixteen');
+     17  : write('seventeen');
+     18  : write('eighteen');
+     19  : write('nineteen');
+     20  : write('twenty ');
+     30  : write('thirty ');
+     40  : write('fourty ');
+     50  : write('fifty ');
+     60  : write('sixty ');
+     70  : write('seventy ');
+     80  : write('eighty ');
+     90  : write('ninety ');
+   end; { case }
+end; { english }
+
+procedure inputdata;
+
+begin
+   write('正の整数を入力してください:');
+   readln(x);
+end; { inputdata }
+
+procedure outputdata;
+
+var
+   n100, n10, n1 : integer;
+
+begin
+   n100 := x div 100;
+   n10  := x mod 100;
+   n1   := x mod 10;
+
+   if n100 <> 0 then
+   begin
+      english(n100);
+      write(' hundred ');
+   end;
+
+   if n10 >= 20 then
+   begin
+      n10 := (n10 div 10) * 10;
+      english(n10);
+      english(n1);
+   end
+   else
+      english(n10);
+
+   writeln;
+end; { outputdata }
+
+begin
+   inputdata;
+   outputdata;
+end.
+}}

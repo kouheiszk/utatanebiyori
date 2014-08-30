@@ -1,0 +1,73 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Wiki") :: _("添付")</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('wiki/')}{$object.wikiName}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('wiki/')}{$object.wikiName}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Wiki")&nbsp;::&nbsp;_("添付")</h2>
+</rt:block>
+
+<rt:block name="toolbar-header">
+<p class="fright">
+<rt:block name="add-toolbar-header" />
+<a href="{$rhaco.url('wiki')}/new"><img src="../img/wiki/new.png" alt="_('新規作成')" /><span class="small">&nbsp;_('新規作成')&nbsp;</span></a>
+<a href="{$rhaco.url('wiki')}/list"><img src="../img/wiki/list.png" alt="_('ページ一覧')" /><span class="small">&nbsp;_('ページ一覧')&nbsp;</span></a>
+<a href="{$rhaco.url('wiki')}/history"><img src="../img/wiki/history.png" alt="_('履歴')" /><span class="small">&nbsp;_('履歴')&nbsp;</span></a>
+</p>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+<h3>_("添付")</h3>
+
+  <form action="{$rhaco.url('wiki/attach/')}{$object.id}" enctype="multipart/form-data" method="post">
+    <rt:invalid>
+    <rt:loop param="errors" var="e">
+      <p class="warning">{$e}</p>
+    </rt:loop>
+    </rt:invalid>
+    <table>
+      <tr>
+        <th class="w200px">_("添付ファイル")</th>
+        <td><input name="file" size="30" type="file" />
+                <p>_("添付ファイルサイズの上限は500KBです。")</p></td>
+      </tr>
+      <tr>
+        <th class="w200px">_("ファイル名")</th>
+        <td><input name="file_name" size="30" type="text" /></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><input type="submit" value="_('添付')" name="save" /></td>
+      </tr>
+    </table>
+    <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+    <input type="hidden" name="wiki_id" value="{$object.id}" />
+  </form>
+
+  <h4>{$object.wikiName}_("の添付ファイル一覧")</h4>
+  <ul rt:param="object_list" rt:var="$attach" rt:counter="counter">
+    <li><a href="../../wiki/attach/{$attach.wikiId}/{$attach.fileId}" class="{$uf.fileClass($attach.fileId)}">{$attach.fileName}</a><br />
+    {$wf.jdate($attach.createdAt)} - {$attach.factUserId.userName}</li>
+  </ul>
+  <rt:hasnot param="{$object_list}">
+  <div class="warning">_("ファイルが添付されていません。")</div>
+  </rt:hasnot>
+  <div class="pager">
+    <rt:pager param="pager" />
+  </div>
+</div>
+</rt:block>
+
+<rt:block name="meta">
+<input type="hidden" name="redirect" value="{$redirect}" />
+<ul>
+  <li>Convert time&nbsp;:&nbsp;{$uf.getCovertTime()}</li>
+</ul>
+</rt:block>

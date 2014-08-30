@@ -1,0 +1,15 @@
+[error 2011/05/13 07:26:52]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2011/05/13 10:06:58]:[database/DbUtilBase.php:113] [Resource id #123(1)] COMMIT
+[error 2011/05/13 10:06:58]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/05/13 10:06:58]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2011/05/13 10:06:58]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/05/13 10:07:09]:[database/DbUtilBase.php:113] [Resource id #124(2)] COMMIT
+[error 2011/05/13 10:07:09]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/05/13 10:07:09]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2011/05/13 10:07:09]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/05/13 10:07:09]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2011/05/13 10:07:09]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/05/13 17:05:39]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2011/05/13 19:27:10]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2011/05/13 19:28:39]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2011/05/13 20:38:38]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  source in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>314</b><br />

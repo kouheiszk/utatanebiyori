@@ -1,0 +1,41 @@
+* Free Pascal Compiler [#j5b36f23]
+
+Pascalでのプログラミング環境を整えたいと思います。参考にしたのは下記のサイトです。
+http://blog.kaihatsubu.com/archives/001656.html
+
+環境はCentOS5.3ですので[[開発環境構築>Development/開発環境構築]]にある[[VMware Player>Development/開発環境構築/VMware Player]]、[[CentOS>Development/開発環境構築/CentOS]]、[[Poderosa>Development/開発環境構築/Poderosa]]、[[VMware Tools>Development/開発環境構築/VMware Tools]]を導入しているのが前提です。
+
+#pre{{
+# wget http://downloads.sourceforge.net/project/freepascal/Linux/2.2.4/fpc-2.2.4-1.i386.rpm?use_mirror=jaist
+# wget http://downloads.sourceforge.net/project/freepascal/Linux/2.2.4/fpc-docs-2.2.4-1.i386.rpm?use_mirror=jaist
+# rpm -ivh --test fpc-2.2.4-1.i386.rpm
+# rpm -ivh fpc-2.2.4-1.i386.rpm
+# rpm -ivh --test fpc-docs-2.2.4-1.i386.rpm
+# rpm -ivh fpc-docs-2.2.4-1.i386.rpm
+}}
+
+VMware Playerの共有フォルダに設定したホストOS側のフォルダ(D:\SharedFolder)にpascalというフォルダを作成します。
+さらにpascalというフォルダにファイル名がhello.pというファイルを作成し、以下のプログラムを入力します。
+
+hello.p
+#code(pascal){{
+program hello(output);
+begin
+  writeln('Hello Pascal!!');
+end.  
+}}
+
+
+#pre{{
+# ln -s /mnt/hgfs/share/pascal
+# cd pascal
+# ls
+hello.p
+# fpc hello.p
+# ls
+hello  hello.o  hello.p
+# ./hello
+Hello Pascal!!
+}}
+
+コンパイルできることが確認できたら成功です。

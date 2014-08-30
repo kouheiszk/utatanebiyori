@@ -1,0 +1,16 @@
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:113] [Resource id #134(3)] COMMIT
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:113] [Resource id #130(2)] COMMIT
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/13 20:33:46]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/13 20:34:04]:[database/DbUtilBase.php:113] [Resource id #130(2)] COMMIT
+[error 2010/10/13 20:34:04]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/13 20:34:04]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/13 20:34:04]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/13 20:34:04]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/13 20:34:04]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/13 21:15:55]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />
+[error 2010/10/13 21:15:56]:[tag/TemplateParser.php:52] Notice</b>:  Undefined index:  HTTP_USER_AGENT in <b>/home/utatanebiyori/public_html/library/view/UtataneCounter.php</b> on line <b>105</b><br />

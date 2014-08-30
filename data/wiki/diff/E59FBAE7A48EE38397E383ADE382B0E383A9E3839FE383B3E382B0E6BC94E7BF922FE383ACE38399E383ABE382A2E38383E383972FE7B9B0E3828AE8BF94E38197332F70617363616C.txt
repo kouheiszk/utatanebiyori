@@ -1,0 +1,38 @@
++* 繰り返し3 [#y6d9c31d]
+ 
++#code(pascal){{
++program tree(output);
++
++var
++   i, j : integer;
++
++begin
++   for i := 1 to 11 do
++   begin
++      if i <= 6 then
++      begin
++         for j := 1 to 6 - i do
++            write(' ');
++      end
++      else
++      begin
++         for j := 1 to i - 6 do
++            write(' ');
++      end;
++
++      if i <= 6 then
++      begin
++         for j := 1 to 2 * i - 1 do
++            write('*');
++      end
++      else
++      begin
++         for j := 1 to 11 - 2 * (i - 6) do
++            write('*');
++      end;
++
++      writeln();
++   end;
++end.
++}}
++

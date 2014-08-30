@@ -1,0 +1,4 @@
+-[[:config/plugin]]
+ 
+-#ls2
+-

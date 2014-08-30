@@ -1,0 +1,22 @@
++* Firefox [#ff9d382e]
+ 
++IEがいいという人にもお勧め。
++下記のサイトからダウンロードしてインストールしてください。
++http://mozilla.jp/firefox/
++
++** プラグイン [#dcd218f6]
++
++Firefoxのプラグインです。
++FireMobileSimulatorは携帯用スキン作成用かな。
++
++*** FireBag [#o27afea7]
++
++https://addons.mozilla.org/ja/firefox/addon/1843
++
++*** Web Developer [#q530023c]
++
++https://addons.mozilla.org/ja/firefox/addon/60
++
++*** FireMobileSimulator [#p4f6b14b]
++
++http://firemobilesimulator.org/

@@ -1,0 +1,10 @@
+<?php
+Rhaco::import("model.table.WikisTmpTable");
+/**
+ * 
+ */
+class WikisTmp extends WikisTmpTable{
+
+}
+
+?>

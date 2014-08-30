@@ -1,0 +1,54 @@
+<?php
+Rhaco::import('exception.model.RequireException');
+Rhaco::import("model.table.WikisAttachTable");
+Rhaco::import("io.model.File");
+Rhaco::import("io.FileUtil");
+
+/**
+ * Wikis_attach
+ */
+class WikisAttach extends WikisAttachTable{
+  /**
+   * 挿入前の処理
+   */
+  function beforeInsert(&$db){
+    if(ExceptionTrigger::invalid()) return false;
+    if(RequestLogin::isLoginSession()){
+      $users = RequestLogin::getLoginSession();
+    }
+    $request = new Request();
+    if($request->isFile('file')){
+      $attach_file = $request->getFile('file');
+      $file = new File($attach_file->tmp);
+      $this->wikiId = $request->getVariable('wiki_id');
+      $this->userId = $users->id;
+      $this->fileId = $this->_genFileId(). strtolower($attach_file->extension);
+      $this->fileName = $request->getVariable('file_name');
+      $this->createdAt = time();
+      if(!FileUtil::isDir(Rhaco::resource('wiki/attach/'). $this->wikiId)){
+        FileUtil::mkdir(Rhaco::resource('wiki/attach/'). $this->wikiId,777);
+      }
+      //ディレクトリのパーミッション
+      if(!$attach_file->generate(Rhaco::resource('wiki/attach/'). $this->wikiId. "/". $this->fileId)){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function afterInsert(&$db){
+      return true;
+  }
+
+  function _genFileId($length = 8){
+    $charlist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    mt_srand();
+    $result = "";
+    for($i = 0; $i < $length; $i++){
+      $result .= $charlist{mt_rand(0, strlen($charlist) - 1)};
+    }
+    return $result;
+  }
+}
+
+?>

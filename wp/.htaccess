@@ -1,0 +1,33 @@
+php_value mbstring.script_encoding UTF-8
+php_flag allow_call_time_pass_reference on
+
+php_value mbstring.language Japanese
+php_flag mbstring.encoding_translation off
+php_value output_handler NULL
+php_flag magic_quotes_gpc off
+php_flag session.auto_start 0
+
+php_value mbstring.internal_encoding UTF-8
+
+#php_value upload_max_filesize 5M
+#php_value post_max_size 8M
+php_flag register_globals off
+
+# BEGIN WordPress
+RewriteEngine On
+RewriteBase /wp/
+RewriteRule ^index\.php$ - [L]
+
+# uploaded files
+RewriteRule ^([_0-9a-zA-Z-]+/)?files/(.+) wp-includes/ms-files.php?file=$2 [L]
+
+# add a trailing slash to /wp-admin
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule  ^[_0-9a-zA-Z-]+/(wp-(content|admin|includes).*) $1 [L]
+RewriteRule  ^[_0-9a-zA-Z-]+/(.*\.php)$ $1 [L]
+RewriteRule . index.php [L]
+# END WordPress

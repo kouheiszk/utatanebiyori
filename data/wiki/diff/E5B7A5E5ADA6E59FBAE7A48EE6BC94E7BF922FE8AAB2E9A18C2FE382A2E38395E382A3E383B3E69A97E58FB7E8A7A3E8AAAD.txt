@@ -1,0 +1,90 @@
+ *アフィン暗号解読 [#se1c95ca]
+ 
+ アフィン暗号による以下の暗号文を解読せよ。
+ 平分は英語で空白、ピリオド等は省略され、大文字、小文字の区別もない。空白、ピリオド等を加えて通常の文に複合せよ。
+ 
+ #pre{{
+ cmeyctkhyvtcmpxylqmnnygydlmdmcyhtsmdkznoqwyacactyecsxoqxilyzicyhmviwovhmpizctliqteitxyeitoqctxypolctmvy
+ qivzykcyhpmlyvqladtomvdkldmcyctxymtxylpmlihogotincogvitklycqxyey
+ }}
+-
+ ** 解答 [#bbc59980]
+ 
+ まず出現頻度の高い文字の調査を行う。
+ 
+ #pre{{
+ 22回 y　　16回 c　　15回 t　　14回 m
+ }}
+ 
+ アルファベットのa～zをそれぞれ0～25の数字に置き換える。
+ |a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|
+ |0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|
+ 
+ 英文中のアルファベットの出現確率の1位がe、2位がtであることから、e=4が暗号文で出現頻度が高いy=24に暗号化されており、t=19がc=2に暗号化されているとまず推測する。
+ 
+ 連立方程式
+ #pre{{
+ 24 =  4a + b (mod 26)
+  2 = 19a + b (mod 26)
+ }}
+ 
+ これを解くと
+ 
+ #pre{{
+ a = 2
+ }}
+ 
+ が得られるが、これは不法な解。（aはZ26と素であり乗法逆元をもつ必要があるから。）
+ 
+ 次に、t=19は、c=2の次に出現頻度が高かいt=19に暗号化されている可能性を考える。
+ 
+ 連立方程式
+ 
+ #pre{{
+ 24 =  4a + b (mod 26)
+ 19 = 19a + b (mod 26)
+ }}
+ 
+ これを解くと
+ 
+ #pre{{
+ a = 17
+ b = 8
+ }}
+ 
+ が得られ、適法な解となる。
+ 
+ この鍵から得られる復号函数
+ 
+ #pre{{
+ d(Y) = 23Y + 24
+ }}
+ 
+ を施して、意味の通る文になるか確認する。
+ 
+ #pre{{
+ somestudentsofhercollegeproposedtwopublickeysystemswhicharebasedonakindofabstractmathematics
+ thefirstonecanbeusedforencryptionpurposestheotherforadigitalsignaturescheme
+ }}
+ 
+ #pre{{
+ some students of her college proposed two public key systems which are based on a kind of abstract mathematics
+ the first one can be used for encryption purposes the other for a digital signature scheme
+ }}
+ 
+ 復号化された文章はこうなる。
+ 
+ #pre{{
+ Some students of her college proposed two public key systems which are based on a kind of abstract mathematics.
+ The first one can be used for encryption purposes the other for a digital signature scheme.
+ }}
+ 
+ excite翻訳で翻訳してみた。
+ 
+ #pre{{
+ 彼女の大学の学生の中には一種の理論数学に基づいている2個の公開鍵方式を提案した人もいました。
+ デジタル署名のためのもう片方が計画する暗号化目的に最初のものを使用できます。
+ さすが…。
+ }}
+ 
+ [[プログラム>工学基礎演習/課題/アフィン暗号解読/afein]]

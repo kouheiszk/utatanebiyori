@@ -1,0 +1,27 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Whisp") :: _("投稿")</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.constant('BEFOR_URI')}{$rhaco.uri()}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Whisp")&nbsp;::&nbsp;_("投稿")</h2>
+</rt:block>
+
+<rt:block name="contents-left">
+<div id="contents-left">
+{$f.noop($uf.counter())}
+</div>
+</rt:block>
+
+<rt:block name="main">
+<div id="main">
+  <h3>_("投稿")</h3>
+  <rt:include href="parts/sub_main_status_update_form.html" />
+</div>
+</rt:block>

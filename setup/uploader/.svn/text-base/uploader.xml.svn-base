@@ -1,0 +1,28 @@
+<table name="uploader">
+  <description>Uploader</description>
+  <column name="id" />
+  <column name="user_id" type="int" reference="users.id" />
+  <column name="file_name" type="text" label="ファイル名" />
+  <column name="comment" type="text" max="200" label="コメント" />
+  <column name="size" type="int" label="ファイルサイズ" />
+  <column name="mime" type="text" label="ファイルタイプ" />
+  <column name="host" type="text" />
+  <column name="category_id" type="int" reference="uploader_category.id" />
+  <column name="tag01" type="text" max="20" />
+  <column name="tag02" type="text" max="20" />
+  <column name="tag03" type="text" max="20" />
+  <column name="tag04" type="text" max="20" />
+  <column name="tag05" type="text" max="20" />
+  <column name="tag06" type="text" max="20" />
+  <column name="tag07" type="text" max="20" />
+  <column name="tag08" type="text" max="20" />
+  <column name="tag09" type="text" max="20" />
+  <column name="tag10" type="text" max="20" />
+  <column name="download_count" type="int" default="0" label="ダウンロード数" />
+  <column name="download_path" require="true" unique="true" />
+  <column name="download_key" type="text" />
+  <column name="delete_key" type="text" />
+  <column name="delete_flag" type="bool" default="false" />
+  <column name="updated_at" type="timestamp" default="sysdate" label="更新日時" />
+  <column name="created_at" type="timestamp" default="sysdate" label="作成日時" />
+</table>

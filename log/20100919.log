@@ -1,0 +1,16 @@
+[error 2010/09/19 09:38:27]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2010/09/19 09:38:27]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/09/19 09:38:27]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/09/19 09:38:27]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/09/19 17:42:14]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2010/09/19 17:42:14]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/09/19 17:42:14]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/09/19 17:42:14]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/09/19 21:47:11]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2010/09/19 21:47:11]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/09/19 21:47:11]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/09/19 21:47:11]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/09/19 21:48:12]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2010/09/19 21:48:12]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/09/19 21:48:12]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/09/19 21:48:12]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

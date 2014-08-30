@@ -1,0 +1,55 @@
+** 再帰呼び出しなんて使いたくないんだから [#n4599aca]
+
+#code(pascal){{
+program kadai14_2(input, output);
+
+var
+   n : integer;
+
+function fibo(var a,b : integer;i : integer) : integer;
+begin
+   if odd(i) then
+   begin
+      if i > 2 then
+         a := a + b;
+      fibo := a;
+   end
+   else
+   begin
+      if i > 2 then
+         b := a + b;
+      fibo := b;
+   end;
+end; { fibo }
+
+procedure inputdata;
+
+begin
+   write('正の整数を入力してください:');
+   readln(n);
+end; { inputdata }
+
+procedure outputdata;
+
+var
+   i, a, b : integer;
+
+begin
+   i := 0;
+   a := 1;
+   b := 1;
+   repeat
+      i := i + 1;
+      write(fibo(a,b,i):1);
+      if i <> n then
+         write(', ')
+      else
+         writeln;
+   until i = n;
+end; { outputdata }
+
+begin
+   inputdata;
+   outputdata;
+end.
+}}

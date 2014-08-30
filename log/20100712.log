@@ -1,0 +1,137 @@
+[error 2010/07/12 00:51:45]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  login in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>56</b><br />
+[error 2010/07/12 00:53:58]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  login in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>56</b><br />
+[error 2010/07/12 00:54:12]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  login in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>56</b><br />
+[error 2010/07/12 00:54:14]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  login in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>56</b><br />
+[error 2010/07/12 00:57:14]:[database/DbUtilBase.php:113] [Resource id #96(0)] select whispertable.id as t4c52,whispertable.user_id as t4c53,whispertable.reply_status_id as t4c54,whispertable.reply_user_id as t4c55,whispertable.status as t4c56,whispertable.created_at as t4c57,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_whisper whispertable,uta_users userstable  where  whispertable.user_id  =  userstable.id  ORDER BY whispertable.created_at DESC,whispertable.id DESC
+[error 2010/07/12 00:57:14]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_whisper' doesn't exist
+[error 2010/07/12 00:57:17]:[database/DbUtilBase.php:113] [Resource id #96(0)] select whispertable.id as t4c52,whispertable.user_id as t4c53,whispertable.reply_status_id as t4c54,whispertable.reply_user_id as t4c55,whispertable.status as t4c56,whispertable.created_at as t4c57,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_whisper whispertable,uta_users userstable  where  whispertable.user_id  =  userstable.id  ORDER BY whispertable.created_at DESC,whispertable.id DESC
+[error 2010/07/12 00:57:17]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_whisper' doesn't exist
+[error 2010/07/12 00:57:19]:[database/DbUtilBase.php:113] [Resource id #96(0)] select whispertable.id as t4c52,whispertable.user_id as t4c53,whispertable.reply_status_id as t4c54,whispertable.reply_user_id as t4c55,whispertable.status as t4c56,whispertable.created_at as t4c57,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_whisper whispertable,uta_users userstable  where  whispertable.user_id  =  userstable.id  ORDER BY whispertable.created_at DESC,whispertable.id DESC
+[error 2010/07/12 00:57:19]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_whisper' doesn't exist
+[error 2010/07/12 00:58:52]:[database/DbUtilBase.php:113] [Resource id #96(0)] select whispertable.id as t4c52,whispertable.user_id as t4c53,whispertable.reply_status_id as t4c54,whispertable.reply_user_id as t4c55,whispertable.status as t4c56,whispertable.created_at as t4c57,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_whisper whispertable,uta_users userstable  where  whispertable.user_id  =  userstable.id  ORDER BY whispertable.created_at DESC,whispertable.id DESC
+[error 2010/07/12 00:58:52]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_whisper' doesn't exist
+[error 2010/07/12 00:59:54]:[database/DbUtilBase.php:113] [Resource id #97(0)] select whispertable.id as t4c52,whispertable.user_id as t4c53,whispertable.reply_status_id as t4c54,whispertable.reply_user_id as t4c55,whispertable.status as t4c56,whispertable.created_at as t4c57,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_whisper whispertable,uta_users userstable  where  whispertable.user_id  =  userstable.id  ORDER BY whispertable.created_at DESC,whispertable.id DESC
+[error 2010/07/12 00:59:54]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_whisper' doesn't exist
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:113] [Resource id #163(0)] CREATE TABLE uta_users (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id LONGBLOB NOT NULL
+	,user_name LONGBLOB NOT NULL
+	,email TINYBLOB NOT NULL
+	,password LONGBLOB NOT NULL
+	,image LONGBLOB
+	,image_x INTEGER(22)
+	,image_y INTEGER(22)
+	,introduce_id INTEGER(22)
+	,private_flag TINYINT(1)
+	,last_login DATETIME
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,act_key LONGBLOB
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:114] #1050 - Table 'uta_users' already exists
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:113] [Resource id #163(0)] 
+
+CREATE TABLE uta_counter (
+	 id INTEGER AUTO_INCREMENT 
+	,year INTEGER(22)
+	,month INTEGER(22)
+	,day INTEGER(22)
+	,yesterday INTEGER(22)
+	,today INTEGER(22)
+	,total INTEGER(22)
+	,host LONGBLOB
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:114] #1050 - Table 'uta_counter' already exists
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:113] [Resource id #163(0)] 
+
+CREATE TABLE uta_wikis (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,wiki_name LONGBLOB NOT NULL
+	,password LONGBLOB
+	,text LONGBLOB
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis' already exists
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:113] [Resource id #163(0)] 
+
+CREATE TABLE uta_wikis_backup (
+	 id INTEGER AUTO_INCREMENT 
+	,wiki_id INTEGER(22)
+	,wiki_name LONGBLOB
+	,text LONGBLOB
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis_backup' already exists
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:113] [Resource id #163(0)] 
+
+CREATE TABLE uta_wikis_attach (
+	 id INTEGER AUTO_INCREMENT 
+	,wiki_id INTEGER(22)
+	,user_id INTEGER(22)
+	,file_id LONGBLOB NOT NULL
+	,file_name LONGBLOB
+	,delete_flag TINYINT(1)
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis_attach' already exists
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:113] [Resource id #163(0)] 
+
+CREATE TABLE uta_uploader (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,file_name LONGBLOB
+	,comment LONGBLOB
+	,size INTEGER(22)
+	,mime LONGBLOB
+	,host LONGBLOB
+	,category_id INTEGER(22)
+	,tag01 LONGBLOB
+	,tag02 LONGBLOB
+	,tag03 LONGBLOB
+	,tag04 LONGBLOB
+	,tag05 LONGBLOB
+	,tag06 LONGBLOB
+	,tag07 LONGBLOB
+	,tag08 LONGBLOB
+	,tag09 LONGBLOB
+	,tag10 LONGBLOB
+	,download_count INTEGER(22)
+	,download_path LONGBLOB NOT NULL
+	,download_key LONGBLOB
+	,delete_key LONGBLOB
+	,delete_flag TINYINT(1)
+	,updated_at DATETIME
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:114] #1050 - Table 'uta_uploader' already exists
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:113] [Resource id #163(0)] 
+
+CREATE TABLE uta_uploader_category (
+	 id INTEGER AUTO_INCREMENT 
+	,name LONGBLOB
+	,updated_at DATETIME
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/07/12 01:00:35]:[database/DbUtilBase.php:114] #1050 - Table 'uta_uploader_category' already exists
+[error 2010/07/12 01:04:00]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:04:08]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:04:47]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:04:55]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:05:09]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:06:58]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:07:03]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:07:07]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:08:06]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:08:22]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />
+[error 2010/07/12 01:08:26]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  uploader_recent_upload in <b>/home/utatanebiyori/public_html/cache/0a2df039928da90478ce8830f5ddc742</b> on line <b>159</b><br />

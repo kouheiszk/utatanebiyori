@@ -1,0 +1,106 @@
+* アフィン暗号解読プログラム [#radfe942]
+
+#code(c,nooutline){{
+#include <stdio.h>
+#include <math.h>
+
+void quick_sort(int n, int *sort1, int *sort2) {
+	int i, j;
+	int pivot, t;
+	if(n < 2) return;
+	
+	pivot = sort1[0];
+	i = 0;  j = n - 1;
+	while (i <= j) {
+		while (sort1[i] < pivot) i ++;
+		while (sort1[j] > pivot) j --;
+		if (i <= j) {
+			t = sort1[i]; sort1[i] = sort1[j]; sort1[j] = t;
+			t = sort2[i]; sort2[i] = sort2[j]; sort2[j] = t;
+			i++;  j--;
+		}
+	}
+	
+	quick_sort(j + 1, sort1, sort2);
+	quick_sort(n - i, sort1 + i, sort2 + i);
+}
+
+int mod(int k, int n){
+	if(k >= 0)return (k % n);
+	else return (n - abs(k) % n);
+}
+
+int gyakugen(int a){
+	switch(a){
+		case 1:return 1;
+		case 3:return 9;
+		case 5:return 21;
+		case 7:return 15;
+		case 9:return 3;
+		case 11:return 19;
+		case 15:return 7;
+		case 17:return 23;
+		case 19:return 11;
+		case 21:return 5;
+		case 23:return 17;
+		case 25:return 25;
+	}
+}
+
+int main(void){
+	FILE *fpi, *fpo;
+	int i, j, k, c;
+	int a, b, e, x;//a,b:暗号鍵 e:aの乗法逆元 x:複合化
+	int sum[26], moji[26];
+	int z, y;
+	int array[512];//暗号を入れる配列
+	bool flag = false;
+	char in[64];
+	
+	for(i = 0; i < 26; i++){
+		sum[i] = 0;
+		moji[i] = 0;
+	}
+	
+	printf("Angou File : ");
+	scanf("%s", in);
+	
+	
+	if((fpi = fopen(in, "r")) == NULL)return 1;
+	if((fpo = fopen("out.txt", "w")) == NULL)return 1;
+	
+	for(j = 0; (c = fgetc(fpi)) != EOF; j++){
+		array[j] = c - 97;
+		moji[c - 97] = c;
+		sum[c - 97]++;
+	}
+	
+	quick_sort(26, sum, moji);
+	for(k = 0; k < 25; k++){
+		for(i = 0; i < 25; i++){
+			z = moji[25 - k];
+			if(z == moji[25 - i])y = moji[25 - i - 1];
+			else y = moji[25 - i];
+			a = mod(mod((z - 97) - (y - 97), 26) * 19, 26);
+			if((a % 2 != 0)&&(a != 13)){
+				b = mod((z - 97) - mod(4 * a , 26) , 26);
+				e = gyakugen(a);
+				for(i = 0; i < j; i++){
+					x = mod(array[i] * e + mod(-(e * b) , 26), 26);
+					fprintf(fpo, "%c", x + 97);
+				}
+				flag = true;
+				break;
+			}
+			else{
+			}
+		}
+		if(flag)break;
+	}
+	
+	fclose(fpi);
+	fclose(fpo);
+	
+	return 0;
+}
+}}

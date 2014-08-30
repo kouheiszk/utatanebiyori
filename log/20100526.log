@@ -1,0 +1,106 @@
+[error 2010/05/26 01:19:22]:[database/DbUtilBase.php:113] [Resource id #95(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2010/05/26 01:19:22]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_uploader_category' doesn't exist
+[error 2010/05/26 01:19:22]:[database/DbUtilBase.php:113] [Resource id #95(0)] select uploadertable.id as t0c6,uploadertable.user_id as t0c0,uploadertable.file_name as t0c7,uploadertable.comment as t0c8,uploadertable.size as t0c9,uploadertable.mime as t0c10,uploadertable.host as t0c11,uploadertable.category_id as t0c2,uploadertable.tag01 as t0c12,uploadertable.tag02 as t0c13,uploadertable.tag03 as t0c14,uploadertable.tag04 as t0c15,uploadertable.tag05 as t0c16,uploadertable.tag06 as t0c17,uploadertable.tag07 as t0c18,uploadertable.tag08 as t0c19,uploadertable.tag09 as t0c20,uploadertable.tag10 as t0c21,uploadertable.download_count as t0c22,uploadertable.download_path as t0c23,uploadertable.download_key as t0c24,uploadertable.delete_key as t0c25,uploadertable.delete_flag as t0c4,uploadertable.updated_at as t0c26,uploadertable.created_at as t0c5,userstable.id as t1c1,userstable.user_id as t1c27,userstable.user_name as t1c28,userstable.email as t1c29,userstable.password as t1c30,userstable.image as t1c31,userstable.image_x as t1c32,userstable.image_y as t1c33,userstable.introduce_id as t1c34,userstable.private_flag as t1c35,userstable.last_login as t1c36,userstable.created_at as t1c37,userstable.updated_at as t1c38,userstable.delete_flag as t1c39,userstable.act_key as t1c40,uploadercategorytable.id as t2c3,uploadercategorytable.name as t2c41,uploadercategorytable.updated_at as t2c42,uploadercategorytable.created_at as t2c43 from uta_uploader uploadertable,uta_users userstable,uta_uploader_category uploadercategorytable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  ORDER BY uploadertable.created_at ASC LIMIT 0,20 
+[error 2010/05/26 01:19:22]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_uploader' doesn't exist
+[error 2010/05/26 01:19:57]:[database/DbUtilBase.php:113] [Resource id #95(0)] select count(uploadertable.id) as count from uta_users userstable,uta_uploader_category uploadercategorytable,uta_uploader uploadertable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id 
+[error 2010/05/26 01:19:57]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_uploader_category' doesn't exist
+[error 2010/05/26 01:19:57]:[database/DbUtilBase.php:113] [Resource id #95(0)] select uploadertable.id as t0c6,uploadertable.user_id as t0c0,uploadertable.file_name as t0c7,uploadertable.comment as t0c8,uploadertable.size as t0c9,uploadertable.mime as t0c10,uploadertable.host as t0c11,uploadertable.category_id as t0c2,uploadertable.tag01 as t0c12,uploadertable.tag02 as t0c13,uploadertable.tag03 as t0c14,uploadertable.tag04 as t0c15,uploadertable.tag05 as t0c16,uploadertable.tag06 as t0c17,uploadertable.tag07 as t0c18,uploadertable.tag08 as t0c19,uploadertable.tag09 as t0c20,uploadertable.tag10 as t0c21,uploadertable.download_count as t0c22,uploadertable.download_path as t0c23,uploadertable.download_key as t0c24,uploadertable.delete_key as t0c25,uploadertable.delete_flag as t0c4,uploadertable.updated_at as t0c26,uploadertable.created_at as t0c5,userstable.id as t1c1,userstable.user_id as t1c27,userstable.user_name as t1c28,userstable.email as t1c29,userstable.password as t1c30,userstable.image as t1c31,userstable.image_x as t1c32,userstable.image_y as t1c33,userstable.introduce_id as t1c34,userstable.private_flag as t1c35,userstable.last_login as t1c36,userstable.created_at as t1c37,userstable.updated_at as t1c38,userstable.delete_flag as t1c39,userstable.act_key as t1c40,uploadercategorytable.id as t2c3,uploadercategorytable.name as t2c41,uploadercategorytable.updated_at as t2c42,uploadercategorytable.created_at as t2c43 from uta_uploader uploadertable,uta_users userstable,uta_uploader_category uploadercategorytable  where  uploadertable.delete_flag  =  0  AND uploadertable.user_id  =  userstable.id  AND uploadertable.category_id  =  uploadercategorytable.id  ORDER BY uploadertable.created_at ASC LIMIT 0,20 
+[error 2010/05/26 01:19:57]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_uploader' doesn't exist
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] CREATE TABLE uta_statuses (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,reply_user_id INTEGER(22)
+	,comment LONGBLOB NOT NULL
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_statuses' already exists
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] 
+
+CREATE TABLE uta_users (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id LONGBLOB NOT NULL
+	,user_name LONGBLOB NOT NULL
+	,email TINYBLOB NOT NULL
+	,password LONGBLOB NOT NULL
+	,image LONGBLOB
+	,image_x INTEGER(22)
+	,image_y INTEGER(22)
+	,introduce_id INTEGER(22)
+	,private_flag TINYINT(1)
+	,last_login DATETIME
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,act_key LONGBLOB
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_users' already exists
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] 
+
+CREATE TABLE uta_counter (
+	 id INTEGER AUTO_INCREMENT 
+	,year INTEGER(22)
+	,month INTEGER(22)
+	,day INTEGER(22)
+	,yesterday INTEGER(22)
+	,today INTEGER(22)
+	,total INTEGER(22)
+	,host LONGBLOB
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_counter' already exists
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] 
+
+CREATE TABLE uta_wikis (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,wiki_name LONGBLOB NOT NULL
+	,password LONGBLOB
+	,text LONGBLOB
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis' already exists
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] 
+
+CREATE TABLE uta_wikis_backup (
+	 id INTEGER AUTO_INCREMENT 
+	,wiki_id INTEGER(22)
+	,wiki_name LONGBLOB
+	,text LONGBLOB
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis_backup' already exists
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] 
+
+CREATE TABLE uta_wikis_attach (
+	 id INTEGER AUTO_INCREMENT 
+	,wiki_id INTEGER(22)
+	,user_id INTEGER(22)
+	,file_id LONGBLOB NOT NULL
+	,file_name LONGBLOB
+	,delete_flag TINYINT(1)
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis_attach' already exists
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] 
+
+CREATE TABLE uta_followers (
+	 user_id INTEGER(22)
+	,follow_id INTEGER(22)
+	,created_at DATETIME
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_followers' already exists
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:113] [Resource id #159(0)] 
+
+CREATE TABLE uta_requests (
+	 user_id INTEGER(22)
+	,request_id INTEGER(22)
+	,created_at DATETIME
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/05/26 01:21:20]:[database/DbUtilBase.php:114] #1050 - Table 'uta_requests' already exists

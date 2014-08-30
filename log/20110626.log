@@ -1,0 +1,4 @@
+[error 2011/06/26 02:09:28]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2011/06/26 08:07:42]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2011/06/26 08:07:42]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/06/26 16:42:35]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />

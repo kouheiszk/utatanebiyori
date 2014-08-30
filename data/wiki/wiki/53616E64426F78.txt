@@ -1,0 +1,30 @@
+* Menu [#c38a28ca]
+
+-[[Academic Spoken English 1]]
+-[[Academic Written English 1]]
+-[[工学基礎演習]]
+-[[コンピュータリテラシー>コンピュータリテラシー]]
+-[[力学第一]]
+-[[化学結合と構造]]
+-[[技術史]]
+-[[基礎プログラミング演習>基礎プログラミング演習]]
+-[[プログラミング演習]]
+-[[基礎科学実験A>基礎科学実験A]]
+-[[基礎科学実験B>基礎科学実験B]]
+-[[工学基礎演習]]
+-[[技術史]]
+-[[文学B]]
+-その他
+//--[[掲示板>http://utatanebiyori.uzusionet.com/bbs/]]
+--[[うｐろだ>http://utatanebiyori.uzusionet.com/upload/]]
+--[[チャット>http://utatanebiyori.uzusionet.com/chat/chat?roomid=utatanebiyori]]
+--[[電通用語集]]
+--[[夜Cの愉快な仲間たち]]
+--[[リンク集]]
+--[[クラス交流会]]
+--[[ページ一覧>http://utatanebiyori.uzusionet.com/wiki/?cmd=list]]
+--[[編集・投稿ガイドライン]]
+
+//常に表示されるメニューバーです。
+//&edit(MenuBar,noicon){edit};
+//を記述しておくとMenuBarを気軽に修正できるようになって便利かも。　

@@ -1,0 +1,62 @@
++* 課題1-2 [#n2965cc1]
+ 
++フィボナッチ数列の項は、その直前の連続する二つの項の和である。
++
++f( n ) = f( n - 1 ) + f( n - 2 )
++
++但し、 f(0) = 0, f(1) = 1 である。
++
++フィボナッチ数列の連続する項の差の比
++
++z = { f( n - 1 ) - f( n - 2 ) }/ { f( n ) - f( n - 1 ) }
++
++は、 n が大きくなれば、ある値に収束する。この値の近似値を求めるプログラムを書き、その値を示せ。この値は黄金分割比と呼ばれる。
++
++    フィボナッチ数列は関数 fibonacci を作って求め、項は配列に表せ。
++    まず 30 項まで求め、黄金分割比の値が収束していく様子を出力して確かめよ。
++    収束判定のために定数 dif = 1.0 e -6 を宣言し、連続する z の差の絶対値が dif 以下になったとき、収束したとして計算を終了するプログラムを作り、プログラムとその計算結果を提出せよ。 
++
++** 例 [#e70942f7]
++
++#code(pascal){{
++program kadai01_2(input, output);
++
++const
++   DIFF = 1.0e-6;
++ 
++function fibonacci(x : integer) : integer;
++
++begin
++   if x >= 3 then
++      fibonacci := fibonacci(x - 1) + fibonacci(x - 2)
++   else
++      fibonacci := 1;
++end; { fibonacci }
++
++procedure outputdata;
++
++var
++   i	     : integer;
++   z, oldz   : real;
++   flag	     : boolean;
++ 
++begin
++   i    := 3;
++   flag := false;
++   z := 1.0;
++   repeat
++      oldz := z;
++      z    := (fibonacci(i - 1) - fibonacci(i - 2)) / (fibonacci(i) - fibonacci(i - 1));
++      writeln('(',fibonacci(i - 1):8, '-', fibonacci(i - 2):8, ') / (',fibonacci(i):8, '-', fibonacci(i - 1):8, ') =', z);
++
++      if abs(z - oldz) <= DIFF then
++         flag := true;
++
++      i    := i + 1;
++   until  flag;
++end; { outputdata }
++ 
++begin
++   outputdata;
++end.
++}}

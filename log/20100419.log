@@ -1,0 +1,60 @@
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:113] [Resource id #138(0)] CREATE TABLE uta_statuses (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,reply_user_id INTEGER(22)
+	,comment LONGBLOB NOT NULL
+	,created_at DATETIME
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:114] #1050 - Table 'uta_statuses' already exists
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:113] [Resource id #138(0)] 
+
+CREATE TABLE uta_users (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id LONGBLOB NOT NULL
+	,user_name LONGBLOB NOT NULL
+	,email TINYBLOB NOT NULL
+	,password LONGBLOB NOT NULL
+	,image LONGBLOB
+	,image_x INTEGER(22)
+	,image_y INTEGER(22)
+	,introduce_id INTEGER(22)
+	,private_flag TINYINT(1)
+	,last_login DATETIME
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,act_key LONGBLOB
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:114] #1050 - Table 'uta_users' already exists
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:113] [Resource id #138(0)] 
+
+CREATE TABLE uta_wikis (
+	 id INTEGER AUTO_INCREMENT 
+	,user_id INTEGER(22)
+	,wiki_name LONGBLOB NOT NULL
+	,password LONGBLOB
+	,text LONGBLOB
+	,created_at DATETIME
+	,updated_at DATETIME
+	,delete_flag TINYINT(1)
+	,PRIMARY KEY(id)
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:114] #1050 - Table 'uta_wikis' already exists
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:113] [Resource id #138(0)] 
+
+CREATE TABLE uta_followers (
+	 user_id INTEGER(22)
+	,follow_id INTEGER(22)
+	,created_at DATETIME
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:114] #1050 - Table 'uta_followers' already exists
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:113] [Resource id #138(0)] 
+
+CREATE TABLE uta_requests (
+	 user_id INTEGER(22)
+	,request_id INTEGER(22)
+	,created_at DATETIME
+) TYPE = InnoDB CHARACTER SET UTF8
+[error 2010/04/19 00:15:37]:[database/DbUtilBase.php:114] #1050 - Table 'uta_requests' already exists

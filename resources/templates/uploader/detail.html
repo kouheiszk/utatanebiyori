@@ -1,0 +1,167 @@
+<rt:extends href="./index.html" />
+
+<rt:block name="title"> :: _("Uploader") :: {$object.fileName}</rt:block>
+
+<rt:block name="url">
+<p class="caption" id="linked_url">
+<span id="linked_url_text">{$rhaco.url('uploader/detail/')}{$object.id}</span>
+<span id="linked_url_copy" style="display: none;"><input size="100" id="linked_url_copy_input" type="text" style="border: dotted 1px #ccc; padding: 2px; width: 100%;" value="{$rhaco.url('uploader/detail/')}{$object.id}" readonly></span>
+</p>
+</rt:block>
+
+<rt:block name="addjs">
+<script type="text/javascript">
+  $(document).ready(function(){
+    for(var i = 1; i <= 10; i++){
+      var tag = $("#tag"+i);
+      if(tag.val().length != 0){
+        var str = tag.val();
+        $('#showtags').append("<span id=\"showtag"+ i +"\" class=\"showtag\"><nobr><a href=\"{$rhaco.url('uploader/')}?page=1&o=&a=&q=" + str + "\">" + str + "</a></nobr></span>");
+        $('#edittags').append("<tr id=\"edittag"+ i +"\"><td>" + str + "</td><td class=\"w10\"><input type=\"submit\" onclick=\"removetag(" + i + ")\" value=\"_('削除')\" /></td></tr>");
+      }
+    }
+
+    $("#inputtag").keyup(function count(){
+      if($("#inputtag").val().length != 0){
+        $("#addtag").show();
+        $("#addtag-count-zero").hide();
+      }else{
+        $("#addtag").hide();
+        $("#addtag-count-zero").show();
+      }
+    });
+  });
+</script>
+<script type="text/javascript">
+<!--
+  function edittag(){
+    $("#detail-tags").hide();
+    $("#edit-detail-tags").show();
+  }
+
+  function trim(value){
+    return String(value).replace(/^[ 　]*/gim, "").replace(/[ 　]*$/gim, "");
+  }
+
+  function appendtag(){
+    var reg = 0;
+    var num = 0;
+    var str = trim($("#inputtag").val());
+
+    if(str.length == 0){
+      alert("タグを入力してください。");
+      return false;
+    }
+
+    for(var i = 10; i >= 1; i--){
+      var tag = $("#tag"+i);
+      if(tag.val().length == 0){
+        reg = i;
+      }else{
+        if(tag.val() == str){
+          alert("同じタグは登録できません。");
+          return false;
+        }
+        num++;
+      }
+    }
+
+    if(num >= 9){
+      $('#inputtag').attr("disabled", "true");
+    }
+
+    $("#tag"+reg).val(str);
+    $('#showtags').append("<span id=\"showtag"+ i +"\" class=\"showtag\"><nobr><a href=\"{$rhaco.url('uploader/')}?page=1&o=&a=&q=" + str + "\">" + str + "</a></nobr></span>");
+    $('#edittags').append("<tr id=\"edittag"+ i +"\" class=\"showtag\"><td>" + str + "</td><td class=\"w10\"><input type=\"submit\" onclick=\"removetag(" + i + ")\" value=\"_('削除')\" /></td></tr>");
+
+    $("#inputtag").val("");
+    $("#addtag").hide();
+    $("#addtag-count-zero").show();
+  }
+
+  function removetag(number){
+    var str = "";
+    $("#tag"+number).val(str);
+    $("#showtag"+number).remove();
+    $("#edittag"+number).remove();
+    $('#inputtag').removeAttr("disabled");
+  }
+-->
+</script>
+</rt:block>
+
+<rt:block name="contents-header">
+<h2>_("Uploader")&nbsp;::&nbsp;<a href="{$rhaco.url('uploader/detail/')}{$object.id}">{$object.fileName}</a></h2>
+</rt:block>
+
+
+<rt:block name="main">
+<div id="main">
+<h3>{$object.fileName}</h3>
+<table id="detail-comment">
+  <tr class=" h60px">
+    <th class="w15">_("ファイルの説明")</th>
+    <td><span class="green">【{$object.factCategoryId.name}】</span>{$object.comment}</td>
+  </tr>
+  <tr id="detail-tags">
+    <th class="w15">_("登録タグ")</th>
+    <td><span id="showtags"></span><span id="edit-button" class="linked red" onclick="edittag()">【編集】</span></td>
+  </tr>
+</table>
+
+<div id="edit-detail-tags" style="display:none;">
+  <form action="{$rhaco.url('uploader/detail/')}{$object.id}" method="post" rt:reference="true">
+    <input id="tag1" class="tag" name="tag01" value="{$object.tag01}" size="20" type="hidden" />
+    <input id="tag2" class="tag" name="tag02" value="{$object.tag02}" size="20" type="hidden" />
+    <input id="tag3" class="tag" name="tag03" value="{$object.tag03}" size="20" type="hidden" />
+    <input id="tag4" class="tag" name="tag04" value="{$object.tag04}" size="20" type="hidden" />
+    <input id="tag5" class="tag" name="tag05" value="{$object.tag05}" size="20" type="hidden" />
+    <input id="tag6" class="tag" name="tag06" value="{$object.tag06}" size="20" type="hidden" />
+    <input id="tag7" class="tag" name="tag07" value="{$object.tag07}" size="20" type="hidden" />
+    <input id="tag8" class="tag" name="tag08" value="{$object.tag08}" size="20" type="hidden" />
+    <input id="tag9" class="tag" name="tag09" value="{$object.tag09}" size="20" type="hidden" />
+    <input id="tag10" class="tag" name="tag10" value="{$object.tag10}" size="20" type="hidden" />
+    <span class="ml5">登録タグを編集中…</span>&nbsp;<input name="save" value="_('編集を完了する')" type="submit" />
+  </form>
+  <input id="inputtag" class="w20 mt10" name="tag" value="" size="20" type="text" />
+  <span id="addtag" class="linked" onclick="appendtag()" style="display:none;"><img class="vmiddle" src="../img/uploader/addtag.png" alt="_('タグを追加する')" /><span id="addtag-text" class="vmiddle small">&nbsp;_('タグを追加する')&nbsp;</span></span>
+  <span id="addtag-count-zero" ><img class="vmiddle" src="../img/uploader/addtag.png" alt="_('タグを追加する')" /><span id="addtag-text" class="vmiddle small gray">&nbsp;_('タグを追加する')&nbsp;</span></span>
+  <table id="edittags" cellspacing="4" cellpadding="0" border="0"></table>
+</div>
+
+<rt:invalid>
+  <rt:loop param="errors" var="e">
+  <p class="warning">{$e}</p>
+  </rt:loop>
+</rt:invalid>
+
+<form action="{$rhaco.url('uploader/download/')}{$object.id}" method="post" rt:reference="false">
+<table>
+  <tr>
+    <th class="w15">DATE</th>
+    <td>{$uf.date($object.createdAt)}</td>
+  </tr>
+  <tr>
+    <th class="w15">SIZE</th>
+    <td>{$upf.dispsize($object.size)}&nbsp;({$object.size}bytes)</td>
+  </tr>
+  <tr>
+    <th class="w15">MIME</th>
+    <td>{$object.mime}</td>
+  </tr>
+  <rt:if param="{$login}">
+  <rt:else />
+  <tr>
+    <th class="w15">PASSWORD</th>
+    <td><input type="password" size="20" name="download_key"></td>
+  </tr>
+  </rt:if>
+  <tr>
+    <th class="w15"></th>
+    <td><input type=submit value="_('ダウンロード')"></td>
+  </tr>
+</table>
+</form>
+<div class="aright"><a href="{$rhaco.url('uploader/')}">_("Uploaderトップに戻る")</a></div>
+</div>
+</rt:block>

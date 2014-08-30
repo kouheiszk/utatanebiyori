@@ -1,0 +1,220 @@
+key:         MT::Plugin::mtVicuna
+name:        mtVicuna Template Set
+l10n_class:  mtVicuna::L10N
+description: A Template Set for Vicuna CMS.
+author_name: wu
+author_link: http://3ping.org/
+plugin_link: http://mt.vicuna.jp/
+version:     2.2.1
+
+template_sets:
+  mtVicuna:
+    label: mtVicuna 2.2.1
+    base_path: templates
+    order: 99
+
+    templates:
+      # index templates
+      #
+      # template_file_name (hide extension):
+      #   label: template display name
+      #   outfile: template_publish_file_name (with extension)
+      #   rebuild_me: 1 or 0 (1 => on, 0 => off)
+      #
+      index:
+        archive_index:
+          label: Archive Index
+          outfile: archives/index.html
+          rebuild_me: 1
+        atom:
+          label: Atom
+          outfile: atom.xml
+          rebuild_me: 1
+        javascript:
+          label: JavaScript
+          outfile: js/mt.js
+          rebuild_me: 1
+        user_jquery:
+          label: User JQuery
+          outfile: js/user_jquery.js
+          rebuild_me: 1
+        main_index:
+          label: Main Index
+          outfile: index.html
+          rebuild_me: 1
+        rsd:
+          label: RSD
+          outfile: rsd.xml
+          rebuild_me: 1
+        rss:
+          label: RSS
+          outfile: rss.xml
+          rebuild_me: 1
+        styles:
+          label: Stylesheet
+          outfile: styles.css
+          rebuild_me: 1
+
+      # archive templates
+      # 
+      # template_category:
+      #   template_file_name (hide extension):
+      #     label: template display name
+      #     mappings:
+      #       mapping_name:
+      #         archive_type: archive type
+      #         file_template: path (http://movabletype.jp/documentation/appendices/archive-file-path-specifiers.html)
+      #
+      individual:
+        archiveTemplate/entry:
+          label: Entry
+          mappings:
+            entry_archive:
+              archive_type: Individual
+              file_template: %y/%m/%-f
+      archive:
+        archiveTemplate/entry_listing_category:
+          label: Entry Listing Category
+          mappings:
+            category:
+              archive_type: Category
+              file_template: %-c/%i
+        archiveTemplate/entry_listing_datebased:
+          label: Entry Listing Datebased
+          mappings:
+            monthly:
+              archive_type: Monthly
+              file_template: %y/%m/%i
+      page:
+         archiveTemplate/page:
+          label: Page
+          mappings:
+            page_archive:
+              archive_type: Page
+              file_template: %-c/%-f
+
+      # template modules
+      #
+      # template_file_name (hide extension):
+      #   label: template display name
+      #
+      module:
+        templateModule/header:
+          label: Header
+        templateModule/footer:
+          label: Footer
+        templateModule/html_header:
+          label: HTML Header
+        templateModule/topic_path:
+          label: Topic Path
+        templateModule/utilities:
+          label: Utilities
+        templateModule/archive_index_link:
+          label: Archive Index Link
+        templateModule/entry_detail:
+          label: Entry Detail
+        templateModule/entry_summary:
+          label: Entry Summary
+        templateModule/entry_summary_feedbacks:
+          label: Entry Summary Feedbacks
+        templateModule/entry_metadata:
+          label: Entry Metadata
+        templateModule/related_entries:
+          label: Related Entries
+        templateModule/comments:
+          label: Comments
+        templateModule/trackbacks:
+          label: TrackBacks
+        templateModule/next_entry_link_simple:
+          label: Next Entry Link Simple
+        templateModule/next_entry_link_detailed:
+          label: Next Entry Link Detailed
+        templateModule/headline:
+          label: Headline
+        templateModule/global_navigation:
+          label: Global Navigation
+        templateModule/return:
+          label: Return to page top
+
+      # system templates
+      #
+      # template_file_name (hide extension):
+      #   label: template display name
+      # 
+      system:
+        comment_preview:
+          label: Comment Preview
+        comment_response:
+          label: Comment Response
+        dynamic_error:
+          label: Dynamic Error
+        popup_image:
+          label: Popup Image
+        search_results:
+          label: Search Results
+
+      # template widget sets
+      #
+      #
+      widgetset:
+                Navigation Utilities:
+                        order: 1000
+                        label: Navigation Utilities
+                        widgets:
+                                - Recent Entries
+                                - Category Archive List
+                                - Monthly Archive List
+                Other Utilities:
+                        order: 1000
+                        label: Other Utilities
+                        widgets:
+                                - Search
+                                - Feed
+      # template widgets
+      #
+      # template_file_name (hide extension):
+      #   label: template display name
+      #
+      widget:
+        widget/u_about:
+          label: About
+        widget/u_monthly_archives_list:
+          label: Monthly Archive List
+        widget/u_monthly_archives_dropdown:
+          label: Monthly Archive Dropdown
+        widget/u_category_archive_list:
+          label: Category Archive List
+        widget/u_calendar:
+          label: Calender
+        widget/u_recent_comments:
+          label: Recent Comments
+        widget/u_recent_trackbacks:
+          label: Recent Trackbacks
+        widget/u_recent_entries:
+          label: Recent Entries
+        widget/u_recent_assets:
+          label: Recent Assets
+        widget/u_feed:
+          label: Feed
+        widget/u_links:
+          label: Links
+        widget/u_search:
+          label: Search
+        widget/u_tag_cloud:
+          label: Tag Cloud
+        widget/u_creative_commons:
+          label: Creative Commons
+        widget/u_openid:
+          label: OpenID
+        widget/u_signin:
+          label: Sign in
+        widget/u_conditional_widget_mainindex:
+          label: Conditional Widget - Main Index(Home)
+        widget/u_conditional_widget_category:
+          label: Conditional Widget - Category
+        widget/u_conditional_widget_individual:
+          label: Conditional Widget - Individual
+        widget/u_conditional_widget_webpage:
+          label: Conditional Widget - Web Page
+        widget/u_conditional_widget_datebased:
+          label: Conditional Widget - Datebased

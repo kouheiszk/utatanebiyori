@@ -1,0 +1,11 @@
+[error 2011/08/25 15:03:25]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2011/08/25 15:03:26]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2011/08/25 15:03:28]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  diff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>252</b><br />
+[error 2011/08/25 16:56:32]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2011/08/25 18:54:50]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />
+[error 2011/08/25 19:47:05]:[database/DbUtilBase.php:113] [Resource id #124(2)] COMMIT
+[error 2011/08/25 19:47:05]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/08/25 19:47:05]:[database/DbUtilBase.php:113] [Resource id #120(1)] COMMIT
+[error 2011/08/25 19:47:05]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/08/25 19:47:05]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2011/08/25 19:47:05]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away

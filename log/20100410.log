@@ -1,0 +1,54 @@
+[error 2010/04/10 00:42:46]:[database/DbUtilBase.php:113] [Resource id #138(0)] drop table uta_users
+[error 2010/04/10 00:42:46]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 00:42:46]:[database/DbUtilBase.php:113] [Resource id #138(0)] drop table uta_users
+[error 2010/04/10 00:42:46]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 00:42:46]:[database/DbUtilBase.php:113] [Resource id #138(0)] drop table uta_users
+[error 2010/04/10 00:42:46]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 01:07:53]:[database/DbUtilBase.php:113] [Resource id #79(0)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_wikis wikistable,uta_users userstable  where  wikistable.wiki_name  =  'トップ'  AND wikistable.user_id  =  userstable.id 
+[error 2010/04/10 01:07:53]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:07:53]:[database/DbUtilBase.php:113] [Resource id #105(1)] select count(wikistable.id) as count from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー' 
+[error 2010/04/10 01:07:53]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:07:53]:[database/DbUtilBase.php:113] [Resource id #105(1)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7 from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー'  LIMIT 0,1 
+[error 2010/04/10 01:07:53]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:08:50]:[database/DbUtilBase.php:113] [Resource id #79(0)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_wikis wikistable,uta_users userstable  where  wikistable.wiki_name  =  'トップ'  AND wikistable.user_id  =  userstable.id 
+[error 2010/04/10 01:08:50]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:08:50]:[database/DbUtilBase.php:113] [Resource id #98(1)] select count(wikistable.id) as count from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー' 
+[error 2010/04/10 01:08:50]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:08:50]:[database/DbUtilBase.php:113] [Resource id #98(1)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7 from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー'  LIMIT 0,1 
+[error 2010/04/10 01:08:50]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:09:17]:[database/DbUtilBase.php:113] [Resource id #79(0)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_wikis wikistable,uta_users userstable  where  wikistable.wiki_name  =  'トップ'  AND wikistable.user_id  =  userstable.id 
+[error 2010/04/10 01:09:17]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:09:17]:[database/DbUtilBase.php:113] [Resource id #98(1)] select count(wikistable.id) as count from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー' 
+[error 2010/04/10 01:09:17]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:09:17]:[database/DbUtilBase.php:113] [Resource id #98(1)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7 from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー'  LIMIT 0,1 
+[error 2010/04/10 01:09:17]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:16:10]:[database/DbUtilBase.php:113] [Resource id #79(0)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7,userstable.id as t1c8,userstable.user_id as t1c9,userstable.user_name as t1c10,userstable.email as t1c11,userstable.password as t1c12,userstable.image as t1c13,userstable.image_x as t1c14,userstable.image_y as t1c15,userstable.introduce_id as t1c16,userstable.private_flag as t1c17,userstable.last_login as t1c18,userstable.created_at as t1c19,userstable.updated_at as t1c20,userstable.delete_flag as t1c21,userstable.act_key as t1c22 from uta_wikis wikistable,uta_users userstable  where  wikistable.wiki_name  =  'トップ'  AND wikistable.user_id  =  userstable.id 
+[error 2010/04/10 01:16:10]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:16:10]:[database/DbUtilBase.php:113] [Resource id #98(1)] select count(wikistable.id) as count from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー' 
+[error 2010/04/10 01:16:10]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:16:10]:[database/DbUtilBase.php:113] [Resource id #98(1)] select wikistable.id as t0c0,wikistable.user_id as t0c1,wikistable.wiki_name as t0c2,wikistable.password as t0c3,wikistable.text as t0c4,wikistable.created_at as t0c5,wikistable.updated_at as t0c6,wikistable.delete_flag as t0c7 from uta_wikis wikistable  where  wikistable.wiki_name  =  'メニュー'  LIMIT 0,1 
+[error 2010/04/10 01:16:10]:[database/DbUtilBase.php:114] #1146 - Table 'utatanebiyori.uta_wikis' doesn't exist
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_statuses
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_statuses'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_wikis
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_wikis'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users_introduce
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users_introduce'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_followers
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_followers'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_requests
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_requests'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users
+[error 2010/04/10 01:19:59]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 01:47:57]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users
+[error 2010/04/10 01:47:57]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 01:47:57]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users
+[error 2010/04/10 01:47:57]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'
+[error 2010/04/10 01:47:57]:[database/DbUtilBase.php:113] [Resource id #136(0)] drop table uta_users
+[error 2010/04/10 01:47:57]:[database/DbUtilBase.php:114] #1051 - Unknown table 'uta_users'

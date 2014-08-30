@@ -1,0 +1,21 @@
+[error 2010/10/12 08:53:52]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/12 08:53:52]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 08:53:52]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/12 08:53:52]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:01:23]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/12 09:01:23]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:01:23]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/12 09:01:23]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:02:18]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/12 09:02:18]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:02:18]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/12 09:02:18]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:08:01]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/12 09:08:01]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:08:01]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/12 09:08:01]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:22:17]:[database/DbUtilBase.php:113] [Resource id #126(1)] COMMIT
+[error 2010/10/12 09:22:17]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 09:22:17]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2010/10/12 09:22:17]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2010/10/12 11:35:31]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />

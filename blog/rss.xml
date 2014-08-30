@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>うたたね日記</title>
+        <link>http://utatanebiyori.uzusionet.com/blog/</link>
+        <description></description>
+        <language>ja</language>
+        <copyright>Copyright 2010</copyright>
+        <lastBuildDate>Sat, 13 Feb 2010 19:39:25 +0900</lastBuildDate>
+        <generator>http://www.sixapart.com/movabletype/</generator>
+        <docs>http://www.rssboard.org/rss-specification</docs>
+        
+        <item>
+            <title>rhacoのトレーニングプログラム</title>
+            <description><![CDATA[rhacoのトレーニングプログラムでつまずいてたけど、先に進めました。<br />
+<br />
+<pre class="php" style="font-family: 'courier new',mono-space;"><span style="color: rgb(0, 0, 0); font-weight: bold;">&lt;?php</span><br /><span style="color: rgb(177, 177, 0);">include_once</span> <a href="http://www.php.net/dirname"><span style="color: rgb(153, 0, 0);">dirname</span></a><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0); font-weight: bold;">__FILE__</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">.</span><span style="color: rgb(0, 0, 255);">"__init__.php"</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"generic.Urls"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"database.DbUtil"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />Rhaco<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">import</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"model.Post"</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br />&nbsp;<br /><span style="color: rgb(0, 0, 136);">$db</span> <span style="color: rgb(51, 153, 51);">=</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Dbutil<span style="color: rgb(0, 153, 0);">(</span>Post<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">connection</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$pattern</span> <span style="color: rgb(51, 153, 51);">=</span> <a href="http://www.php.net/array"><span style="color: rgb(153, 0, 0);">array</span></a><span style="color: rgb(0, 153, 0);">(</span><br />	<span style="color: rgb(102, 102, 102); font-style: italic;">//投稿記事の一覧を表示</span><br />	<span style="color: rgb(0, 0, 255);">"^posts(?:/index)?/?$"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"class"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"generic.Views"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"method"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"read"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"args"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Post<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">,</span><br /><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$parser</span> <span style="color: rgb(51, 153, 51);">=</span> Urls<span style="color: rgb(51, 153, 51);">::</span><span style="color: rgb(0, 64, 0);">parser</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 136);">$pattern</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 136);">$db</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br /><span style="color: rgb(0, 0, 136);">$parser</span><span style="color: rgb(51, 153, 51);">-&gt;</span><span style="color: rgb(0, 64, 0);">write</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+これを以下のようにする<br />
+<pre class="php" style="font-family: 'courier new',mono-space;"><span style="color: rgb(102, 102, 102); font-style: italic;">//投稿記事の一覧を表示</span><br />	<span style="color: rgb(0, 0, 255);">"^posts(?:/index)?/?$"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 255);">"class"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"generic.Views"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"method"</span><span style="color: rgb(51, 153, 51);">=&gt;</span><span style="color: rgb(0, 0, 255);">"read"</span><span style="color: rgb(51, 153, 51);">,</span><span style="color: rgb(0, 0, 255);">"args"</span><span style="color: rgb(51, 153, 51);">=&gt;</span>array<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">new</span> Post<span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">),"default"=&gt;true</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">,</span><br /><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+結構悩んだけど、できた時はなるほどってなりました。<br />本来ならば普通に"default"=&gt;trueをつけないでも表示されるのかな...<br /><br /><a href="http://wikihub.org/wiki/rhaco1-doc/100-blog-tutorial/03-model-view-template">
+http://wikihub.org/wiki/rhaco1-doc/100-blog-tutorial/03-model-view-template</a>]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco-1.html</guid>
+            
+                <category domain="http://www.sixapart.com/ns/types#category">rhaco</category>
+            
+            
+                <category domain="http://www.sixapart.com/ns/types#tag">rhaco</category>
+            
+            <pubDate>Sat, 13 Feb 2010 19:39:25 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>rhacoをライブラリとして使う。</title>
+            <description><![CDATA[rhaco1.6をフレームワークとして使おうと思ったけど...<br />チュートリアルでつまずいた。<br /><br />フレームワークじゃなく、ライブラリとして使うことにします。<br /><br /><br />そして、いつの間にかうずしおネットのphpinfoが見れなくなった;;<br /><br />php.iniの設定を手動で調べるのはめんどくさいです^^; ]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2010/02/rhaco.html</guid>
+            
+            
+                <category domain="http://www.sixapart.com/ns/types#tag">rhaco</category>
+            
+            <pubDate>Wed, 10 Feb 2010 16:39:02 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>Movable Type 5.0 にアップグレード</title>
+            <description><![CDATA[Movable Type 5が出てたからバージョンアップしてみました。<br />4.2から5.0へのアップデートは何もないサーバーに4.2をインストールするよりもすんなりいきました。<br /><br />やり方はMovable Type 5 第一回勉強会のサイトを参考にしました。<br />そこにも書いてあったけど、ウェブサイトのURLが http://uzusionet.com/ に...。<br /><br />このブログのURLはウェブサイトの utatanebiyori っていうサブドメインの blog ディレクトリ以下ってことになってた。<br />つまりhttp://utatanebiyori.uzusionet.com/blog/ってこと。<br />最終的に正しいURLになってたけど、気持ち悪いから直しました。<br /><br />画像のパスとかどうなってるんだろう...気になります。<br /><br />ついでにテーマも変更。<br />http://vicuna.jp/ のデザインを使わせてもらいました。<br />いろいろと改造していく予定。<br /><br />なんかそんなことを1年前にも言ってた気がします。<br />三日坊主にならないように気をつけないと。<br /> ]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2010/02/movable-type-50.html</guid>
+            
+                <category domain="http://www.sixapart.com/ns/types#category">その他</category>
+            
+            
+                <category domain="http://www.sixapart.com/ns/types#tag">movable type 5</category>
+            
+                <category domain="http://www.sixapart.com/ns/types#tag">rhaco</category>
+            
+            <pubDate>Thu, 04 Feb 2010 01:08:38 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>CentOSのポート解放</title>
+            <description><![CDATA[家のPCにCentOS5.3をインストールした。<br />Apacheをインストールしたんだけど、なぜかブラウザからつながらない。<br /><br />理由は単純でポート解放ができていなかったから。<br /><br />以下のコマンドを実行することでポート解放画面に移行できる。<br /><br /># system-config-securitylevel-tui<br /><br />最初はSSHしか使えないようになってた。<br /><br />次は共有フォルダの設定だ!!<br /> ]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2009/09/centos.html</guid>
+            
+            
+                <category domain="http://www.sixapart.com/ns/types#tag">Linux</category>
+            
+            <pubDate>Tue, 22 Sep 2009 14:44:32 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>画像アップロードのテスト</title>
+            <description><![CDATA[<p>がぞうのアップロードの実験です。</p>
+<p>自己紹介のアバター的な感じの写真。</p>
+<p>
+<span style="DISPLAY: inline" class="mt-enclosure mt-enclosure-image"><img class="mt-image-none" alt="Image0225.JPG" src="http://utatanebiyori.uzusionet.com/blog/Image0225.JPG" width="240" height="320" /></span></p>]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-4.html</guid>
+            
+            
+                <category domain="http://www.sixapart.com/ns/types#tag">テスト</category>
+            
+                <category domain="http://www.sixapart.com/ns/types#tag">画像</category>
+            
+            <pubDate>Mon, 13 Apr 2009 11:02:10 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>んじゃ</title>
+            <description><![CDATA[<p>そろそろMovableTypeの勉強ばっかじゃなくて日記を更新しないと...google先生に発見されないなとモンモンしてます。</p>
+<p>携帯からメールで日記を更新できたらいいんですが...。</p>
+<p>そういえばmixiってMovableType対応してるのかな？</p>
+<p>こんどいろいろと実験してみます。</p>
+<p>&nbsp;</p>
+<p>んじゃ。</p>]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2009/04/post-3.html</guid>
+            
+                <category domain="http://www.sixapart.com/ns/types#category">その他</category>
+            
+            
+            <pubDate>Sun, 12 Apr 2009 21:04:56 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>受験終わりました？</title>
+            <description><![CDATA[<p>人生の転機ともいえる大学受験が昨日終わりました。</p>
+<p>終わったつもり。</p>
+<p>終わったことにしておこうよ...。</p>
+<p>&nbsp;</p>
+<p>後期受験もきっとあります。</p>
+<p>&nbsp;</p>
+<p>受験科目は数学と物理。英語がない受験スタイルとかもうなんて言ったらいいか...僕のためにあるものですよね。おいしく頂きました。</p>
+<p>&nbsp;</p>
+<p>だからまぁ、運が悪くって僕以上にできてるやつらがいっぱいいたらおれは落ちます。後期がんばります。</p>
+<p>僕以上に出来てる人の最大数9人とか...募集人数少なすぎなのも涙目ですよね。</p>
+<p>&nbsp;</p>
+<p>とりあえず、受験生一年間お疲れ様です。と自分をほめてます。</p>
+<p>&nbsp;</p>]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-2.html</guid>
+            
+            
+            <pubDate>Thu, 26 Feb 2009 23:48:46 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>うたたね日和オープン</title>
+            <description><![CDATA[<p>受験勉強で忙しい中、息抜きと称してサイト完成？させちゃいました。</p>
+<p>ブログも小粋空間さんのテンプレートを使ってカッコ良くしていくつもりです。</p>
+<p>あ、でもそろそろ本気で受験勉強やらないとまずいかも...</p>]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-1.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post-1.html</guid>
+            
+                <category domain="http://www.sixapart.com/ns/types#category">その他</category>
+            
+            
+            <pubDate>Thu, 12 Feb 2009 16:16:32 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>初めまして。</title>
+            <description><![CDATA[<p>うずしおネットさんのサーバーを借りてブログを始めました。</p>
+<p>どうもなぎです。みなさんこんにちは笑</p>
+<p>まだまだ未熟者のなぎですが、みなさんに笑顔をお届けできるように日々邁進し、また素敵なWebサイトを作っていこうと思っていますので、愛読のほどよろしくお願いします。</p>
+<p>&nbsp;</p>
+<p>ではでは、ブログの設定が残っていますのでこの辺で。</p>]]></description>
+            <link>http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post.html</link>
+            <guid>http://utatanebiyori.uzusionet.com/blog/archives/2009/02/post.html</guid>
+            
+                <category domain="http://www.sixapart.com/ns/types#category">その他</category>
+            
+            
+            <pubDate>Sun, 08 Feb 2009 00:00:17 +0900</pubDate>
+        </item>
+        
+    </channel>
+</rss>

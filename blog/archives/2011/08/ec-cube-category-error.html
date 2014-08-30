@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="Movable Type Pro 5.01" />
+<link rel="stylesheet" href="http://utatanebiyori.uzusionet.com/blog/styles.css" type="text/css" />
+<link rel="start" href="http://utatanebiyori.uzusionet.com/blog/" title="Home" />
+<link rel="alternate" type="application/atom+xml" title="Recent Entries" href="http://utatanebiyori.uzusionet.com/blog/atom.xml" />
+<script type="text/javascript" src="http://utatanebiyori.uzusionet.com/blog/mt.js"></script>
+
+
+    
+    <link rel="prev bookmark" href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html" title="FacebookでIEがfb_xd_fragmentで..." />
+    
+    <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html"
+    trackback:ping="http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/19"
+    dc:title="EC-CUBEの商品選択時に規格2が表示されない"
+    dc:identifier="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html"
+    dc:subject="eccube"
+    dc:description="コミュニティではPHPのjson_encodeが問題となってたのですが、prod..."
+    dc:creator="なぎ"
+    dc:date="2011-08-12T10:54:08+09:00" />
+</rdf:RDF>
+-->
+
+    
+    <title>EC-CUBEの商品選択時に規格2が表示されない - うたたね日記</title>
+</head>
+<body id="classic-blog" class="mt-entry-archive layout-wtt">
+    <div id="container">
+        <div id="container-inner">
+
+
+            <div id="header">
+    <div id="header-inner">
+        <div id="header-content">
+
+
+            <div id="header-name"><a href="http://utatanebiyori.uzusionet.com/blog/" accesskey="1">うたたね日記</a></div>
+            <div id="header-description"></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+
+                            <div id="entry-20" class="entry-asset asset hentry">
+                                <div class="asset-header">
+                                    <h1 id="page-title" class="asset-name entry-title">EC-CUBEの商品選択時に規格2が表示されない</h1>
+                                    <div class="asset-meta">
+                                        <span class="byline">
+
+                                            <span class="vcard author"><a class="fn url" href="http://utatanebiyori.uzusionet.com/">なぎ</a></span> (<abbr class="published" title="2011-08-12T10:54:08+09:00">2011年8月12日 10:54</abbr>)
+
+                                        </span>
+
+                                        <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#comments">コメント(0)</a>
+
+
+                                        <span class="separator">|</span> <a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/ec-cube-category-error.html#trackbacks">トラックバック(0)</a>
+
+                                    </div>
+                                </div>
+                                <div class="asset-content entry-content">
+
+                                    <div class="asset-body">
+                                        <p>コミュニティではPHPのjson_encodeが問題となってたのですが、product.jsをちょこっと直したら表示されるようになったので、ここに方法を書いておきます。</p>
+<p>コミュニティには恥ずかしくて書き込みできない＞＜</p>
+<p>ちなみに、バージョンは最新版(2011/8現在)の2.11.2です。</p>
+
+<p>html/js/product.js line 34-41
+</p><pre>
+    // 商品一覧時
+    if (typeof productsClassCategories != 'undefined' && classcat_id1) { //ここ追加
+        classcat2 = productsClassCategories[product_id][classcat_id1];
+    }
+    // 詳細表示時
+    else if(classcat_id1) { //ここ追加
+        classcat2 = classCategories[classcat_id1];
+    }
+</pre>
+<p></p>
+
+<p>html/js/product.js line 68-75
+</p><pre>
+    // 商品一覧時
+    if (typeof productsClassCategories != 'undefined' && classcat_id1) { //ここ追加
+        classcat2 = productsClassCategories[product_id][classcat_id1]['#' + classcat_id2];
+    }
+    // 詳細表示時
+    else if(classcat_id1) { //ここ追加
+        classcat2 = classCategories[classcat_id1]['#' + classcat_id2];
+    }
+</pre>
+<p>html/js/product.js line 144-153
+
+<pre>
+    // 商品規格
+    var $product_class_id_dynamic = $form.find('[id^=product_class_id]');
+    if (classcat2
+        && typeof classcat2['product_class_id'] != 'undefined'
+        && String(classcat2['product_class_id']).length >= 1) {
+
+        $product_class_id_dynamic.val(classcat2['product_class_id']);
+    } else {
+        $product_class_id_dynamic.val();
+    }
+</pre>
+</p>
+                                    </div>
+
+
+                                    <div id="more" class="asset-more">
+                                        
+
+                                    </div>
+
+                                </div>
+                                <div class="asset-footer">
+
+    
+                                    <div class="entry-categories">
+                                        <h4>カテゴリ<span class="delimiter">:</span></h4>
+                                        <ul>
+                                            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/eccube/" rel="tag">eccube</a></li>
+                                        </ul>
+                                    </div>
+    
+
+
+                                </div>
+                            </div>
+
+
+                    <div id="trackbacks" class="trackbacks">
+    <h2 class="trackbacks-header">トラックバック(0)</h2>
+
+    
+    
+    <div class="trackbacks-info">
+        <p>トラックバックURL: http://utatanebiyori.uzusionet.com/mt5/mt-tb.cgi/19</p>
+    </div>
+    
+
+
+    
+    
+</div>
+
+
+                    <div id="comments" class="comments">
+
+
+    
+    
+    
+
+    
+    
+    <div class="comments-open" id="comments-open">
+        <h2 class="comments-open-header">コメントする</h2>
+        <div class="comments-open-content">
+
+        
+            <div id="comment-greeting"></div>
+
+            <form method="post" action="http://utatanebiyori.uzusionet.com/mt5/mt-comments.cgi" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
+                <input type="hidden" name="static" value="1" />
+                <input type="hidden" name="entry_id" value="20" />
+                <input type="hidden" name="__lang" value="ja" />
+                <input type="hidden" name="parent_id" value="" id="comment-parent-id" />
+                <input type="hidden" name="armor" value="1" />
+                <input type="hidden" name="preview" value="" />
+                <input type="hidden" name="sid" value="" />
+                <div id="comments-open-data">
+                    <div id="comment-form-name">
+                        <label for="comment-author">名前</label>
+                        <input id="comment-author" name="author" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-email">
+                        <label for="comment-email">電子メール</label>
+                        <input id="comment-email" name="email" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-url">
+                        <label for="comment-url">URL</label>
+                        <input id="comment-url" name="url" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    </div>
+                    <div id="comment-form-remember-me">
+                        <input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="mtRememberMeOnClick(this)" value="1" accesskey="r" />
+                        <label for="comment-bake-cookie">ログイン情報を記憶</label>
+                    </div>
+                </div>
+                <div id="comment-form-reply" style="display:none">
+                    <input type="checkbox" id="comment-reply" name="comment_reply" value="" onclick="mtSetCommentParentID()" />
+                    <label for="comment-reply" id="comment-reply-label"></label>
+                </div>
+                <div id="comments-open-text">
+                    <label for="comment-text">コメント
+                    (スタイル用のHTMLタグを使えます)</label>
+                    <textarea id="comment-text" name="text" rows="15" cols="50" onfocus="mtCommentFormOnFocus()"></textarea>
+                </div>
+                <div id="comments-open-captcha"></div>
+                <div id="comments-open-footer">
+                    <input type="submit" accesskey="v" name="preview_button" id="comment-preview" value="プレビュー" onclick="this.form.preview.value='1';" />
+                    <input type="submit" accesskey="s" name="post" id="comment-submit" value="投稿" />
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+    <script type="text/javascript">
+    <!--
+    mtAttachEvent("load", mtEntryOnLoad);
+    mtAttachEvent("unload", mtEntryOnUnload);
+    //-->
+    </script>
+    
+
+
+</div>
+
+
+
+
+                        </div>
+                    </div>
+
+
+                    <div id="beta">
+    <div id="beta-inner">
+
+
+    
+    <div class="widget-archive widget-archive-category widget">
+    <h3 class="widget-header">カテゴリ</h3>
+    <div class="widget-content">
+    
+        
+        <ul>
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/eccube/">eccube (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/rhaco/">rhaco (1)</a>
+        
+        
+            </li>
+        
+    
+        
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/cat1/">その他 (4)</a>
+        
+        
+            </li>
+        
+        </ul>
+        
+    
+    </div>
+</div>
+
+
+
+
+    <div class="widget-archive-monthly widget-archive widget">
+    <h3 class="widget-header">月別 <a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブ</a></h3>
+    <div class="widget-content">
+        <ul>
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/08/">2011年8月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/">2011年5月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/04/">2010年4月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2010/02/">2010年2月 (3)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/09/">2009年9月 (1)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/04/">2009年4月 (2)</a></li>
+        
+    
+        
+            <li><a href="http://utatanebiyori.uzusionet.com/blog/archives/2009/02/">2009年2月 (3)</a></li>
+        
+        </ul>
+    </div>
+</div>
+        
+    
+
+
+
+<div class="widget-pages widget">
+    <h3 class="widget-header">ウェブページ</h3>
+    <div class="widget-content">
+        <ul>
+    
+    
+        </ul>
+    </div>
+</div>
+
+<div class="widget-syndication widget">
+    <div class="widget-content">
+        <ul>
+            <li><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/status_icons/feed.gif" alt="購読する" width="9" height="9" /> <a href="http://utatanebiyori.uzusionet.com/blog/atom.xml">このブログを購読</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="widget-powered widget">
+    <div class="widget-content">
+        <a href="http://www.sixapart.jp/movabletype/"><img src="http://utatanebiyori.uzusionet.com/mt5/mt-static/images/bug-pbmt-white.png" alt="Powered by Movable Type 5.01" width="120" height="75" /></a>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+
+    
+<div id="gamma">
+    <div id="gamma-inner">
+    <div class="widget-search widget">
+    <h3 class="widget-header">検索</h3>
+    <div class="widget-content">
+        <form method="get" action="http://utatanebiyori.uzusionet.com/mt5/mt-search.cgi">
+            <input type="text" id="search" class="ti" name="search" value="" />
+
+            <input type="hidden" name="IncludeBlogs" value="1" />
+
+            <input type="hidden" name="limit" value="20" />
+            <input type="submit" accesskey="4" value="検索" />
+        </form>
+    </div>
+</div>
+
+<div class="widget-about-this-page widget">
+    <h3 class="widget-header">
+
+        このブログ記事について
+
+
+    </h3>
+    <div class="widget-content">
+
+
+        <p class="first">このページは、<a href="http://utatanebiyori.uzusionet.com/">なぎ</a>が2011年8月12日 10:54に書いたブログ記事です。</p>
+    
+        <p>ひとつ前のブログ記事は「<a href="http://utatanebiyori.uzusionet.com/blog/archives/2011/05/facebook-fb-xd-fragment.html">FacebookでIEがfb_xd_fragmentで...</a>」です。</p>
+    
+    
+
+
+
+
+
+        <p>最近のコンテンツは<a href="http://utatanebiyori.uzusionet.com/blog/">インデックスページ</a>で見られます。過去に書かれたものは<a href="http://utatanebiyori.uzusionet.com/blog/archives.html">アーカイブのページ</a>で見られます。</p>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <div id="footer">
+    <div id="footer-inner">
+        <div id="footer-content">
+            <div class="widget-powered widget">
+                <div class="widget-content">
+                    Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type Pro</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

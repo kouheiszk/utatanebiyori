@@ -1,0 +1,3 @@
+[error 2011/08/02 08:03:06]:[database/DbUtilBase.php:113] [Resource id #96(0)] COMMIT
+[error 2011/08/02 08:03:06]:[database/DbUtilBase.php:114] #2006 - MySQL server has gone away
+[error 2011/08/02 18:42:01]:[tag/TemplateParser.php:52] Notice</b>:  Undefined variable:  nowdiff in <b>/home/utatanebiyori/public_html/library/WikiFormatter.php</b> on line <b>285</b><br />

@@ -1,0 +1,63 @@
++* 課題1-1 [#yc98b858]
+ 
++時、分、秒で表した時間の和を計算するプログラムを作成したい。但し、以下の条件を
++満たすように作成し、プログラムと適当なデータを入力した結果と一緒に提出せよ。
++
++    データは日、時間、分、秒を表す整数型のフィールド名 day, hour, minute, second のレコード型で定義し、
++    レコード名を time とせよ。
++    秒と分の計算課程は同一であるため、その個所は手続きを使って表現せよ。
++    入力として、時、分、秒の 3個のデータを 2セット入力し、その和を出力せよ。
++    もし、 hour の値が 24 以上であれば day に１の値を、 24未満であれば零にせよ。 
++
++* 例 [#x82038e2]
++
++#code(pascal){{
++program kadai01_1(input, output);
++
++type
++   time = record
++               day, hour, minute, second : integer;
++            end;
++
++var
++   x, y : time;
++
++procedure unitadd(var a, b, c : integer; max : integer);
++begin
++   a := a + b;
++   if a >= max then
++   begin
++      a := a - max;
++      c := c + 1;
++   end;
++end; { unitadd }
++
++begin
++   {input}
++   with x do
++   begin
++      read(hour);
++      read(minute);
++      read(second);
++   end;
++ 
++   with y do
++   begin
++      read(hour);
++      read(minute);
++      read(second);
++   end;
++ 
++   x.day := 0;
++ 
++   unitadd(x.second, y.second, x.minute, 60);
++   unitadd(x.minute, y.minute, x.hour,      60);
++   unitadd(x.hour,      y.hour,      x.day,  24);
++ 
++   if x.day <> 0 then
++      write(x.day:1, '日 ');
++ 
++   writeln(x.hour:1, '時間 ', x.minute:1, '分 ', x.second:1, '秒');
++ 
++end.
++}}

@@ -1,0 +1,193 @@
+<?php
+Rhaco::import("resources.Message");
+Rhaco::import("database.model.TableObjectBase");
+Rhaco::import("database.model.DbConnection");
+Rhaco::import("database.TableObjectUtil");
+Rhaco::import("database.model.Table");
+Rhaco::import("database.model.Column");
+/**
+ * #ignore
+ * 
+ */
+class UsersIntroduceTable extends TableObjectBase{
+	/**  */
+	var $id;
+	/**  */
+	var $userId;
+	/**  */
+	var $introduce;
+	/**  */
+	var $createdAt;
+	/**  */
+	var $updatedAt;
+	var $factUserId;
+
+
+	function UsersIntroduceTable($id=null){
+		$this->__init__($id);
+	}
+	function __init__($id=null){
+		$this->id = null;
+		$this->userId = null;
+		$this->introduce = null;
+		$this->createdAt = time();
+		$this->updatedAt = time();
+		$this->setId($id);
+	}
+	function connection(){
+		if(!Rhaco::isVariable("_R_D_CON_","utatanebiyori")){
+			Rhaco::addVariable("_R_D_CON_",new DbConnection("utatanebiyori"),"utatanebiyori");
+		}
+		return Rhaco::getVariable("_R_D_CON_",null,"utatanebiyori");
+	}
+	function table(){
+		if(!Rhaco::isVariable("_R_D_T_","UsersIntroduce")){
+			Rhaco::addVariable("_R_D_T_",new Table(Rhaco::constant("DATABASE_utatanebiyori_PREFIX")."users_introduce",__CLASS__),"UsersIntroduce");
+		}
+		return Rhaco::getVariable("_R_D_T_",null,"UsersIntroduce");
+	}
+
+
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnId(){
+		if(!Rhaco::isVariable("_R_D_C_","UsersIntroduce::Id")){
+			$column = new Column("column=id,variable=id,type=serial,size=22,primary=true,",__CLASS__);
+			$column->label(Message::_("id"));
+			Rhaco::addVariable("_R_D_C_",$column,"UsersIntroduce::Id");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UsersIntroduce::Id");
+	}
+	/**
+	 * 
+	 * @return serial
+	 */
+	function setId($value){
+		$this->id = TableObjectUtil::cast($value,"serial");
+	}
+	/**
+	 * 
+	 */
+	function getId(){
+		return $this->id;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnUserId(){
+		if(!Rhaco::isVariable("_R_D_C_","UsersIntroduce::UserId")){
+			$column = new Column("column=user_id,variable=userId,type=integer,size=22,reference=Users::Id,",__CLASS__);
+			$column->label(Message::_("user_id"));
+			Rhaco::addVariable("_R_D_C_",$column,"UsersIntroduce::UserId");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UsersIntroduce::UserId");
+	}
+	/**
+	 * 
+	 * @return integer
+	 */
+	function setUserId($value){
+		$this->userId = TableObjectUtil::cast($value,"integer");
+	}
+	/**
+	 * 
+	 */
+	function getUserId(){
+		return $this->userId;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnIntroduce(){
+		if(!Rhaco::isVariable("_R_D_C_","UsersIntroduce::Introduce")){
+			$column = new Column("column=introduce,variable=introduce,type=text,",__CLASS__);
+			$column->label(Message::_("introduce"));
+			Rhaco::addVariable("_R_D_C_",$column,"UsersIntroduce::Introduce");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UsersIntroduce::Introduce");
+	}
+	/**
+	 * 
+	 * @return text
+	 */
+	function setIntroduce($value){
+		$this->introduce = TableObjectUtil::cast($value,"text");
+	}
+	/**
+	 * 
+	 */
+	function getIntroduce(){
+		return $this->introduce;
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnCreatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","UsersIntroduce::CreatedAt")){
+			$column = new Column("column=created_at,variable=createdAt,type=timestamp,",__CLASS__);
+			$column->label(Message::_("created_at"));
+			Rhaco::addVariable("_R_D_C_",$column,"UsersIntroduce::CreatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UsersIntroduce::CreatedAt");
+	}
+	/**
+	 * 
+	 * @return timestamp
+	 */
+	function setCreatedAt($value){
+		$this->createdAt = TableObjectUtil::cast($value,"timestamp");
+	}
+	/**
+	 * 
+	 */
+	function getCreatedAt(){
+		return $this->createdAt;
+	}
+	/**  */
+	function formatCreatedAt($format="Y/m/d H:i:s"){
+		return DateUtil::format($this->createdAt,$format);
+	}
+	/**
+	 * 
+	 * @return database.model.Column
+	 */
+	function columnUpdatedAt(){
+		if(!Rhaco::isVariable("_R_D_C_","UsersIntroduce::UpdatedAt")){
+			$column = new Column("column=updated_at,variable=updatedAt,type=timestamp,",__CLASS__);
+			$column->label(Message::_("updated_at"));
+			Rhaco::addVariable("_R_D_C_",$column,"UsersIntroduce::UpdatedAt");
+		}
+		return Rhaco::getVariable("_R_D_C_",null,"UsersIntroduce::UpdatedAt");
+	}
+	/**
+	 * 
+	 * @return timestamp
+	 */
+	function setUpdatedAt($value){
+		$this->updatedAt = TableObjectUtil::cast($value,"timestamp");
+	}
+	/**
+	 * 
+	 */
+	function getUpdatedAt(){
+		return $this->updatedAt;
+	}
+	/**  */
+	function formatUpdatedAt($format="Y/m/d H:i:s"){
+		return DateUtil::format($this->updatedAt,$format);
+	}
+
+
+	function getFactUserId(){
+		return $this->factUserId;
+	}
+	function setFactUserId($obj){
+		$this->factUserId = $obj;
+	}
+}
+?>

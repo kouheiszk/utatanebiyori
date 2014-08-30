@@ -1,0 +1,61 @@
+ * 最大公約数を求める [#l6654bdf]
+ 
+ #code(pascal){{
+ program kadai13_1(input, output);
+ const
+    MAX = 10;
+ 
+ var
+    i, j, n, ans : integer;
+    data         : array [1..MAX] of integer;
+ 
+ function gcd (a, b : integer) : integer;
+ 
+ var
+    tmp : integer;
+ 
+ begin
+    if a < b then
+    begin
+       tmp := b;
+       b   := a;
+       a   := tmp;
+    end;
+ 
+    while b <> 0 do
+    begin
+       tmp := b;
+       b := a mod b;
+       a := tmp;
+    end;
+    gcd := a;
+ end; { gcd }
+ 
+ begin
+ 
+    i := 1;
+    write('整数を入力してください:');
+    readln(data[i]);
+    repeat
+       i := i + 1;
+       write('整数を入力してください:');
+       readln(data[i]);
+    until (data[i] = 0) or (i = MAX);
+ 
+    ans := gcd(data[1], data[2]);
+ 
+    i := 0;
+    repeat
+       i := i + 1;
+       ans := gcd(data[i], ans);
+       write(data[i]:1);
+-      if (data[i + 1] <> 0) and (i <> 10) then
++      if (data[i + 1] <> 0) and (i <> MAX
++) then
+          write(', ');
+    until (data[i + 1] = 0) or (i = MAX);
+ 
+    write('の最大公約数は ');
+    writeln(ans:1);
+ end.
+ }}
